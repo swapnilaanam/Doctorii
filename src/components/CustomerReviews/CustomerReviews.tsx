@@ -13,10 +13,10 @@ const CustomerReviews = () => {
   return (
     <section className="bg-white">
       <div
-        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 flex justify-center items-center gap-16"
+        className="mx-auto max-w-7xl px-4 pb-28 sm:px-6 flex justify-center items-center gap-16"
       >
         <div className="w-full lg:w-2/5">
-          <h2 className="text-3xl font-semibold sm:text-5xl capitalize text-sky-600 pt-8">
+          <h2 className="text-3xl font-semibold sm:text-5xl capitalize text-sky-600">
             Read trusted reviews from our customers
           </h2>
         </div>

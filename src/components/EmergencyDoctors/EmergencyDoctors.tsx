@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import wave from '../../../public/images/wave (1).svg';
-import doctor from '../../../public/images/doctor.jpg';
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -22,7 +21,9 @@ const EmergencyDoctors = () => {
         queryFn: async () => {
             try {
                 const response = await axios.get('/api/emergencydoctors');
-                return response?.data;
+                if (response.status === 200) {
+                    return response?.data;
+                }
             } catch (error: any) {
                 console.log(error?.message);
             }
@@ -36,16 +37,20 @@ const EmergencyDoctors = () => {
                 <div className="w-full absolute top-32 px-20">
                     <h2 className="text-3xl font-medium text-white mt-20">Emergency Doctors {">>"}</h2>
                     <div className="my-16 h-full flex justify-center gap-20">
-                        {
-                            emergencyDoctors?.map((emergencyDoctor: EmergencyDoctorType) => {
-                                return (
-                                    <Link href="/" key={emergencyDoctor?._id}>
-                                        <div className="border-4 border-green-500 rounded-full w-32 h-32">
-                                            <Image src={emergencyDoctor?.doctorPhoto} alt="Emergency Doctor" width={100} height={100} className="w-full h-full object-cover rounded-full" />
-                                        </div>
-                                    </Link>
-                                )
-                            })
+                        {emergencyDoctors.length === 0 ? <h2 className="text-center text-3xl font-medium text-white">
+                            No Emergency Doctor Avaialable Right Now...
+                        </h2>
+                            : (
+                                emergencyDoctors?.map((emergencyDoctor: EmergencyDoctorType) => {
+                                    return (
+                                        <Link href={`/chat/${encodeURIComponent(emergencyDoctor?.doctorName)}`} key={emergencyDoctor?._id}>
+                                            <div className="border-[7px] border-green-500 rounded-full w-32 h-32">
+                                                <Image src={emergencyDoctor?.doctorPhoto} alt="Emergency Doctor" width={100} height={100} className="w-full h-full object-cover rounded-full" />
+                                            </div>
+                                        </Link>
+                                    )
+                                })
+                            )
                         }
                     </div>
                 </div>

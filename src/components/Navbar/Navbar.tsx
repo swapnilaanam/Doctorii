@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion";
 import Link from 'next/link';
 import { useState } from "react";
 import { useSession, signOut } from "next-auth/react";
@@ -20,22 +19,22 @@ const Navbar = () => {
 
   const navItems = <>
     <li>
-      <Link href="/" className={`${pathname === '/' ? 'text-yellow-300 text-xl font-medium' : 'text-white text-xl font-medium'}`}>
+      <Link href="/" className={`${pathname === '/' ? 'text-yellow-300 text-2xl font-medium' : 'text-white text-2xl font-medium'}`}>
         Home
       </Link>
     </li>
     <li>
-      <Link href="/doctors" className={`${pathname === '/doctors' ? 'text-yellow-300 text-xl font-medium' : 'text-white text-xl font-medium'}`}>
+      <Link href="/doctors" className={`${pathname === '/doctors' ? 'text-yellow-300 text-2xl font-medium' : 'text-white text-2xl font-medium'}`}>
         Doctors
       </Link>
     </li>
     <li>
-      <Link href="/diagnosis" className={`${pathname === '/diagnosis' ? 'text-yellow-300 text-xl font-medium' : 'text-white text-xl font-medium'}`}>
+      <Link href="/diagnosis" className={`${pathname === '/diagnosis' ? 'text-yellow-300 text-2xl font-medium' : 'text-white text-2xl font-medium'}`}>
         Diagnosis
       </Link>
     </li>
     <li>
-      <Link href="/dashboard" className={`${pathname === '/dashboard' ? 'text-yellow-300 text-xl font-medium' : 'text-white text-xl font-medium'}`}>
+      <Link href="/dashboard" className={`${pathname === '/dashboard' ? 'text-yellow-300 text-2xl font-medium' : 'text-white text-2xl font-medium'}`}>
         Dashboard
       </Link>
     </li>
@@ -43,15 +42,15 @@ const Navbar = () => {
       session.status === 'authenticated' ? (
         <>
           <li>
-            <h2 className="ms-2 text-xl text-yellow-300 font-bold">{session?.data?.user?.name?.split(" ")[0]}</h2>
+            <h2 className="ms-2 text-2xl text-yellow-300 font-bold">{session?.data?.user?.name?.split(" ")[0]}</h2>
           </li>
           <li>
-            <button onClick={() => signOut()} className="bg-yellow-400 px-6 py-3 rounded text-xl text-black font-medium">Logout</button>
+            <button onClick={() => signOut()} className="bg-yellow-400 px-6 py-3 rounded text-2xl text-black font-medium">Logout</button>
           </li>
         </>
       ) : (
         <li>
-          <Link href="/login" className={`${pathname === '/login' ? 'text-yellow-400 text-xl font-medium' : 'text-xl font-medium'}`}>
+          <Link href="/login" className={`${pathname === '/login' ? 'text-yellow-400 text-2xl font-medium' : 'text-2xl font-medium'}`}>
             Login
           </Link>
         </li>
@@ -61,10 +60,10 @@ const Navbar = () => {
   </>
 
   return (
-    <nav className="bg-sky-500 text-white w-full ps-10 pe-14 py-5 flex flex-col md:flex-row justify-between items-center gap-5 md:gap-0">
+    <nav className="bg-sky-500 text-white w-full ps-10 pe-14 py-8 flex flex-col md:flex-row justify-between items-center gap-5 md:gap-0">
       <div>
         <Link href="/">
-          <h1 className="text-3xl font-semibold">Doctorii</h1>
+          <h1 className="text-4xl font-semibold">Doctorii</h1>
         </Link>
       </div>
       <ul className="flex flex-col md:flex-row items-center gap-7">

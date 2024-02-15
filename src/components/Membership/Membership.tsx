@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Membership = () => {
     return (
-        <div className="mt-14">
+        <div className="my-20">
             <h2 className="text-3xl font-semibold text-center text-sky-600 mb-10">Our Membership Package</h2>
             <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:items-center md:gap-8">

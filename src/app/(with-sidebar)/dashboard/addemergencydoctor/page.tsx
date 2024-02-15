@@ -41,6 +41,18 @@ const AddEmergencyDoctor = () => {
         }
     });
 
+    const {data: doctors = [], refetch: doctorsRefetch} = useQuery({
+        queryKey: ['doctors'],
+        queryFn: async() => {
+            try {
+                const response = await axios.get('/api/users');
+                return response?.data?.filter((doctor) => (doctor?.role === 'Doctor' && doctor?.doctorRole === 'Regular'));
+            } catch (error:any) {
+                console.log(error?.message);
+            }
+        }
+    });
+
     const {
         register,
         handleSubmit,
@@ -49,31 +61,20 @@ const AddEmergencyDoctor = () => {
     } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
-        const image = data?.doctorphoto[0];
-
-        const formData = new FormData();
-        formData.append('file', image);
-        formData.append('upload_preset', 'rthkcuo4');
-        formData.append('clould_name', 'dgywo1wwg');
-
-        let imgURL: string;
+        const doctor = doctors.find((doctor) => doctor?._id === data?.doctorname);
 
         try {
-            const response = await axios.post(`https://api.cloudinary.com/v1_1/dgywo1wwg/image/upload`, formData,);
-
-            imgURL = response?.data?.url;
-
             const newEmergencyDoctor: NewEmergencyDoctorType = {
-                doctorName: data?.doctorname,
+                doctorName: doctor?.name,
                 doctorPhone: data?.doctorphone,
                 doctorCity: data?.doctorcity,
-                doctorPhoto: imgURL,
+                doctorPhoto: doctor?.profilePic,
                 ticketPrice: Number(data?.ticketprice)
             };
 
-            const response2 = await axios.post('/api/emergencydoctors', newEmergencyDoctor);
+            const response = await axios.post('/api/emergencydoctors', newEmergencyDoctor);
 
-            if (response2.status === 201) {
+            if (response.status === 201) {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -84,6 +85,10 @@ const AddEmergencyDoctor = () => {
                 reset();
                 refetch();
                 setIsOpen(false);
+
+                await axios.patch(`/api/users/email/${doctor?.email}`);
+
+                doctorsRefetch();
             }
 
         } catch (error: any) {
@@ -181,12 +186,18 @@ const AddEmergencyDoctor = () => {
                                                         Doctor Name:
                                                     </label>
 
-                                                    <input
+                                                    <select
                                                         {...register("doctorname", { required: true })}
                                                         id="doctorname"
                                                         className="ps-2 mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm py-2 border-2"
                                                         placeholder="Dr. John Doe..."
-                                                    />
+                                                    >
+                                                        {
+                                                            doctors?.map((doctor) => <option key={doctor?._id} value={doctor?._id}>
+                                                                {doctor?.name}
+                                                            </option>)
+                                                        }
+                                                    </select>
                                                     {errors.doctorname && <p className="mt-2 text-red-600">Doctor Name Is Required...</p>}
                                                 </div>
                                                 <div className="mb-5">
@@ -218,18 +229,6 @@ const AddEmergencyDoctor = () => {
                                                     </select>
 
                                                     {errors.doctorcity && <p className="mt-2 text-red-600">Doctor City Is Required...</p>}
-                                                </div>
-                                                <div className="mt-4">
-                                                    <label htmlFor="doctorphoto" className="block text-base font-medium text-gray-900">
-                                                        Doctor Photo:
-                                                    </label>
-                                                    <input
-                                                        {...register("doctorphoto", { required: true })}
-                                                        type="file"
-                                                        id="doctorphoto"
-                                                        className="mt-1.5 ps-2 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm py-2 border-2"
-                                                    />
-                                                    {errors.doctorphoto && <p className="mt-2 text-red-600">Doctor Photo Is Required...</p>}
                                                 </div>
                                                 <div className="mt-4">
                                                     <label htmlFor="ticketprice" className="block text-base font-medium text-gray-900">

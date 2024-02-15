@@ -13,3 +13,21 @@ export const GET = async(req: NextRequest, { params }: any ) => {
         return new NextResponse(error?.message, {status: 500});
     }
 }
+
+export const PATCH = async(req: NextRequest, {params}: any) => {
+    const {email} = params;
+
+    const update = {
+        $set: {
+            doctorRole: 'Emergency'
+        }
+    };
+
+    try {
+        await connectDB();
+        const result = await User.findOneAndUpdate({email: email}, update);
+        return new NextResponse(JSON.stringify(result), {status: 200});
+    } catch (error: any) {
+        return new NextResponse(error?.message, {status: error?.status})
+    }
+}

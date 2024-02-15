@@ -1,0 +1,14 @@
+.rbc-event {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+
+}
+
+.rbc-event-label {
+    display: block !important;
+}
+
+.rbc-event-content {
+    display: block !important;
+}

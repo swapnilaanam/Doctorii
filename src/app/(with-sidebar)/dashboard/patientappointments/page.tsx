@@ -11,7 +11,7 @@ import { useCallback, useMemo, useState } from "react";
 import './page.css';
 import AppointmentPopUp from "@/components/AppointmentPopUp/AppointmentPopUp";
 
-const Appointments = () => {
+const PatientAppointment = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalInfo, setModalInfo] = useState({});
 
@@ -20,11 +20,13 @@ const Appointments = () => {
     const email = session?.data?.user?.email;
 
     const { data: appointments = [], refetch } = useQuery({
-        queryKey: ["appointments", [email]],
+        queryKey: ["appointments", email],
         queryFn: async () => {
             try {
-                const response = await axios.get(`/api/appointments/email/${email}?user=${'doctor'}`);
-                return response?.data;
+                if (email) {
+                    const response = await axios.get(`/api/appointments/email/${email}?user=${'patient'}`);
+                    return response?.data;
+                }
             } catch (error: any) {
                 console.log(error?.message);
             }
@@ -41,7 +43,7 @@ const Appointments = () => {
         },
     }), []);
 
-    const events = appointments.map((appointment => {
+    const events = appointments?.map((appointment => {
 
         const scheduleTime = appointment?.scheduleTime.split(' ');
 
@@ -103,9 +105,9 @@ const Appointments = () => {
                     popup
                 />
             </div>
-            {isModalOpen && <AppointmentPopUp appointmentInfo={modalInfo} setIsModalOpen={setIsModalOpen} user={`doctor`} refetch={refetch} />}
+            {isModalOpen && <AppointmentPopUp appointmentInfo={modalInfo} setIsModalOpen={setIsModalOpen} user={`patient`} refetch={refetch} />}
         </div>
     );
 };
 
-export default Appointments;
+export default PatientAppointment;

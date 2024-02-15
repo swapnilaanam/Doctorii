@@ -6,12 +6,31 @@ import { FaUserDoctor, FaUsers } from "react-icons/fa6";
 import { BiHomeSmile } from "react-icons/bi";
 import { TbReportMedical } from "react-icons/tb";
 import { IoIosPersonAdd } from "react-icons/io";
-import { signOut } from "next-auth/react";
+import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
+import { signOut, useSession } from "next-auth/react";
 import useIsDoctor from "@/hooks/useIsDoctor";
 import useIsPatient from "@/hooks/useIsPatient";
 import useIsAdmin from "@/hooks/useIsAdmin";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const Sidebar = () => {
+    const session = useSession();
+
+    const { data: user = {}, refetch } = useQuery({
+        queryKey: ['user'],
+        queryFn: async () => {
+            if (session?.data?.user) {
+                try {
+                    const response = await axios.get(`/api/users/email/${session?.data?.user?.email}`);
+                    return response?.data;
+                } catch (error: any) {
+                    console.log(error?.message);
+                }
+            }
+        }
+    });
+
     const [isDoctor, isDoctorLoading] = useIsDoctor();
     const [isPatient, isPatientLoading] = useIsPatient();
     const [isAdmin, isAdminLoading] = useIsAdmin();
@@ -48,41 +67,63 @@ const Sidebar = () => {
                         <ul className="space-y-1 border-t border-gray-100 pt-4">
                             {
                                 (!isDoctorLoading && isDoctor) && <>
-                                    <li>
-                                        <Link
-                                            href="/dashboard/addschedule"
-                                            className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
-                                        >
-                                            <GrScheduleNew />
-                                            <span
-                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
-                                            >
-                                                Add Schedule
-                                            </span>
-                                        </Link>
-                                    </li>
+                                    {
+                                        user?.doctorRole === 'Regular' && (
+                                            <>
+                                                <li>
+                                                    <Link
+                                                        href="/dashboard/addschedule"
+                                                        className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+                                                    >
+                                                        <GrScheduleNew />
+                                                        <span
+                                                            className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                        >
+                                                            Add Schedule
+                                                        </span>
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link
+                                                        href="/dashboard/appointments"
+                                                        className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+                                                    >
+                                                        <GrSchedules />
 
-                                    <li>
-                                        <Link
-                                            href="/dashboard/appointments"
-                                            className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
-                                        >
-                                            <GrSchedules />
-
-                                            <span
-                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
-                                            >
-                                                Appointments
-                                            </span>
-                                        </Link>
-                                    </li>
+                                                        <span
+                                                            className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                        >
+                                                            Appointments
+                                                        </span>
+                                                    </Link>
+                                                </li>
+                                            </>
+                                        )
+                                    }
+                                    {
+                                        user?.doctorRole === 'Emergency' && (
+                                            <li>
+                                                <Link
+                                                    href="/dashboard/chat"
+                                                    className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+                                                >
+                                                    <IoChatbubbleEllipsesOutline className="text-black" />
+                                                    <span
+                                                        className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                    >
+                                                        Chat
+                                                    </span>
+                                                </Link>
+                                            </li>
+                                        )
+                                    }
                                 </>
                             }
                             {
                                 (!isPatientLoading && isPatient) && <>
                                     <li>
                                         <Link
-                                            href="/dashboard/appointments"
+                                            href="/dashboard/patientappointments"
                                             className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
                                         >
                                             <GrSchedules />
