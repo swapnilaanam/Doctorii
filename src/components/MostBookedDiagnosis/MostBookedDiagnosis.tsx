@@ -62,13 +62,13 @@ const MostBookedDiagnosis = () => {
                                         <div className="mt-4 flex justify-between items-center gap-2">
                                             <Link
                                                 className="inline-block rounded bg-yellow-400 px-6 py-2 text-sm font-medium text-black transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
-                                                href={`/diagnosis/${diagnosis._id}`}
+                                                href={`/diagnosis/details/${diagnosis._id}`}
                                             >
                                                 Details
                                             </Link>
                                             <Link
                                                 className="inline-block rounded bg-sky-600 px-8 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
-                                                href={`/diagnosis/payment/${diagnosis._id}`}
+                                                href={`/diagnosis/bookticket/${diagnosis._id}`}
                                             >
                                                 Book Ticket
                                             </Link>
