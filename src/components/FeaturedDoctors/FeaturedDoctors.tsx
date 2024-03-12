@@ -59,7 +59,7 @@ const FeaturedDoctors = () => {
                                                 >
                                                     {doctor.name}
                                                 </h3>
-                                                <p>{doctor.doctorRole} Doctor</p>
+                                                <p>{doctor.doctorRole}</p>
                                             </div>
 
                                             <Link href={`/booking/${doctor._id}`} className="bg-yellow-400 px-4 py-2 text-lg font-medium rounded">Book Appointment</Link>

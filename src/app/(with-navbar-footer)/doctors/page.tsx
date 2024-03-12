@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import categoryImage from '../../../../public/images/doctor.jpg';
+import medicineDoctor from '../../../../public/images/medicineDoctor.jpeg';
+import childAndGynecologyDoctor from '../../../../public/images/childAndGynecology.jpeg';
+import heartSpecialistDoctor from '../../../../public/images/heartSpecialist.jpeg';
+import boneSpecialistDoctor from '../../../../public/images/boneSpecialist.jpeg';
+import eyeSpecialistDoctor from '../../../../public/images/eyeSpecialist.jpeg';
 
 const page = () => {
     return (
@@ -16,12 +21,12 @@ const page = () => {
                     </div>
 
                     <div className="lg:col-span-3 lg:py-8">
-                        <ul className="grid grid-cols-4 gap-4">
-                            <li>
-                                <Link href="#" className="group relative block bg-black">
+                        <ul className="grid grid-cols-5 gap-4">
+                            <li className="min-h-[404px]">
+                                <Link href="/doctors/regulardoctors" className="group relative block bg-black h-full">
                                     <Image
-                                        alt="Developer"
-                                        src={categoryImage}
+                                        alt="Doctor"
+                                        src={medicineDoctor}
                                         className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
                                     />
 
@@ -39,10 +44,10 @@ const page = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="group relative block bg-black">
+                                <Link href="/doctors/childandgynecologistdoctors" className="group relative block bg-black">
                                     <Image
-                                        alt="Developer"
-                                        src={categoryImage}
+                                        alt="Doctor"
+                                        src={childAndGynecologyDoctor}
                                         className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
                                     />
 
@@ -52,7 +57,7 @@ const page = () => {
                                                 className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
                                             >
                                                 <p className="text-xl font-semibold text-white">
-                                                    Specialist Doctor
+                                                    Child And Gynecology Doctor
                                                 </p>
                                             </div>
                                         </div>
@@ -60,10 +65,10 @@ const page = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="group relative block bg-black">
+                                <Link href="/doctors/heartspecialistdoctors" className="group relative block bg-black">
                                     <Image
-                                        alt="Developer"
-                                        src={categoryImage}
+                                        alt="Doctor"
+                                        src={heartSpecialistDoctor}
                                         className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
                                     />
 
@@ -73,7 +78,7 @@ const page = () => {
                                                 className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
                                             >
                                                 <p className="text-xl font-semibold text-white">
-                                                    Emergency Doctor
+                                                    Heart Specialist Doctor
                                                 </p>
                                             </div>
                                         </div>
@@ -81,10 +86,10 @@ const page = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="group relative block bg-black">
+                                <Link href="/doctors/bonespecialistdoctors" className="group relative block bg-black">
                                     <Image
-                                        alt="Developer"
-                                        src={categoryImage}
+                                        alt="Doctor"
+                                        src={boneSpecialistDoctor}
                                         className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
                                     />
 
@@ -94,7 +99,28 @@ const page = () => {
                                                 className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
                                             >
                                                 <p className="text-xl font-semibold text-white">
-                                                    Online Doctor
+                                                    Bone Specialist Doctor
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/doctors/eyespecialistdoctors" className="group relative block bg-black">
+                                    <Image
+                                        alt="Doctor"
+                                        src={eyeSpecialistDoctor}
+                                        className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
+                                    />
+
+                                    <div className="relative p-4 sm:p-6 lg:p-8">
+                                        <div className="mt-32 sm:mt-48 lg:mt-64">
+                                            <div
+                                                className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
+                                            >
+                                                <p className="text-xl font-semibold text-white">
+                                                    Eye Specialist Doctor
                                                 </p>
                                             </div>
                                         </div>

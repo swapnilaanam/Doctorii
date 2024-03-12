@@ -6,13 +6,6 @@ export const POST = async (req: NextRequest) => {
     const membership = await req.json();
 
     await connectDB();
-
-    const response = await Membership.findOne({email: membership?.email});
-
-    if(response) {
-        return;
-    }
-
     const newMembership = new Membership(membership);
 
     try {

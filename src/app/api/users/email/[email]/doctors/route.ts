@@ -18,4 +18,25 @@ export const GET = async(req: NextRequest, {params}: any) => {
     } catch (error) {
         return new NextResponse("Database Error", {status: 500});
     }
-}
+};
+
+export const PATCH = async(req: NextRequest, {params}: any) => {
+    const {email} = params;
+
+    const {doctorRole} = await req.json();
+
+    try {
+        await connectDB();
+
+        const updateDoc = {
+            $set: {
+                doctorRole: doctorRole
+            }
+        };
+
+        const result = await User.findOneAndUpdate({email: email}, updateDoc);
+        return new NextResponse(JSON.stringify(result), {status: 200});
+    } catch (error: any) {
+        return new NextResponse(error?.message, {status: error?.status});
+    }
+};

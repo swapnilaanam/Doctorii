@@ -7,12 +7,6 @@ export const POST = async (req: NextRequest) => {
 
     await connectDB();
 
-    const response = await MembershipPayment.findOne({email: membershipPayment?.email});
-
-    if(response) {
-        return;
-    }
-
     const newMembershipPayment = new MembershipPayment(membershipPayment);
 
     try {

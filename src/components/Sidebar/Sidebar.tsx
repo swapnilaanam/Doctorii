@@ -68,7 +68,7 @@ const Sidebar = () => {
                             {
                                 (!isDoctorLoading && isDoctor) && <>
                                     {
-                                        user?.doctorRole === 'Regular' && (
+                                        user?.doctorRole !== 'Emergency' && (
                                             <>
                                                 <li>
                                                     <Link

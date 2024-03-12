@@ -55,7 +55,7 @@ const Register = () => {
                     password: data.password,
                     profilePic: imgURL,
                     role: data.role,
-                    doctorRole: "Regular",
+                    doctorRole: "Regular Doctor",
                     timeSlots: []
                 }
             }
