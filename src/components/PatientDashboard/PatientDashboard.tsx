@@ -9,7 +9,7 @@ const PatientDashboard = () => {
     const { data: user = {} } = useQuery({
         queryKey: ['user', email],
         queryFn: async () => {
-            const response = await axios.get(`/api/users/users/${email}`);
+            const response = await axios.get(`/api/users/email/${email}`);
             return response.data;
         }
     });

@@ -17,6 +17,7 @@ type Inputs = {
     day4: string,
     day5: string,
     day6: string,
+    day7: string
     price: number
 }
 
@@ -77,6 +78,9 @@ const AddSchedule = () => {
         }
         if (data.day6) {
             weekDays.push(data.day6);
+        }
+        if(data.day7) {
+            weekDays.push(data.day7)
         }
 
         const newSchedule: NewScheduleType = {
@@ -230,6 +234,10 @@ const AddSchedule = () => {
                                                     <div className="flex items-center gap-3 mb-1">
                                                         <input type="checkbox" id="day6" {...register("day6")} value="Thursday" />
                                                         <label htmlFor="day6">Thursday</label>
+                                                    </div>
+                                                    <div className="flex items-center gap-3 mb-1">
+                                                        <input type="checkbox" id="day7" {...register("day7")} value="Friday" />
+                                                        <label htmlFor="day7">Friday</label>
                                                     </div>
                                                 </div>
                                                 <div className="mt-4">

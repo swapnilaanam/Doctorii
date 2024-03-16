@@ -96,7 +96,7 @@ const PatientAppointment = () => {
             <div className="max-w-7xl mx-auto max-h-[450px] overflow-auto">
                 <Calendar
                     localizer={localizer}
-                    defaultView={Views.DAY}
+                    defaultView={Views.WEEK}
                     startAccessor="start"
                     endAccessor="end"
                     views={views}

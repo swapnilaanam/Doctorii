@@ -3,7 +3,7 @@
 import Doctor from "@/components/Doctor/page";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useParams } from "next/navigation"
+import { useParams, usePathname } from "next/navigation"
 import { useEffect, useState } from "react";
 
 interface TimeSlot {
@@ -24,6 +24,7 @@ type DoctorType = {
 };
 
 const CategoryDoctors = () => {
+  const pathName = usePathname();
   const { category } = useParams();
 
   const [doctorCategory, setDoctorCategory] = useState('');
@@ -45,6 +46,10 @@ const CategoryDoctors = () => {
       setDoctorCategory('Eye Specialist Doctors');
     }
   }, [category]);
+
+  useEffect(() => {
+    localStorage.setItem('prevHistory', pathName);
+  }, [pathName]);
 
   const { data: doctors = [] } = useQuery({
     queryKey: ['doctors', category],
@@ -68,7 +73,7 @@ const CategoryDoctors = () => {
       </h2>
       <div className="max-w-7xl mx-auto py-16 flex justify-center items-center gap-7">
         {
-          doctors?.map((doctor: DoctorType) => <Doctor key={doctor?._id} doctor={doctor}/>)
+          doctors?.map((doctor: DoctorType) => <Doctor key={doctor?._id} doctor={doctor} />)
         }
       </div>
     </section>

@@ -32,6 +32,11 @@ const appointmentSchema = new mongoose.Schema({
     transactionId: {
         type: String,
         required: true
+    },
+    isAppointmentCompleted: {
+        type: String,
+        required: true,
+        default: 'Scheduled'
     }
 });
 

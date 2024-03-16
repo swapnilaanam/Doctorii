@@ -7,6 +7,7 @@ import { BiHomeSmile } from "react-icons/bi";
 import { TbReportMedical } from "react-icons/tb";
 import { IoIosPersonAdd } from "react-icons/io";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
+import { GrTest } from "react-icons/gr";
 import { signOut, useSession } from "next-auth/react";
 import useIsDoctor from "@/hooks/useIsDoctor";
 import useIsPatient from "@/hooks/useIsPatient";
@@ -132,6 +133,20 @@ const Sidebar = () => {
                                                 className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
                                             >
                                                 Appointments
+                                            </span>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            href="/dashboard/bookeddiagnosis"
+                                            className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+                                        >
+                                            <GrTest />
+
+                                            <span
+                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                            >
+                                                Booked Diagnoses
                                             </span>
                                         </Link>
                                     </li>

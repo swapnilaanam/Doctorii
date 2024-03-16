@@ -21,7 +21,7 @@ const Payment = () => {
 
  
     return (
-        <div className="py-24 w-full h-[620px] bg-green-50">
+        <div className="py-24 w-full h-[620px] bg-sky-50">
             <h4 className="text-2xl font-semibold text-center mt-16 mb-10">Make Your Payment</h4>
             <div className="flex justify-center">
                 {

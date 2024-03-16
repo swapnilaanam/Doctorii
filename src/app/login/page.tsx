@@ -35,6 +35,13 @@ const Login = () => {
     }
 
     if (session.status === 'authenticated') {
+        const isHistoryExist = localStorage.getItem('dashboardHistory');
+
+        if(isHistoryExist) {
+            localStorage.removeItem('dashboardHistory');
+            return router.push(isHistoryExist);
+        }
+
         return router.push('/');
     }
 

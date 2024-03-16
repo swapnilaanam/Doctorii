@@ -66,7 +66,7 @@ const Chat = () => {
                 !roomName && (
                     <>
                         <h2 className="text-center text-2xl font-medium mb-12">Available Rooms: </h2>
-                        <div className="flex justify-center items-center">
+                        <div className="flex justify-center items-center gap-14 flex-wrap">
                             {
                                 rooms?.map((room) => {
                                     return (

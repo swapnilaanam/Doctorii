@@ -13,7 +13,7 @@ const DoctorDashboard = () => {
     const session = useSession();
     const email = session?.data?.user?.email;
 
-    const { data: user = {}, refetch} = useQuery({
+    const { data: user = {}, refetch } = useQuery({
         queryKey: ['user', email],
         queryFn: async () => {
             const response = await axios.get(`/api/users/email/${email}`);
@@ -29,7 +29,7 @@ const DoctorDashboard = () => {
         setIsOpen(true)
     }
 
-    const handleChangeDoctorRole = async(e) => {
+    const handleChangeDoctorRole = async (e) => {
         e.preventDefault();
 
         const doctorRole = e.target.doctorRole.value;
@@ -37,18 +37,18 @@ const DoctorDashboard = () => {
         console.log(doctorRole);
 
         try {
-            const response = await axios.patch(`/api/users/email/${session?.data?.user?.email}/doctors`, {doctorRole});
+            const response = await axios.patch(`/api/users/email/${session?.data?.user?.email}/doctors`, { doctorRole });
 
-            if(response?.status === 200) {
+            if (response?.status === 200) {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
                     title: "Doctor Role Is Updated Now!",
                     showConfirmButton: false,
                     timer: 1000
-                  });
-                  refetch();
-                  setIsOpen(false);
+                });
+                refetch();
+                setIsOpen(false);
             }
         } catch (error: any) {
             console.log(error?.message)
@@ -61,9 +61,13 @@ const DoctorDashboard = () => {
             <div className="max-w-5xl mx-auto mt-14">
                 <div className="flex justify-between mb-10">
                     <h4 className="text-2xl font-medium text-center">Account Details</h4>
-                    <button onClick={() => setIsOpen(true)} className="bg-sky-500 text-white text-lg px-6 py-2 rounded-sm">
-                        Edit Profile
-                    </button>
+                    {
+                        user?.doctorRole !== 'Emergency' && (
+                            <button onClick={() => setIsOpen(true)} className="bg-sky-500 text-white text-lg px-6 py-2 rounded-sm">
+                                Edit Profile
+                            </button>
+                        )
+                    }
                 </div>
                 <div className="space-y-7">
                     <div className="flex gap-5 text-2xl ml-20">

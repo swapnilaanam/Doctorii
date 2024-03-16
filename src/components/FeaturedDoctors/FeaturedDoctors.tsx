@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import doctorImage from '../../../public/images/doctor.jpg';
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const FeaturedDoctors = () => {
+    const pathName = usePathname();
 
     const { data: doctors = [] } = useQuery({
         queryKey: ["doctors"],
@@ -21,6 +23,10 @@ const FeaturedDoctors = () => {
             }
         }
     });
+
+    useEffect(() => {
+        localStorage.setItem('prevHistory', pathName);
+    }, [pathName]);
 
     return (
         <section className="relative -top-14">

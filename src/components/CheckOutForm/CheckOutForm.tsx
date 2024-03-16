@@ -25,7 +25,6 @@ const CheckOutForm = ({ appointmentInfo, price }) => {
                 price
             })
                 .then(res => {
-                    // console.log(res);
                     setClientSecret(res.data?.clientSecret);
                 })
                 .catch(error => console.log(error));

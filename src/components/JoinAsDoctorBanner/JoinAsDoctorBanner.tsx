@@ -3,6 +3,7 @@ import wave from '../../../public/images/wave (1).svg';
 import doctor from '../../../public/images/doctor.jpg';
 import doctorBannerImage from '../../../public/images/doctor-nurses-special-equipment.jpg';
 import { FaRegSquareCheck } from "react-icons/fa6";
+import Link from "next/link";
 
 
 const JoinAsDoctorBanner = () => {
@@ -29,9 +30,9 @@ const JoinAsDoctorBanner = () => {
                                 <span>Easy Appointment Management System.</span>
                             </li>
                         </ul>
-                        <button className="mt-7 bg-yellow-500 text-2xl px-8 py-2 font-semibold">
+                        <Link href="/register" className="mt-7 bg-yellow-500 text-2xl px-8 py-2 font-semibold">
                             Join Us As A Doctor
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

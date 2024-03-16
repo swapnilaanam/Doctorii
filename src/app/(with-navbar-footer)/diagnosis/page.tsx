@@ -3,7 +3,8 @@
 import Diagnosis from '@/components/Diagnosis/page';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React from 'react'
+import { usePathname } from 'next/navigation';
+import React, { useEffect } from 'react'
 
 type DiagnosisType = {
     _id: string,
@@ -14,6 +15,8 @@ type DiagnosisType = {
 };
 
 const Diagnoses = () => {
+    const pathName = usePathname();
+
     const { data: diagnoses = [] } = useQuery({
         queryKey: ['diagnoses'],
         queryFn: async () => {
@@ -28,6 +31,10 @@ const Diagnoses = () => {
             }
         }
     });
+
+    useEffect(() => {
+        localStorage.setItem('prevHistory', pathName);
+    }, [pathName]);
 
     return (
         <section className="py-20">
