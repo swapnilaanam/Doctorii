@@ -24,25 +24,25 @@ const BookedDiagnosis = () => {
             <h2 className="text-2xl font-semibold text-center mt-14">Booked Diagnoses</h2>
             <div className="max-w-7xl mx-auto mt-12 flex flex-wrap justify-center items-center gap-12">
                 <div className="overflow-x-auto">
-                    <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                    <table className="min-w-full divide-y-2 divide-gray-200 bg-sky-100 text-sm rounded">
                         <thead className="ltr:text-left rtl:text-right">
                             <tr>
-                                <th className="whitespace-nowrap px-4 py-2 font-semibold text-base text-gray-900">
+                                <th className="whitespace-nowrap px-5 py-2 font-semibold text-base text-gray-900">
                                     Diagnosis Name
                                 </th>
-                                <th className="whitespace-nowrap px-4 py-2 font-semibold text-base text-gray-900">
+                                <th className="whitespace-nowrap px-5 py-2 font-semibold text-base text-gray-900">
                                     Diagnosed Area
                                 </th>
-                                <th className="whitespace-nowrap px-4 py-2 font-semibold text-base text-gray-900">
+                                <th className="whitespace-nowrap px-5 py-2 font-semibold text-base text-gray-900">
                                     Ticket Price
                                 </th>
-                                <th className="whitespace-nowrap px-4 py-2 font-semibold text-base text-gray-900">
+                                <th className="whitespace-nowrap px-5 py-2 font-semibold text-base text-gray-900">
                                     Customer Name
                                 </th>
-                                <th className="px-4 py-2">Result</th>
+                                <th className="px-5 py-2">Result</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-gray-200">
+                        <tbody className="divide-y divide-gray-200 bg-sky-50">
                             {
                                 diagnoses?.map((diagnosis) => {
                                     return (
@@ -59,10 +59,9 @@ const BookedDiagnosis = () => {
                                             <td className="whitespace-nowrap px-4 py-2 text-base font-medium text-gray-700">
                                                 {diagnosis?.customerName}
                                             </td>
-                                            <td className="whitespace-nowrap px-4 py-2">
+                                            <td className="whitespace-nowrap px-7 py-2">
                                                 <button
-                                                    href="#"
-                                                    className="inline-block rounded bg-sky-600 px-4 py-2 text-xs font-medium text-white hover:bg-sky-700"
+                                                    className="inline-block rounded bg-green-600 px-7 py-2 text-sm font-medium text-white hover:bg-green-700 "
                                                 >
                                                     View Result
                                                 </button>
