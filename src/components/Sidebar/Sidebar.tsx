@@ -8,6 +8,7 @@ import { TbReportMedical } from "react-icons/tb";
 import { IoIosPersonAdd } from "react-icons/io";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { GrTest } from "react-icons/gr";
+import { VscFeedback } from "react-icons/vsc";
 import { signOut, useSession } from "next-auth/react";
 import useIsDoctor from "@/hooks/useIsDoctor";
 import useIsPatient from "@/hooks/useIsPatient";
@@ -41,13 +42,13 @@ const Sidebar = () => {
             <div>
                 <div className="inline-flex h-16 w-16 items-center justify-center">
                     <span
-                        className="grid h-10 w-10 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600"
+                        className="grid h-10 w-10 place-content-center rounded-lg bg-gray-100 text-sm font-semibold text-gray-600"
                     >
-                        D
+                        Di
                     </span>
                 </div>
 
-                <div className="border-t border-gray-100">
+                <div className="border-t-2 border-gray-100">
                     <div className="px-2">
                         <div className="py-4">
                             <div>
@@ -65,7 +66,7 @@ const Sidebar = () => {
                             </div>
                         </div>
 
-                        <ul className="space-y-1 border-t border-gray-100 pt-4">
+                        <ul className="space-y-4 border-t-2 border-gray-100 pt-4">
                             {
                                 (!isDoctorLoading && isDoctor) && <>
                                     {
@@ -150,6 +151,20 @@ const Sidebar = () => {
                                             </span>
                                         </Link>
                                     </li>
+                                    <li>
+                                        <Link
+                                            href="/dashboard/feedback"
+                                            className="group relative flex justify-center rounded px-2 py-1.5 text-black text-lg font-semibold hover:bg-gray-200 hover:text-gray-700"
+                                        >
+                                            <VscFeedback />
+
+                                            <span
+                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                            >
+                                                Feedback
+                                            </span>
+                                        </Link>
+                                    </li>
                                 </>
                             }
                             {
@@ -198,7 +213,7 @@ const Sidebar = () => {
                                     </li>
                                 </>
                             }
-                            <li className="pt-3">
+                            <li className="pt-2 border-t-2">
                                 <Link
                                     href="/"
                                     className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"

@@ -45,7 +45,7 @@ const AppointmentPopUp = ({ appointmentInfo, setIsModalOpen, user, refetch }: { 
     };
 
     return (
-        <div className="bg-white mt-20 max-w-2xl mx-auto p-14 absolute top-0 left-0 right-0 z-10 rounded shadow-lg shadow-blue-200 border-2 border-blue-500">
+        <div className="bg-sky-50 mt-32 max-w-2xl mx-auto p-14 absolute top-0 left-0 right-0 z-10 rounded shadow-lg shadow-blue-200 border-2 border-blue-500">
             <div>
                 <h2 className="text-2xl text-center font-medium mb-10">Appointment Info</h2>
                 {
@@ -124,28 +124,6 @@ const AppointmentPopUp = ({ appointmentInfo, setIsModalOpen, user, refetch }: { 
                                         </span>
                                     </button>
                                 </>
-                            )
-                        }
-                    </div>
-                )
-            }
-            {
-                user === 'patient' && (
-                    <div className="mt-10 space-x-4 flex justify-end">
-                        {
-                            appointmentInfo?.isAppointmentCompleted === 'Completed' && (
-                                <button
-                                    className="group relative inline-block text-sm font-medium text-red-600 focus:outline-none focus:ring active:text-red-500"
-                                    onClick={() => handleCompletedAppointment(appointmentInfo?._id)}
-                                >
-                                    <span
-                                        className="absolute inset-0 translate-x-0.5 translate-y-0.5 bg-green-700 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"
-                                    ></span>
-
-                                    <span className="relative block border border-current bg-green-600 text-white text-md font-semibold px-8 py-3">
-                                        Provide Feedback
-                                    </span>
-                                </button>
                             )
                         }
                     </div>

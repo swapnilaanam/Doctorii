@@ -15,26 +15,25 @@ const Navbar = () => {
 
   const session = useSession();
   const pathname = usePathname();
-  // console.log(session);
 
   const navItems = <>
     <li>
-      <Link href="/" className={`${pathname === '/' ? 'text-yellow-300 text-2xl font-medium' : 'text-white text-2xl font-medium'}`}>
+      <Link href="/" className={`${pathname === '/' ? 'text-yellow-300 text-2xl uppercase font-medium' : 'text-white text-2xl uppercase font-medium'}`}>
         Home
       </Link>
     </li>
     <li>
-      <Link href="/doctors" className={`${pathname === '/doctors' ? 'text-yellow-300 text-2xl font-medium' : 'text-white text-2xl font-medium'}`}>
+      <Link href="/doctors" className={`${pathname === '/doctors' ? 'text-yellow-300 text-2xl uppercase font-medium' : 'text-white text-2xl uppercase font-medium'}`}>
         Doctors
       </Link>
     </li>
     <li>
-      <Link href="/diagnosis" className={`${pathname === '/diagnosis' ? 'text-yellow-300 text-2xl font-medium' : 'text-white text-2xl font-medium'}`}>
+      <Link href="/diagnosis" className={`${pathname === '/diagnosis' ? 'text-yellow-300 text-2xl uppercase font-medium' : 'text-white text-2xl uppercase font-medium'}`}>
         Diagnosis
       </Link>
     </li>
     <li>
-      <Link href="/dashboard" className={`${pathname === '/dashboard' ? 'text-yellow-300 text-2xl font-medium' : 'text-white text-2xl font-medium'}`}>
+      <Link href="/dashboard" className={`${pathname === '/dashboard' ? 'text-yellow-300 text-2xl uppercase font-medium' : 'text-white text-2xl uppercase font-medium'}`}>
         Dashboard
       </Link>
     </li>
@@ -42,10 +41,10 @@ const Navbar = () => {
       session.status === 'authenticated' ? (
         <>
           <li>
-            <h2 className="ms-2 text-2xl text-yellow-300 font-bold">{session?.data?.user?.name?.split(" ")[0]}</h2>
+            <h2 className="text-2xl text-yellow-300 font-bold">{session?.data?.user?.name?.split(" ")[0]}</h2>
           </li>
           <li>
-            <button onClick={() => signOut()} className="bg-yellow-400 px-6 py-3 rounded text-2xl text-black font-medium">Logout</button>
+            <button onClick={() => signOut()} className="bg-yellow-400 px-7 py-2.5 rounded text-xl text-black font-medium">Logout</button>
           </li>
         </>
       ) : (
@@ -60,13 +59,11 @@ const Navbar = () => {
   </>
 
   return (
-    <nav className="bg-sky-500 text-white w-full ps-10 pe-14 py-8 flex flex-col md:flex-row justify-between items-center gap-5 md:gap-0">
-      <div>
-        <Link href="/">
-          <h1 className="text-4xl font-semibold">Doctorii</h1>
-        </Link>
-      </div>
-      <ul className="flex flex-col md:flex-row items-center gap-7">
+    <nav className="bg-sky-500 text-white w-full px-7 py-7 flex flex-col md:flex-row justify-between items-center gap-5 md:gap-0">
+      <Link href="/">
+        <h1 className="text-4xl font-semibold">Doctorii</h1>
+      </Link>
+      <ul className="flex flex-col md:flex-row justify-center items-center gap-7">
         {navItems}
       </ul>
     </nav>
