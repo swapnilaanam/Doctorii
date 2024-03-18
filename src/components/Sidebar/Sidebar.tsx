@@ -99,6 +99,20 @@ const Sidebar = () => {
                                                         </span>
                                                     </Link>
                                                 </li>
+                                                <li>
+                                                    <Link
+                                                        href="/dashboard/feedback"
+                                                        className="group relative flex justify-center rounded px-2 py-1.5 text-black text-lg font-semibold hover:bg-gray-200 hover:text-gray-700"
+                                                    >
+                                                        <VscFeedback />
+
+                                                        <span
+                                                            className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                        >
+                                                            Feedbacks
+                                                        </span>
+                                                    </Link>
+                                                </li>
                                             </>
                                         )
                                     }
@@ -161,7 +175,7 @@ const Sidebar = () => {
                                             <span
                                                 className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
                                             >
-                                                Feedback
+                                                Feedbacks
                                             </span>
                                         </Link>
                                     </li>

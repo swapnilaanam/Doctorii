@@ -28,6 +28,11 @@ const bookingSchema = new mongoose.Schema({
     transactionId: {
         type: String,
         required: true
+    },
+    result: {
+        type: String,
+        required: true,
+        default: 'In Lab'
     }
 });
 

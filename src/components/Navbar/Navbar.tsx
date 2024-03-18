@@ -49,7 +49,7 @@ const Navbar = () => {
         </>
       ) : (
         <li>
-          <Link href="/login" className={`${pathname === '/login' ? 'text-yellow-400 text-2xl font-medium' : 'text-2xl font-medium'}`}>
+          <Link href="/login" className={`${pathname === '/login' ? 'text-yellow-400 text-2xl font-medium uppercase' : 'text-2xl font-medium uppercase'}`}>
             Login
           </Link>
         </li>
@@ -59,7 +59,7 @@ const Navbar = () => {
   </>
 
   return (
-    <nav className="bg-sky-500 text-white w-full px-7 py-7 flex flex-col md:flex-row justify-between items-center gap-5 md:gap-0">
+    <nav className="bg-sky-600 text-white w-full p-8 flex flex-col md:flex-row justify-between items-center gap-5 md:gap-0">
       <Link href="/">
         <h1 className="text-4xl font-semibold">Doctorii</h1>
       </Link>

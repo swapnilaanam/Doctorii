@@ -60,11 +60,18 @@ const BookedDiagnosis = () => {
                                                 {diagnosis?.customerName}
                                             </td>
                                             <td className="whitespace-nowrap px-7 py-2">
-                                                <button
-                                                    className="inline-block rounded bg-green-600 px-7 py-2 text-sm font-medium text-white hover:bg-green-700 "
-                                                >
-                                                    View Result
-                                                </button>
+                                                {
+                                                    diagnosis?.result === 'In Lab' ? (
+                                                        <h4 className="whitespace-nowrap px-4 py-2 text-base font-medium text-red-600">
+                                                            {diagnosis?.result}
+                                                        </h4>
+                                                    ) : (
+                                                        <button className="inline-block rounded bg-green-600 px-7 py-2 text-sm font-medium text-white hover:bg-green-700 "
+                                                        >
+                                                            View Result
+                                                        </button>
+                                                    )
+                                                }
                                             </td>
                                         </tr>
                                     )
@@ -75,7 +82,7 @@ const BookedDiagnosis = () => {
                     </table>
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 

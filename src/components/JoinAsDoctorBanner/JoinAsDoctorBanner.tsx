@@ -9,9 +9,9 @@ import Link from "next/link";
 const JoinAsDoctorBanner = () => {
     return (
         <div className="w-full relative -top-40">
-            <div className="w-full h-[500px]" >
+            <div className="w-full h-[600px]" >
                 <Image src={wave} alt="wave" className="w-full h-full object-cover" />
-                <div className="w-full h-full absolute top-20 px-20 flex justify-center items-center gap-20">
+                <div className="w-full h-full absolute top-24 px-20 flex justify-center items-center gap-20">
                     <div className="relative w-[50%] h-[320px]">
                         <Image fill={true} src={doctorBannerImage} alt="Join As An Doctor" className="w-full h-full object-cover bg-white px-2 py-2" />
                     </div>

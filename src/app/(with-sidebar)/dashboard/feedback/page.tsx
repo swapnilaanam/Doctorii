@@ -10,6 +10,22 @@ const Feedback = () => {
 
     const email = session?.data?.user?.email;
 
+    const {data: userInfo = {}} = useQuery({
+        queryKey: ['userInfo', email],
+        queryFn: async() => {
+            try {
+                if(email) {
+                    const response = await axios.get(`/api/users/email/${email}`);
+                    if(response?.status === 200) {
+                        return response?.data;
+                    }
+                }
+            } catch (error: any) {
+                console.log(error?.message);
+            }
+        }
+    });
+
     const { data: feedbackInfo = {}, refetch } = useQuery({
         queryKey: ['feedbackInfo', email],
         queryFn: async () => {
@@ -38,7 +54,8 @@ const Feedback = () => {
             name: session?.data?.user?.name,
             email: session?.data?.user?.email,
             feedbackRatings,
-            feedbackText
+            feedbackText,
+            role: userInfo?.role
         };
 
         try {

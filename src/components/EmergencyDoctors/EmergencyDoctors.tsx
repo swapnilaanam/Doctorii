@@ -40,7 +40,7 @@ const EmergencyDoctors = () => {
                 <Image src={wave} alt="wave" className="w-full h-[500px] object-cover" />
                 <div className="w-full absolute top-32 px-20">
                     <h2 className="text-3xl font-medium text-white mt-20">Emergency Doctors {">>"}</h2>
-                    <div className="my-16 h-full flex justify-center gap-20">
+                    <div className="my-14 h-full flex justify-center gap-20">
                         {emergencyDoctors.length === 0 ? <h2 className="text-center text-3xl font-medium text-white">
                             No Emergency Doctor Avaialable Right Now...
                         </h2>
