@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Link from "next/link";
 
 const BookedDiagnosis = () => {
     const { data: diagnoses = [] } = useQuery({
@@ -20,11 +21,11 @@ const BookedDiagnosis = () => {
     });
 
     return (
-        <section>
-            <h2 className="text-2xl font-semibold text-center mt-14">Booked Diagnoses</h2>
-            <div className="max-w-7xl mx-auto mt-12 flex flex-wrap justify-center items-center gap-12">
+        <section className="w-full min-h-screen bg-gray-100">
+            <h2 className="text-2xl font-semibold text-center pt-14">Booked Diagnoses</h2>
+            <div className="max-w-7xl mx-auto mt-14 flex flex-wrap justify-center items-center gap-12">
                 <div className="overflow-x-auto">
-                    <table className="min-w-full divide-y-2 divide-gray-200 bg-sky-100 text-sm rounded">
+                    <table className="min-w-full divide-y-2 divide-gray-200 bg-sky-100 text-sm rounded border border-sky-200">
                         <thead className="ltr:text-left rtl:text-right">
                             <tr>
                                 <th className="whitespace-nowrap px-5 py-2 font-semibold text-base text-gray-900">
@@ -47,7 +48,7 @@ const BookedDiagnosis = () => {
                                 diagnoses?.map((diagnosis) => {
                                     return (
                                         <tr key={diagnosis?._id} className="text-center">
-                                            <td className="whitespace-nowrap px-4 py-2 text-base font-medium text-gray-900">
+                                            <td className="whitespace-nowrap px-4 py-2 text-base font-medium text-gray-900 capitalize">
                                                 {diagnosis?.diagnosisName}
                                             </td>
                                             <td className="whitespace-nowrap px-4 py-2 text-base font-medium text-gray-700">
@@ -66,10 +67,12 @@ const BookedDiagnosis = () => {
                                                             {diagnosis?.result}
                                                         </h4>
                                                     ) : (
-                                                        <button className="inline-block rounded bg-green-600 px-7 py-2 text-sm font-medium text-white hover:bg-green-700 "
-                                                        >
-                                                            View Result
-                                                        </button>
+                                                        <Link href={diagnosis?.result || ''} target="_black">
+                                                            <button className="inline-block rounded bg-green-600 px-7 py-2 text-sm font-medium text-white hover:bg-green-700 "
+                                                            >
+                                                                View Result
+                                                            </button>
+                                                        </Link>
                                                     )
                                                 }
                                             </td>

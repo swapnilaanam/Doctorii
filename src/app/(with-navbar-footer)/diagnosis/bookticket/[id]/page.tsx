@@ -62,9 +62,9 @@ const BookTicket = () => {
             </div>
             <div className="space-x-5 w-[400px] flex">
               <label htmlFor="diagnosisprice" className="text-right flex-1 text-xl font-medium">
-                Diagnosis Name: 
+                Diagnosis Price: 
               </label>
-              <input type="text" id="diagnosisprice" name="diagnosisprice" className="flex-1 border border-sky-500 px-2 rounded-sm w-[180px]" value={`BDT. ${diagnosisInfo?.price}`} readOnly />
+              <input type="text" id="diagnosisprice" name="diagnosisprice" className="flex-1 border border-sky-500 px-2 rounded-sm w-[180px]" value={`USD. ${diagnosisInfo?.price}`} readOnly />
             </div>
             <div className="space-x-5 w-[400px] flex">
               <label htmlFor="bookdate" className="text-right flex-1 text-xl font-medium">

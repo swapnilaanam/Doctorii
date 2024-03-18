@@ -9,6 +9,7 @@ import { IoIosPersonAdd } from "react-icons/io";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { GrTest } from "react-icons/gr";
 import { VscFeedback } from "react-icons/vsc";
+import { GiTestTubes } from "react-icons/gi";
 import { signOut, useSession } from "next-auth/react";
 import useIsDoctor from "@/hooks/useIsDoctor";
 import useIsPatient from "@/hooks/useIsPatient";
@@ -58,7 +59,7 @@ const Sidebar = () => {
                                 >
                                     <FaUserDoctor className="text-black" />
                                     <span
-                                        className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                        className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
                                     >
                                         Dashboard
                                     </span>
@@ -79,7 +80,7 @@ const Sidebar = () => {
                                                     >
                                                         <GrScheduleNew />
                                                         <span
-                                                            className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                            className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
                                                         >
                                                             Add Schedule
                                                         </span>
@@ -93,7 +94,7 @@ const Sidebar = () => {
                                                         <GrSchedules />
 
                                                         <span
-                                                            className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                            className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
                                                         >
                                                             Appointments
                                                         </span>
@@ -107,7 +108,7 @@ const Sidebar = () => {
                                                         <VscFeedback />
 
                                                         <span
-                                                            className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                            className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
                                                         >
                                                             Feedbacks
                                                         </span>
@@ -125,7 +126,7 @@ const Sidebar = () => {
                                                 >
                                                     <IoChatbubbleEllipsesOutline className="text-black" />
                                                     <span
-                                                        className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                        className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
                                                     >
                                                         Chat
                                                     </span>
@@ -145,7 +146,7 @@ const Sidebar = () => {
                                             <GrSchedules />
 
                                             <span
-                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
                                             >
                                                 Appointments
                                             </span>
@@ -159,7 +160,7 @@ const Sidebar = () => {
                                             <GrTest />
 
                                             <span
-                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
                                             >
                                                 Booked Diagnoses
                                             </span>
@@ -173,7 +174,7 @@ const Sidebar = () => {
                                             <VscFeedback />
 
                                             <span
-                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
                                             >
                                                 Feedbacks
                                             </span>
@@ -191,7 +192,7 @@ const Sidebar = () => {
                                             <FaUsers />
 
                                             <span
-                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
                                             >
                                                 Manage Users
                                             </span>
@@ -205,7 +206,7 @@ const Sidebar = () => {
                                             <TbReportMedical />
 
                                             <span
-                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
                                             >
                                                 Add Diagnosis
                                             </span>
@@ -219,9 +220,23 @@ const Sidebar = () => {
                                             <IoIosPersonAdd />
 
                                             <span
-                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
                                             >
-                                                Add EmergencyDoctor
+                                                Add Emergency Doctor
+                                            </span>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            href="/dashboard/managediagnoses"
+                                            className="group relative flex justify-center rounded px-2 py-1.5 text-black hover:bg-gray-200 hover:text-black"
+                                        >
+                                            <GiTestTubes />
+
+                                            <span
+                                                className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
+                                            >
+                                                Manage Diagnoses
                                             </span>
                                         </Link>
                                     </li>
@@ -235,7 +250,7 @@ const Sidebar = () => {
                                     <BiHomeSmile className="text-black text-lg" />
 
                                     <span
-                                        className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                                        className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
                                     >
                                         Back To Home
                                     </span>

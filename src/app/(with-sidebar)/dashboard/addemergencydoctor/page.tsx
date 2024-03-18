@@ -268,13 +268,13 @@ const AddEmergencyDoctor = () => {
                 {
                     emergencyDoctors?.map((emergencyDoctor: NewEmergencyDoctorType, index: number) => {
                         return (
-                            <div key={index} className="w-96 h-72 group relative block bg-white cursor-pointer shadow-xl">
+                            <div key={index} className="w-96 h-72 group relative block bg-white cursor-pointer shadow-xl rounded">
                                 <div className="relative p-4 sm:p-6 lg:p-6">
                                     <div className="flex justify-between items-start">
-                                        <div className="relative w-48 h-32">
-                                            <Image fill={true} src={emergencyDoctor?.doctorPhoto} alt="Emergency Doctor" className="w-full h-full object-cover object-top" />
+                                        <div className="relative w-48 h-32 bg-gray-300">
+                                            <Image fill={true} src={emergencyDoctor?.doctorPhoto} alt="Emergency Doctor" className="w-full h-full object-cover object-top p-1" />
                                         </div>
-                                        <button onClick={() => handleDeleteEmergencyDoctor(emergencyDoctor?._id)} className="bg-red-600 text-white px-4 py-1 text-lg rounded-sm">Release</button>
+                                        <button onClick={() => handleDeleteEmergencyDoctor(emergencyDoctor?._id)} className="bg-red-600 text-white px-6 py-1 text-lg rounded-sm absolute top-0 right-0">Release</button>
                                     </div>
                                     <h4 className="pt-5 text-base font-semibold uppercase tracking-widest text-sky-600">
                                         {emergencyDoctor.doctorName}
@@ -289,7 +289,7 @@ const AddEmergencyDoctor = () => {
                                     <p className="text-sm font-medium text-black mt-5 tracking-wider">
                                         {emergencyDoctor?.doctorPhone}
                                     </p>
-                                    <div className="absolute bottom-2 right-0 bg-green-600 py-2 px-4">
+                                    <div className="absolute bottom-2 right-0 bg-green-600 py-2 px-4 rounded-br">
                                         <div>
                                             <p className="text-base font-medium text-white">
                                                 Price: ${String(emergencyDoctor?.ticketPrice)}
