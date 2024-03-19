@@ -37,7 +37,7 @@ const CustomerReviews = () => {
         className="mx-auto max-w-7xl px-4 pb-28 sm:px-6 flex justify-center items-center gap-16"
       >
         <div className="w-full lg:w-2/5">
-          <h2 className="mt-7 text-5xl font-semibold capitalize text-sky-600">
+          <h2 className="mt-7 text-5xl font-semibold capitalize text-sky-600 tracking-wider">
             Read trusted reviews from our customers
           </h2>
         </div>

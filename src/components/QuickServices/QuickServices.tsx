@@ -11,7 +11,7 @@ const QuickServices = () => {
             <div className="w-full" >
                 <Image src={wave} alt="wave" className="w-full h-[600px] object-cover" />
                 <div className="w-full absolute top-40 px-20">
-                    <h2 className="text-3xl font-medium text-white mt-20">
+                    <h2 className="text-3xl font-semibold text-white mt-20">
                         Quick Health Tools {">>"}
                     </h2>
                     <div className="my-16 h-full flex justify-center gap-20">

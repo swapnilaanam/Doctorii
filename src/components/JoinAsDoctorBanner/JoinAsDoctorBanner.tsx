@@ -30,7 +30,7 @@ const JoinAsDoctorBanner = () => {
                                 <span>Easy Appointment Management System.</span>
                             </li>
                         </ul>
-                        <Link href="/register" className="mt-7 bg-yellow-500 text-2xl px-8 py-2 font-semibold">
+                        <Link href="/register" className="mt-10 bg-green-600 text-white text-xl px-12 py-2.5 font-bold rounded">
                             Join Us As A Doctor
                         </Link>
                     </div>
