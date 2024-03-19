@@ -54,7 +54,7 @@ const PatientDashboard = () => {
             <h2 className="text-4xl font-semibold text-center">Patient Dashboard</h2>
             <div className="max-w-5xl mx-auto mt-14">
                 <div className="flex justify-center items-center gap-12 pb-20 flex-wrap">
-                    <div className="bg-sky-500 text-white w-72 h-36 text-3xl font-medium flex justify-center items-center rounded hover:bg-sky-600 hover:cursor-pointer">
+                    <div className="bg-sky-600 text-white w-72 h-36 text-3xl font-semibold flex justify-center items-center rounded hover:bg-sky-700 hover:cursor-pointer">
                         <span>
                             {
                                 appointments?.length
@@ -64,7 +64,7 @@ const PatientDashboard = () => {
                             Appointments
                         </span>
                     </div>
-                    <div className="bg-green-600 text-white w-72 h-36 text-3xl font-medium flex justify-center items-center rounded hover:bg-green-700 hover:cursor-pointer">
+                    <div className="bg-green-600 text-white w-72 h-36 text-3xl font-semibold flex justify-center items-center rounded hover:bg-green-700 hover:cursor-pointer">
                         <span>
                             {
                                 diagnoses?.length
@@ -74,7 +74,7 @@ const PatientDashboard = () => {
                             Diagnoses
                         </span>
                     </div>
-                    <div className="bg-yellow-400 text-black w-72 h-36 text-3xl font-medium flex justify-center items-center rounded hover:bg-yellow-500 hover:cursor-pointer">
+                    <div className="bg-yellow-400 text-black w-72 h-36 text-3xl font-semibold flex justify-center items-center rounded hover:bg-yellow-500 hover:cursor-pointer">
                         {
                             membership ? (
                                 <span>
