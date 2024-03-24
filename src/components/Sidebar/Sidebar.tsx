@@ -76,7 +76,7 @@ const Sidebar = () => {
                                                 <li>
                                                     <Link
                                                         href="/dashboard/addschedule"
-                                                        className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+                                                        className="group relative flex justify-center rounded px-2 py-1.5 text-black hover:bg-gray-200 hover:text-black"
                                                     >
                                                         <GrScheduleNew />
                                                         <span
@@ -89,7 +89,7 @@ const Sidebar = () => {
                                                 <li>
                                                     <Link
                                                         href="/dashboard/appointments"
-                                                        className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+                                                        className="group relative flex justify-center rounded px-2 py-1.5 text-black hover:bg-gray-200 hover:text-black"
                                                     >
                                                         <GrSchedules />
 
@@ -103,7 +103,7 @@ const Sidebar = () => {
                                                 <li>
                                                     <Link
                                                         href="/dashboard/feedback"
-                                                        className="group relative flex justify-center rounded px-2 py-1.5 text-black text-lg font-semibold hover:bg-gray-200 hover:text-gray-700"
+                                                        className="group relative flex justify-center rounded px-2 py-1.5 text-black text-lg font-semibold hover:bg-gray-200 hover:text-black"
                                                     >
                                                         <VscFeedback />
 
@@ -122,7 +122,7 @@ const Sidebar = () => {
                                             <li>
                                                 <Link
                                                     href="/dashboard/chat"
-                                                    className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+                                                    className="group relative flex justify-center rounded px-2 py-1.5 text-black hover:bg-gray-200 hover:text-black"
                                                 >
                                                     <IoChatbubbleEllipsesOutline className="text-black" />
                                                     <span
@@ -141,7 +141,7 @@ const Sidebar = () => {
                                     <li>
                                         <Link
                                             href="/dashboard/patientappointments"
-                                            className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+                                            className="group relative flex justify-center rounded px-2 py-1.5 text-black hover:bg-gray-200 hover:text-black"
                                         >
                                             <GrSchedules />
 
@@ -155,7 +155,7 @@ const Sidebar = () => {
                                     <li>
                                         <Link
                                             href="/dashboard/bookeddiagnosis"
-                                            className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+                                            className="group relative flex justify-center rounded px-2 py-1.5 text-black hover:bg-gray-200 hover:text-black"
                                         >
                                             <GrTest />
 
@@ -169,7 +169,7 @@ const Sidebar = () => {
                                     <li>
                                         <Link
                                             href="/dashboard/feedback"
-                                            className="group relative flex justify-center rounded px-2 py-1.5 text-black text-lg font-semibold hover:bg-gray-200 hover:text-gray-700"
+                                            className="group relative flex justify-center rounded px-2 py-1.5 text-black text-lg font-semibold hover:bg-gray-200 hover:text-black"
                                         >
                                             <VscFeedback />
 
@@ -245,7 +245,7 @@ const Sidebar = () => {
                             <li className="pt-2 border-t-2">
                                 <Link
                                     href="/"
-                                    className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+                                    className="group relative flex justify-center rounded px-2 py-1.5 text-black hover:bg-gray-200 hover:text-black"
                                 >
                                     <BiHomeSmile className="text-black text-lg" />
 
@@ -265,7 +265,7 @@ const Sidebar = () => {
                 <div>
                     <button
                         onClick={() => signOut()}
-                        className="group relative flex w-full justify-center rounded-lg px-2 py-1.5 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                        className="group relative flex w-full justify-center rounded-lg px-2 py-1.5 text-sm text-black hover:bg-gray-50 hover:text-black"
                     >
                         <GrLogout />
 

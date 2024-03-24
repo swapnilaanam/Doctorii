@@ -15,6 +15,9 @@ const PatientAppointment = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalInfo, setModalInfo] = useState({});
 
+    const [view, setView] = useState(Views.WEEK);
+    const [date, setDate] = useState(new Date());
+
     const session = useSession();
 
     const email = session?.data?.user?.email;
@@ -101,7 +104,11 @@ const PatientAppointment = () => {
                     endAccessor="end"
                     views={views}
                     events={events}
+                    view={view}
+                    onView={(view) => setView(view)}
+                    date={date}
                     onSelectEvent={handleSelectEvent}
+                    onNavigate={(date) => setDate(date)}
                     popup
                 />
             </div>

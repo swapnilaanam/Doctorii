@@ -15,6 +15,9 @@ const Appointments = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalInfo, setModalInfo] = useState({});
 
+    const [view, setView] = useState(Views.WEEK);
+    const [date, setDate] = useState(new Date());
+
     const session = useSession();
 
     const email = session?.data?.user?.email;
@@ -94,12 +97,16 @@ const Appointments = () => {
             <div className="max-w-7xl mx-auto max-h-[450px] overflow-auto">
                 <Calendar
                     localizer={localizer}
-                    defaultView={Views.WEEK}
+                    defaultView={view}
                     startAccessor="start"
                     endAccessor="end"
                     views={views}
                     events={events}
+                    view={view}
+                    onView={(view) => setView(view)}
+                    date={date}
                     onSelectEvent={handleSelectEvent}
+                    onNavigate={(date) => setDate(date)}
                     popup
                 />
             </div>
