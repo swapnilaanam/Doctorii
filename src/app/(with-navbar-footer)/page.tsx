@@ -7,6 +7,8 @@ import MostBookedDiagnosis from "@/components/MostBookedDiagnosis/MostBookedDiag
 import JoinAsDoctorBanner from "@/components/JoinAsDoctorBanner/JoinAsDoctorBanner";
 import OurServices from "@/components/OurServices/OurServices";
 import QuickServices from "@/components/QuickServices/QuickServices";
+import HealthBlogs from "@/components/HealthBlogs/HealthBlogs";
+import Faqs from "@/components/Faqs/Faqs";
 
 export default function Home() {
 
@@ -21,6 +23,8 @@ export default function Home() {
       <Membership />
       <QuickServices />
       <CustomerReviews />
+      <HealthBlogs />
+      <Faqs />
     </div>
   )
 }
