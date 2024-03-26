@@ -5,6 +5,7 @@ import axios from "axios";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const Booking = () => {
 
@@ -13,6 +14,8 @@ const Booking = () => {
     const session = useSession();
 
     const router = useRouter();
+
+    const [membershipDiscount, setMembershipDiscount] = useState(0);
 
     var weekDaysName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const date = new Date();
@@ -42,15 +45,52 @@ const Booking = () => {
         }
     });
 
+    const { data: membershipInfo = {} } = useQuery({
+        queryKey: ['membershipInfo', session?.data?.user?.email],
+        queryFn: async () => {
+            if (session?.data?.user?.email) {
+                try {
+                    const response = await axios.get(`/api/memberships/${session?.data?.user?.email}`);
+
+                    if (response?.status === 200) {
+                        return response?.data;
+                    }
+                } catch (error: any) {
+                    console.log(error?.message);
+                }
+            }
+        }
+    });
+
+    useEffect(() => {
+        if (membershipInfo && membershipInfo?.isFreeDoctorAppointment) {
+            const discountPrice = Number(((Number(timeSlots[0]?.price) * membershipInfo?.doctorAppointmentDiscount) / 100).toFixed(2));
+
+            setMembershipDiscount(discountPrice);
+        }
+    }, [membershipInfo, timeSlots]);
 
     const handleScheduleChange = (e) => {
         const scheduleTime = e.target.value;
 
         const timeSlot = timeSlots.find((timeSlot => timeSlot.scheduleTime === scheduleTime))
 
-        const price = timeSlot.price;
-        const tax = (price * 2) / 100;
-        const total = Number(price) + Number(tax);
+        const price = Number(timeSlot.price);
+        const tax = Number(((price * 2) / 100).toFixed(2));
+
+        let total;
+
+        if (membershipInfo && membershipInfo?.isFreeDoctorAppointment) {
+            const discount = Number(((price * membershipInfo?.doctorAppointmentDiscount) / 100).toFixed(2));
+
+            total = (price + tax) - discount;
+
+            const membershipElement = document.getElementById("membership");
+            membershipElement.innerText = `- ${discount}`;
+        }
+        else {
+            total = price + tax;
+        }
 
         const priceElement = document.getElementById("price");
         const taxElement = document.getElementById("tax");
@@ -139,17 +179,30 @@ const Booking = () => {
                                     <dl className="space-y-0.5 text-base text-gray-700">
                                         <div className="flex justify-between">
                                             <dt>Price:</dt>
-                                            <dd>$ <span id="price">{timeSlots[0]?.price}</span></dd>
+                                            <dd>$ <span id="price">{(timeSlots[0]?.price) || 0}</span></dd>
                                         </div>
 
                                         <div className="flex justify-between">
                                             <dt>TAX(2%):</dt>
-                                            <dd>$ <span id="tax">{(timeSlots[0]?.price * 2) / 100}</span></dd>
+                                            <dd>$ <span id="tax">{((timeSlots[0]?.price * 2) / 100) || 0}</span></dd>
+                                        </div>
+
+                                        <div className="flex justify-between">
+                                            <dt>
+                                                Membership Discount ({(membershipInfo?.doctorAppointmentDiscount) || 0}%):
+                                            </dt>
+                                            <dd>$ <span id="membership">
+                                                - {membershipDiscount}
+                                            </span></dd>
                                         </div>
 
                                         <div className="flex justify-between !text-base font-medium">
                                             <dt>Total:</dt>
-                                            <dd>$ <span id="total">{Number(timeSlots[0]?.price) + Number(((timeSlots[0]?.price * 2) / 100))}</span></dd>
+                                            <dd>$ <span id="total">
+                                                {
+                                                    ((Number(timeSlots[0]?.price) + Number(((Number(timeSlots[0]?.price) * 2) / 100).toFixed(2))) - membershipDiscount) || 0
+                                                }
+                                            </span></dd>
                                         </div>
                                     </dl>
 

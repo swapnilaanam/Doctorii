@@ -7,7 +7,7 @@ import Link from 'next/link';
 const HomeBanner = () => {
     return (
         <section className="bg-white flex">
-            <div className="mx-auto max-w-screen-xl px-4 py-28 lg:flex lg:h-[600px] lg:items-center">
+            <div className="mx-auto max-w-screen-xl px-4 py-28 lg:flex lg:h-[610px] lg:items-center">
                 <div className="text-center mx-10">
                     <h1 className="text-2xl font-extrabold sm:text-5xl">
                         Book Doctors Appointment.

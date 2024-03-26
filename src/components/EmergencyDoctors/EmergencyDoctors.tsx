@@ -5,6 +5,7 @@ import wave from '../../../public/images/wave (1).svg';
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { FaStarOfLife } from "react-icons/fa";
 
 type EmergencyDoctorType = {
     _id: string,
@@ -28,14 +29,17 @@ const EmergencyDoctors = () => {
                 console.log(error?.message);
             }
         }
-    })
+    });
 
     return (
         <div className="w-full relative -top-40">
             <div className="w-full" >
                 <Image src={wave} alt="wave" className="w-full h-[500px] object-cover" />
                 <div className="w-full absolute top-32 px-20">
-                    <h2 className="text-3xl font-semibold text-white mt-20">Emergency Doctors {">>"}</h2>
+                    <h2 className="text-3xl font-semibold text-white mt-20 flex items-center gap-4">
+                        <span>Emergency Doctors</span>
+                        <FaStarOfLife  className="text-2xl text-yellow-300 mt-0.5"/>
+                    </h2>
                     <div className="my-14 h-full flex justify-center gap-20">
                         {emergencyDoctors.length === 0 ? <h2 className="text-center text-3xl font-medium text-white">
                             No Emergency Doctor Avaialable Right Now...

@@ -3,7 +3,7 @@ import FAQ from "../FAQ/FAQ"
 
 const Faqs = () => {
   return (
-    <section className="py-20">
+    <section className="py-28">
       <h2 className="text-3xl text-sky-600 text-center font-semibold">Frequently Asked Questions</h2>
       <div className="space-y-4 py-20 max-w-5xl mx-auto">
         <FAQ question="How much time is needed for diagnosis test result to appear?" answer="Normally it takes 3-5 days to have the test result available on the website. For some tests it might take some additional time." />

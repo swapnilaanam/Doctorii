@@ -68,8 +68,8 @@ const Membership = () => {
     }
 
     return (
-        <div className="my-20">
-            <h2 className="text-3xl font-semibold text-center text-sky-600 mb-10">Our Membership Package</h2>
+        <div className="py-32">
+            <h2 className="text-3xl font-semibold text-center text-sky-600 mb-14">Our Membership Package</h2>
             <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:items-center md:gap-8">
                     <div
@@ -86,7 +86,7 @@ const Membership = () => {
                                     7$
                                 </strong>
 
-                                <span className="text-sm font-medium text-gray-700">/month</span>
+                                <span className="text-sm font-medium text-gray-700">/year</span>
                             </p>
                         </div>
 
@@ -153,7 +153,7 @@ const Membership = () => {
                                     20$
                                 </strong>
 
-                                <span className="text-sm font-medium text-gray-700">/month</span>
+                                <span className="text-sm font-medium text-gray-700">/year</span>
                             </p>
                         </div>
 
@@ -239,7 +239,7 @@ const Membership = () => {
                                     12$
                                 </strong>
 
-                                <span className="text-sm font-medium text-gray-700">/month</span>
+                                <span className="text-sm font-medium text-gray-700">/year</span>
                             </p>
                         </div>
 

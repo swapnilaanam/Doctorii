@@ -29,11 +29,11 @@ const HealthBlogs = () => {
     });
 
     return (
-        <section className="py-20 bg-sky-50">
+        <section className="py-28 bg-sky-50">
             <h2 className="text-3xl font-semibold text-center text-sky-600">
                 Health Blog
             </h2>
-            <div className="py-20 flex justify-center flex-wrap gap-20">
+            <div className="py-20 max-w-7xl mx-auto flex justify-center flex-wrap gap-x-32 gap-y-20">
                 {
                     healthBlogs.map((healthBlog: HealthBlogType) => {
                         return (

@@ -30,7 +30,7 @@ const FeaturedDoctors = () => {
 
     return (
         <section className="relative -top-14">
-            <div className="max-w-7xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
+            <div className="max-w-7xl px-4 py-8 mx-auto sm:py-28 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 gap-7 lg:grid-cols-3 lg:items-stretch">
                     <div className="grid p-6 bg-sky-600 rounded place-content-center sm:p-8">
                         <div className="max-w-md mx-auto text-center lg:text-left">

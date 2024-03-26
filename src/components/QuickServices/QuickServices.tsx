@@ -4,6 +4,7 @@ import bmiImage from '../../../public/images/bmi.png';
 import calorieImage from '../../../public/images/calories.png';
 import medicalHeartImage from '../../../public/images/medical-heart.png';
 import Link from "next/link";
+import { TbToolsOff } from "react-icons/tb";
 
 const QuickServices = () => {
     return (
@@ -11,10 +12,11 @@ const QuickServices = () => {
             <div className="w-full" >
                 <Image src={wave} alt="wave" className="w-full h-[600px] object-cover" />
                 <div className="w-full absolute top-40 px-20">
-                    <h2 className="text-3xl font-semibold text-white mt-20">
-                        Quick Health Tools {">>"}
+                    <h2 className="text-3xl font-semibold text-white mt-20 flex items-center gap-4">
+                        <span>Quick Health Tools</span>
+                        <TbToolsOff className="text-2xl mt-0.5" />
                     </h2>
-                    <div className="my-16 h-full flex justify-center gap-20">
+                    <div className="my-14 h-full flex justify-center gap-20">
                         <Link href='/healthtools/bmi-calculator'>
                             <div className="bg-white flex flex-col justify-center items-center gap-3 w-[338px] py-4 rounded shadow-sm">
                                 <div className="relative w-32 h-32">

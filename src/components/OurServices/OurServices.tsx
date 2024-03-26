@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const OurServices = () => {
     return (
-        <section className="bg-white text-black relative -top-24">
+        <section className="bg-white text-black relative -top-28">
             <div
                 className="mx-auto max-w-7xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8"
             >
@@ -21,7 +21,7 @@ const OurServices = () => {
                         The services we offer to our customer covers all the parts of medical services.
                     </p>
                 </div>
-                <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     <div
                         className="hover:cursor-pointer block rounded-xl border border-sky-600 p-7 shadow-xl transition hover:border-pink-500/10 hover:shadow-sky-200 text-center"
                     >
