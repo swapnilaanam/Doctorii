@@ -16,6 +16,7 @@ import useIsPatient from "@/hooks/useIsPatient";
 import useIsAdmin from "@/hooks/useIsAdmin";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Image from "next/image";
 
 const Sidebar = () => {
     const session = useSession();
@@ -42,11 +43,18 @@ const Sidebar = () => {
         <div className="flex min-h-screen w-16 flex-col justify-between border-e bg-sky-500">
             <div>
                 <div className="inline-flex h-16 w-16 items-center justify-center">
-                    <span
-                        className="grid h-10 w-10 place-content-center rounded-lg bg-gray-100 text-sm font-semibold text-gray-600"
+                    <div
+                        className="group relative flex justify-center rounded px-2 py-1.5 text-black hover:text-black"
                     >
-                        Di
-                    </span>
+                        <div className="relative w-10 h-10 hover:cursor-pointer">
+                            <Image fill={true} src={session?.data?.user?.image} alt="Profile Picture" className='w-full h-full object-cover rounded-full' />
+                        </div>
+                        <span
+                            className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100 z-10"
+                        >
+                            {session?.data?.user?.name}
+                        </span>
+                    </div>
                 </div>
 
                 <div className="border-t-2 border-gray-100">

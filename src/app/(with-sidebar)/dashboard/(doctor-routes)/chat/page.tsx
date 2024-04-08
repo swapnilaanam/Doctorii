@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import { useContext, useEffect, useState } from 'react';
+import Image from "next/image";
 
 const Chat = () => {
     const session = useSession();
@@ -41,7 +42,7 @@ const Chat = () => {
     const handleSendMessage = (e: Event) => {
         e.preventDefault();
 
-        const msg = `${session?.data?.user?.name}: ${message}`;
+        const msg = `${session?.data?.user?.image}: ${session?.data?.user?.name}: ${message}`;
 
         socket.emit('send-message', { roomName: roomName, msg: msg });
         setMessage('');
@@ -100,20 +101,29 @@ const Chat = () => {
                                 {
                                     allMessages && (
                                         allMessages?.slice(allMessages?.length - 5, allMessages?.length)?.map((message, index) => {
+                                            const proPic = message?.split(': ')[0];
+                                            const msg = message?.split(': ')[2];
+
                                             if (message?.includes(session?.data?.user?.name)) {
                                                 return (
-                                                    <div key={index} className='text-right flex justify-end'>
+                                                    <div key={index} className='text-right flex justify-end items-center gap-5'>
                                                         <p className="bg-sky-200 px-7 py-3 rounded-xl text-right">
-                                                            {message}
+                                                            {msg}
                                                         </p>
+                                                        <div className="relative w-14 h-14">
+                                                            <Image fill={true} src={proPic} alt="proPic" className="w-full h-full object-cover rounded-full  border-2 border-gray-300" />
+                                                        </div>
                                                     </div>
                                                 )
                                             }
                                             else {
                                                 return (
-                                                    <div key={index} className='text-right flex justify-start'>
+                                                    <div key={index} className='text-right flex items-center justify-start gap-5'>
+                                                        <div className="relative w-14 h-14">
+                                                            <Image fill={true} src={proPic} alt="proPic" className="w-full h-full object-cover rounded-full border-2 border-gray-300" />
+                                                        </div>
                                                         <p className="bg-sky-200 px-7 py-3 rounded-xl text-right">
-                                                            {message}
+                                                            {msg}
                                                         </p>
                                                     </div>
                                                 )

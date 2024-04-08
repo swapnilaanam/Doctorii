@@ -12,12 +12,15 @@ import QuickServices from "@/components/QuickServices/QuickServices";
 import HealthBlogs from "@/components/HealthBlogs/HealthBlogs";
 import Faqs from "@/components/Faqs/Faqs";
 import { useEffect } from "react";
+import { useSession } from "next-auth/react";
 
 export default function Home() {
+  const session = useSession();
 
   useEffect(() => {
+    console.log(session?.data?.user);
     localStorage.removeItem('history');
-  }, []);
+  }, [session?.data?.user]);
 
   return (
     <div>

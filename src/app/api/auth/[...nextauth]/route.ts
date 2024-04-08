@@ -60,7 +60,7 @@ const handler = NextAuth({
                     const user = await User.findOne({ email: profile?.email })
 
                     if (!user) {
-                        let newUser = new User({ name: profile?.name, email:profile?.email, profilePic: profile?.picture, role: "Patient" });
+                        let newUser = new User({ name: profile?.name, email: profile?.email, profilePic: profile?.picture, role: "Patient" });
                         await newUser.save();
                     }
                     return true;
@@ -72,6 +72,21 @@ const handler = NextAuth({
             }
 
             return true;
+        },
+        async session({ session, token, user }) {
+            try {
+                await connectDB();
+
+                const userInfo = await User.findOne({ email: session.user?.email });
+
+                if (userInfo) {
+                    session.user.image = userInfo?.profilePic
+                }
+
+                return session;
+            } catch (error: any) {
+                console.log(error?.message);
+            }
         }
     }
 })

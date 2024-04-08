@@ -4,9 +4,11 @@ import Link from 'next/link';
 import { useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isHover, setIsHover] = useState(false);
 
   const variants = {
     open: { opacity: 1, x: 0 },
@@ -40,8 +42,17 @@ const Navbar = () => {
     {
       session.status === 'authenticated' ? (
         <>
-          <li>
-            <h2 className="text-xl text-yellow-300 font-bold">{session?.data?.user?.name?.split(" ")[0]}</h2>
+          <li className="relative">
+            <div className="relative w-12 h-12 hover:cursor-pointer">
+              <Image onMouseOver={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} fill={true} src={session?.data?.user?.image} alt="Profile Picture" className='w-full h-full object-cover rounded-full' />
+            </div>
+            {
+              isHover && (
+                <div className="bg-green-600 absolute top-16 -left-16 w-56 px-5 py-2 text-lg font-medium rounded text-center shadow-xl">
+                  {session?.data?.user?.name}
+                </div>
+              )
+            }
           </li>
           <li>
             <button onClick={() => signOut()} className="bg-yellow-400 px-7 py-2 rounded text-lg text-black font-bold uppercase">Logout</button>
