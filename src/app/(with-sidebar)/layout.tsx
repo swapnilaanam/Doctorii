@@ -7,6 +7,6 @@ const WithSidebarLayout = ({ children }: { children: React.ReactNode }) => {
             <div className="w-full">{children}</div>
         </div>
     )
-}
+};
 
 export default WithSidebarLayout;

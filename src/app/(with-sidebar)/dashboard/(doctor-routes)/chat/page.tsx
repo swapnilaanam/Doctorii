@@ -61,7 +61,7 @@ const Chat = () => {
     }
 
     return (
-        <section className="py-20 mx-20">
+        <section className="py-14 mx-20">
             {
                 !roomName && (
                     <>
@@ -88,27 +88,50 @@ const Chat = () => {
                 roomName && (
                     <>
                         <div className="border-green-700 h-[500px]">
-                            <div className="bg-sky-500 py-4 px-4 flex justify-between items-center">
-                                <h4 className="text-white text-xl font-semibold">{patientName}, {doctorName}</h4>
+                            <div className="bg-sky-600 py-4 px-10 flex justify-between items-center rounded">
+                                <h4 className="text-white text-xl font-semibold">
+                                    {patientName}
+                                </h4>
                                 <button className="bg-red-700 text-white font-medium px-10 py-2 rounded">
                                     Leave
                                 </button>
                             </div>
-                            {
-                                allMessages && (
-                                    allMessages?.map((message, index) => <p key={index}>{message}</p>)
-                                )
-                            }
+                            <div className="px-10 py-7 space-y-5">
+                                {
+                                    allMessages && (
+                                        allMessages?.slice(allMessages?.length - 5, allMessages?.length)?.map((message, index) => {
+                                            if (message?.includes(session?.data?.user?.name)) {
+                                                return (
+                                                    <div key={index} className='text-right flex justify-end'>
+                                                        <p className="bg-sky-200 px-7 py-3 rounded-xl text-right">
+                                                            {message}
+                                                        </p>
+                                                    </div>
+                                                )
+                                            }
+                                            else {
+                                                return (
+                                                    <div key={index} className='text-right flex justify-start'>
+                                                        <p className="bg-sky-200 px-7 py-3 rounded-xl text-right">
+                                                            {message}
+                                                        </p>
+                                                    </div>
+                                                )
+                                            }
+                                        })
+                                    )
+                                }
+                            </div>
                         </div>
                         <form onSubmit={(e) => handleSendMessage(e)} className='flex justify-between items-center'>
                             <div className="w-[70%] h-[140px]">
-                                <textarea type="text" id="message" name="message" value={message} onChange={(e) => setMessage(e.target.value)} className="border-2 border-sky-400 px-5 py-3 w-full h-full rounded-sm" />
+                                <textarea id="message" name="message" value={message} onChange={(e) => setMessage(e.target.value)} className="border-2 border-sky-400 px-5 py-3 w-full h-full rounded-sm" />
                             </div>
                             <div className="w-[28%] h-[120px] flex justify-center items-center">
-                                <div className="bg-sky-600 flex justify-center items-center px-7">
-                                    <input type="submit" value="Send Message" className="text-white py-3 w-full" />
-                                    <IoIosSend className="text-white text-2xl ml-2" />
-                                </div>
+                                <button className="bg-sky-600 flex justify-center items-center px-7 rounded cursor-pointer">
+                                    <input type="submit" value="Send Message" className="text-white text-lg py-5 px-7 w-full" />
+                                    <IoIosSend className="text-white text-xl" />
+                                </button>
                             </div>
                         </form>
                     </>

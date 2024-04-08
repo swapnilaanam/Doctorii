@@ -15,7 +15,6 @@ const ChatProvider = ({ children }: { children: any }) => {
     useEffect(() => {
         socket.on('connect', () => {
             setSocketId(socket.id);
-            console.log('User is connected', socket.id);
         });
 
         socket.on('receive-message', async ({ roomName, msg }) => {
@@ -28,12 +27,14 @@ const ChatProvider = ({ children }: { children: any }) => {
         });
 
         return () => {
-            socket.disconnect();
+            // socket.disconnect();
+            socket.off('connection');
+            socket.off('receive-message');
         }
     }, [socket]);
 
     const chatInfo = {
-        socket, 
+        socket,
         allMessages,
         setAllMessages
     };

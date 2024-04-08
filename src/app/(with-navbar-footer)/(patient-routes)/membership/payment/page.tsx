@@ -3,7 +3,6 @@
 import MembershipCheckOutForm from "@/components/MembershipCheckOutForm/MembershipCheckOutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -23,18 +22,25 @@ const MembershipPayment = () => {
   }, []);
 
   useEffect(() => {
-    axios.get(`/api/memberships/${membershipInfo?.email}`)
-    .then((response) => {
-      if(response?.status ===200 && response?.data) {
-        Swal.fire({
-          icon: "error",
-          title: "You already have a membership...",
-        });
+    const his = localStorage.getItem('membershipInfo');
+    if (!his) {
+      return router.back();
+    }
+  }, [router]);
 
-        router.push('/');
-      }
-    })
-  }, [membershipInfo?.email])
+  useEffect(() => {
+    axios.get(`/api/memberships/${membershipInfo?.email}`)
+      .then((response) => {
+        if (response?.status === 200 && response?.data) {
+          Swal.fire({
+            icon: "error",
+            title: "You already have a membership...",
+          });
+
+          router.push('/');
+        }
+      })
+  }, [membershipInfo?.email, router]);
 
   return (
     <div className="py-24 w-full h-[620px] bg-sky-50">

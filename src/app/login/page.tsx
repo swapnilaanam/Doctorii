@@ -10,6 +10,7 @@ import { AiOutlineGoogle } from "react-icons/ai";
 
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 type loginInputType = {
     email: string,
@@ -20,13 +21,24 @@ const Login = () => {
     const router = useRouter();
     const session = useSession();
 
+    const [isHistoryExist, setIsHistoryExits] = useState();
+
+    useEffect(() => {
+        const isHistory = localStorage.getItem('history');
+
+        if (isHistory) {
+            const prevHis = localStorage.getItem('history');
+            setIsHistoryExits(prevHis);
+        }
+    }, []);
+
     const { register, handleSubmit, formState: { errors } } = useForm<loginInputType>();
 
     const onSubmit: SubmitHandler<loginInputType> = data => {
         signIn("credentials", { email: data.email, password: data.password });
     }
 
-    if (session.status === 'loading') {
+    if (session?.status === 'loading') {
         return (
             <div className="flex justify-center items-center h-screen">
                 <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-opacity-75"></div>
@@ -34,11 +46,9 @@ const Login = () => {
         )
     }
 
-    if (session.status === 'authenticated') {
-        const isHistoryExist = localStorage.getItem('dashboardHistory');
-
-        if(isHistoryExist) {
-            localStorage.removeItem('dashboardHistory');
+    if (session?.status === 'authenticated') {
+        if (isHistoryExist) {
+            localStorage.removeItem('history');
             return router.push(isHistoryExist);
         }
 

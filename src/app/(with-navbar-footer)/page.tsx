@@ -1,3 +1,5 @@
+'use client';
+
 import CustomerReviews from "@/components/CustomerReviews/CustomerReviews";
 import EmergencyDoctors from "@/components/EmergencyDoctors/EmergencyDoctors";
 import FeaturedDoctors from "@/components/FeaturedDoctors/FeaturedDoctors";
@@ -9,8 +11,13 @@ import OurServices from "@/components/OurServices/OurServices";
 import QuickServices from "@/components/QuickServices/QuickServices";
 import HealthBlogs from "@/components/HealthBlogs/HealthBlogs";
 import Faqs from "@/components/Faqs/Faqs";
+import { useEffect } from "react";
 
 export default function Home() {
+
+  useEffect(() => {
+    localStorage.removeItem('history');
+  }, []);
 
   return (
     <div>

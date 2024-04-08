@@ -1,15 +1,25 @@
 'use client';
 
+import useIsPatient from "@/hooks/useIsPatient";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 
 const Membership = () => {
 
+    const [isPatient, isPatientLoading] = useIsPatient();
     const session = useSession();
     const router = useRouter();
 
     const handleBecomeMember = (planName, planPrice) => {
+        if(!(session?.data?.user)) {
+            return Swal.fire("LogIn To Use This Feature!");
+        }
+
+        if(!isPatientLoading && !isPatient) {
+            return Swal.fire("Only Patient Can Subscribe To Our Membership!")
+        }
+
         Swal.fire({
             title: "Do you want to take membership?",
             text: `You will be charged $${planPrice}!`,

@@ -1,6 +1,6 @@
 const FAQ = ({question, answer}: {question: string, answer: string}) => {
     return (
-        <details className="group [&_summary::-webkit-details-marker]:hidden" close>
+        <details className="group [&_summary::-webkit-details-marker]:hidden" open>
             <summary
                 className="flex cursor-pointer items-center justify-between gap-1.5 rounded-sm bg-sky-100 p-4 text-gray-900"
             >
@@ -25,4 +25,4 @@ const FAQ = ({question, answer}: {question: string, answer: string}) => {
     )
 }
 
-export default FAQ
+export default FAQ;

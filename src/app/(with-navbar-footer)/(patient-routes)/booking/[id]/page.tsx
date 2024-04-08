@@ -130,10 +130,10 @@ const Booking = () => {
     return (
         <div>
             <section className="w-full min-h-screen">
-                <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+                <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-16 lg:px-8">
                     <div className="mx-auto max-w-3xl">
                         <header className="text-center">
-                            <h1 className="text-xl font-bold text-gray-900 sm:text-3xl mb-20">Book Appointment</h1>
+                            <h1 className="text-xl font-bold text-gray-900 sm:text-3xl mb-14">Book Appointment</h1>
                         </header>
 
                         <div className="mt-8">
@@ -209,7 +209,7 @@ const Booking = () => {
                                     <div className="flex justify-center pt-6">
                                         <button
                                             onClick={handleCheckOut}
-                                            className="block rounded bg-sky-500 px-28 py-2 text-lg font-medium text-white transition hover:bg-sky-600"
+                                            className="block rounded bg-sky-600 px-28 py-2 text-lg font-medium text-white transition hover:bg-green-600"
                                         >
                                             Checkout
                                         </button>
