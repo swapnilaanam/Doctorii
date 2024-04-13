@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import { useContext, useEffect, useState } from 'react';
 import Image from "next/image";
+import { FaArrowLeft } from "react-icons/fa";
 
 const Chat = () => {
     const session = useSession();
@@ -90,12 +91,12 @@ const Chat = () => {
                     <>
                         <div className="border-green-700 h-[500px]">
                             <div className="bg-sky-600 py-4 px-10 flex justify-between items-center rounded">
-                                <h4 className="text-white text-xl font-semibold">
-                                    {patientName}
-                                </h4>
-                                <button className="bg-red-700 text-white font-medium px-10 py-2 rounded">
-                                    Leave
-                                </button>
+                                <div className="flex justify-center items-center gap-5">
+                                    <FaArrowLeft onClick={() => setRoomName('')} className="text-white font-medium hover:cursor-pointer" />
+                                    <h4 className="text-white text-xl font-semibold">
+                                        {decodeURIComponent(doctorName)}
+                                    </h4>
+                                </div>
                             </div>
                             <div className="px-10 py-7 space-y-5">
                                 {

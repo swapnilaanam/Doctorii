@@ -53,7 +53,7 @@ const CategoryDoctors = () => {
         const response = await axios.get(`/api/users/doctors/${category}`);
 
         if (response?.status === 200) {
-          return response?.data;
+          return response?.data?.filter((doctor) => doctor?.doctorRole !== 'Emergency' && doctor?.chamberLocation);
         }
       } catch (error: any) {
         console.log(error?.message);
@@ -68,7 +68,11 @@ const CategoryDoctors = () => {
       </h2>
       <div className="max-w-7xl mx-auto py-16 flex justify-center items-center gap-7">
         {
-          doctors?.map((doctor: DoctorType) => <Doctor key={doctor?._id} doctor={doctor} />)
+          doctors?.length === 0 ? (
+            <h4 className="text-center text-2xl font-semibold">No {doctorCategory} Are Available Now...</h4>
+          ) : (
+            doctors?.map((doctor: DoctorType) => <Doctor key={doctor?._id} doctor={doctor} />)
+          )
         }
       </div>
     </section>

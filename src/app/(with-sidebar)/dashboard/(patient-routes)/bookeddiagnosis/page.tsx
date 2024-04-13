@@ -41,6 +41,7 @@ const BookedDiagnosis = () => {
                                     Customer Name
                                 </th>
                                 <th className="px-5 py-2">Result</th>
+                                <th className="px-5 py-2">Location</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-200 bg-sky-50">
@@ -68,13 +69,18 @@ const BookedDiagnosis = () => {
                                                         </h4>
                                                     ) : (
                                                         <Link href={diagnosis?.result || ''} target="_black">
-                                                            <button className="inline-block rounded bg-green-600 px-7 py-2 text-sm font-medium text-white hover:bg-green-700 "
+                                                            <button className="inline-block rounded bg-green-600 px-7 py-2 text-sm font-medium text-white hover:bg-green-700"
                                                             >
                                                                 View Result
                                                             </button>
                                                         </Link>
                                                     )
                                                 }
+                                            </td>
+                                            <td className="whitespace-nowrap px-7 py-2">
+                                                <Link href="/address" target="_blank" className="inline-block rounded bg-sky-600 px-7 py-2 text-sm font-medium text-white hover:bg-sky-700">
+                                                    Available Locations
+                                                </Link>
                                             </td>
                                         </tr>
                                     )

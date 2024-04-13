@@ -12,7 +12,7 @@ const ManageUsers = () => {
             try {
                 const response = await axios.get('/api/users');
                 if (response?.status === 200) {
-                    return response?.data;
+                    return response?.data?.filter((user) => user?.role !== 'Doctor');
                 }
             } catch (error) {
                 console.log(error);
@@ -22,7 +22,7 @@ const ManageUsers = () => {
 
     const handleMakeAdmin = async (id: string) => {
         try {
-            const response = await axios.patch(`/api/users/id/${id}`, {role: 'Admin'});
+            const response = await axios.patch(`/api/users/id/${id}`, { role: 'Admin' });
             if (response?.status === 200) {
                 refetch();
                 Swal.fire({
@@ -71,7 +71,9 @@ const ManageUsers = () => {
                                     return (
                                         <tr key={user?._id}>
                                             <td className="whitespace-nowrap px-4 py-3 flex justify-center">
-                                                <Image src={user?.profilePic} width={32} height={32} alt="profilePic" />
+                                                <div className="relative w-12 h-12">
+                                                    <Image fill={true} src={user?.profilePic} alt="profilePic" className="w-full h-full object-cover rounded-full" />
+                                                </div>
                                             </td>
                                             <td className="whitespace-nowrap px-4 py-3 font-medium text-gray-900">
                                                 {user?.name}

@@ -46,7 +46,7 @@ const AddEmergencyDoctor = () => {
         queryFn: async() => {
             try {
                 const response = await axios.get('/api/users');
-                return response?.data?.filter((doctor) => (doctor?.role === 'Doctor' && doctor?.doctorRole === 'Regular'));
+                return response?.data?.filter((doctor) => (doctor?.role === 'Doctor' && doctor?.doctorRole === 'Regular Doctor'));
             } catch (error:any) {
                 console.log(error?.message);
             }

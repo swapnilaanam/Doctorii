@@ -34,7 +34,11 @@ const Diagnoses = () => {
             <h2 className="text-center text-sky-600 text-3xl font-semibold">Available Diagnoses</h2>
             <div className="flex flex-wrap justify-center items-center gap-x-7 gap-y-14 py-20">
                 {
-                    diagnoses?.map((diagnosis: DiagnosisType) => <Diagnosis key={diagnosis?._id} diagnosis={diagnosis} />)
+                    diagnoses?.length === 0 ? (
+                        <h4 className="text-center text-2xl font-semibold">No Diagnoses Are Available Now...</h4>
+                    ) : (
+                        diagnoses?.map((diagnosis: DiagnosisType) => <Diagnosis key={diagnosis?._id} diagnosis={diagnosis} />)
+                    )
                 }
             </div>
         </section>

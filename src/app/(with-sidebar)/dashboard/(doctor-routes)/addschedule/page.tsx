@@ -79,7 +79,7 @@ const AddSchedule = () => {
         if (data.day6) {
             weekDays.push(data.day6);
         }
-        if(data.day7) {
+        if (data.day7) {
             weekDays.push(data.day7)
         }
 
@@ -275,41 +275,45 @@ const AddSchedule = () => {
             <h2 className="text-2xl font-semibold text-center mt-14">Your Added Schedules</h2>
             <div className="max-w-7xl mx-auto mt-12 flex flex-wrap justify-center items-center gap-12">
                 {
-                    timeSlots?.map((timeSlot: NewScheduleType, index: number) => {
-                        return (
-                            <div key={index} className="w-96 h-64 group relative block bg-white cursor-pointer shadow-xl">
-                                <div className="relative p-4 sm:p-6 lg:p-8">
-                                    <div className="flex justify-between">
-                                        <p className="text-base font-semibold uppercase tracking-widest text-sky-600">
-                                            Slot
-                                        </p>
-                                        <button onClick={() => handleDeleteSchedule(timeSlot.scheduleTime)} className="bg-red-600 text-white px-4 py-1 text-lg rounded-sm">Delete</button>
-                                    </div>
+                    timeSlots?.length === 0 ? (
+                        <h4 className="text-center text-xl font-medium tracking-wider">No Schedule Is Added Yet...</h4>
+                    ) : (
+                        timeSlots?.map((timeSlot: NewScheduleType, index: number) => {
+                            return (
+                                <div key={index} className="w-96 h-64 group relative block bg-white cursor-pointer shadow-xl">
+                                    <div className="relative p-4 sm:p-6 lg:p-8">
+                                        <div className="flex justify-between">
+                                            <p className="text-base font-semibold uppercase tracking-widest text-sky-600">
+                                                Slot
+                                            </p>
+                                            <button onClick={() => handleDeleteSchedule(timeSlot.scheduleTime)} className="bg-red-600 text-white px-4 py-1 text-lg rounded-sm">Delete</button>
+                                        </div>
 
-                                    <p className="text-xl font-bold text-black sm:text-2xl">{timeSlot.scheduleTime}</p>
-                                    <p className="text-xl font-medium text-sky-600 sm:text-base mt-3 tracking-wider">Price: <strong className="ms-1">$ {timeSlot.price}</strong></p>
+                                        <p className="text-xl font-bold text-black sm:text-2xl">{timeSlot.scheduleTime}</p>
+                                        <p className="text-xl font-medium text-sky-600 sm:text-base mt-3 tracking-wider">Price: <strong className="ms-1">$ {timeSlot.price}</strong></p>
 
-                                    <div className="mt-2 sm:mt-4 lg:mt-12">
-                                        <div
-                                            className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
-                                        >
-                                            <div className="flex flex-wrap justify-center items-end gap-4">
-                                                {
-                                                    timeSlot.weekDays.map((weekDay: any[], index: number) => {
-                                                        return (
-                                                            <p key={index} className="text-base font-medium text-black">
-                                                                {weekDay}
-                                                            </p>
-                                                        )
-                                                    })
-                                                }
+                                        <div className="mt-2 sm:mt-4 lg:mt-12">
+                                            <div
+                                                className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
+                                            >
+                                                <div className="flex flex-wrap justify-center items-end gap-4">
+                                                    {
+                                                        timeSlot.weekDays.map((weekDay: any[], index: number) => {
+                                                            return (
+                                                                <p key={index} className="text-base font-medium text-black">
+                                                                    {weekDay}
+                                                                </p>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    })
+                            )
+                        })
+                    )
                 }
             </div>
         </div>

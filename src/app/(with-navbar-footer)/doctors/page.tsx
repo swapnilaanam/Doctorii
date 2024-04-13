@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import categoryImage from '../../../../public/images/doctor.jpg';
 import medicineDoctor from '../../../../public/images/medicineDoctor.jpeg';
 import childAndGynecologyDoctor from '../../../../public/images/childAndGynecology.jpeg';
 import heartSpecialistDoctor from '../../../../public/images/heartSpecialist.jpeg';

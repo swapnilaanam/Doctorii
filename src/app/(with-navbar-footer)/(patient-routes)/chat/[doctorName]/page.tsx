@@ -6,6 +6,7 @@ import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
 import { useContext, useEffect, useState } from 'react';
+import { FaArrowLeft } from 'react-icons/fa';
 import { IoIosSend } from 'react-icons/io';
 import Swal from 'sweetalert2';
 
@@ -87,6 +88,35 @@ const ChatWithDoctor = () => {
         setMessage('');
     };
 
+    const handleLeaveChat = async (roomName: string) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Your All Messages Will Be Deleted!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Leave The Chat!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    const response = await axios.delete(`/api/chatrooms/roomname/${roomName}`);
+
+                    if (response?.status === 200) {
+                        Swal.fire({
+                            title: "Left!",
+                            text: "You left the chat successfully!.",
+                            icon: "success"
+                        });
+                        return router.push('/');
+                    }
+                } catch (error: any) {
+                    console.log(error?.message);
+                }
+            }
+        });
+    }
+
     return (
         <section className="py-14 mx-14">
             {
@@ -94,10 +124,13 @@ const ChatWithDoctor = () => {
                     <>
                         <div className="border-green-700 h-[460px]">
                             <div className="bg-sky-600 py-4 px-10 flex justify-between items-center rounded">
-                                <h4 className="text-white text-xl font-semibold">
-                                    {decodeURIComponent(doctorName)}
-                                </h4>
-                                <button className="bg-red-700 text-white font-medium px-10 py-2 rounded">
+                                <div className="flex justify-center items-center gap-5">
+                                    <FaArrowLeft onClick={() => router.push('/')} className="text-white font-medium hover:cursor-pointer" />
+                                    <h4 className="text-white text-xl font-semibold">
+                                        {decodeURIComponent(doctorName)}
+                                    </h4>
+                                </div>
+                                <button onClick={() => handleLeaveChat(roomName)} className="bg-red-700 text-white font-medium px-10 py-2 rounded">
                                     Leave
                                 </button>
                             </div>

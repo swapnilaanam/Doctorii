@@ -42,39 +42,47 @@ const CustomerReviews = () => {
           </h2>
         </div>
         <div className="w-full lg:w-9/12 flex justify-center !overflow-hidden relative">
-          <Swiper navigation={true} modules={[Navigation]} className="mySwiper !static mt-28">
-            {
-              feedbacks?.map((feedback) => {
-                return (
-                  <SwiperSlide key={feedback?._id}>
-                    <blockquote
-                      className="flex h-full flex-col justify-between bg-sky-50 p-12 border-2 border-sky-200 rounded-lg"
-                    >
-                      <div>
-                        <Rating
-                          initialRating={feedback?.feedbackRatings}
-                          emptySymbol={<FaRegStar className="text-green-600 text-4xl" />}
-                          fullSymbol={<FaStar className="text-green-600 text-4xl" />}
-                          readonly
-                        />
-                        <div className="ms-2 mt-7">
-                          <h3 className="text-2xl font-semibold text-black">
-                            {feedback?.feedbackText}
-                          </h3>
-                        </div>
-                      </div>
+          {
+            feedbacks?.length === 0 ? (
+              <h4 className="text-center text-sky-600 text-2xl font-semibold">
+                No Feedbacks Are Available Now.
+              </h4>
+            ) : (
+              <Swiper navigation={true} modules={[Navigation]} className="mySwiper !static mt-28">
+                {
+                  feedbacks?.map((feedback) => {
+                    return (
+                      <SwiperSlide key={feedback?._id}>
+                        <blockquote
+                          className="flex h-full flex-col justify-between bg-sky-50 p-12 border-2 border-sky-200 rounded-lg"
+                        >
+                          <div>
+                            <Rating
+                              initialRating={feedback?.feedbackRatings}
+                              emptySymbol={<FaRegStar className="text-green-600 text-4xl" />}
+                              fullSymbol={<FaStar className="text-green-600 text-4xl" />}
+                              readonly
+                            />
+                            <div className="ms-2 mt-7">
+                              <h3 className="text-2xl font-semibold text-black">
+                                {feedback?.feedbackText}
+                              </h3>
+                            </div>
+                          </div>
 
-                      <footer className="ms-2 mt-8 text-gray-600 tracking-wider">
-                        <h4 className="text-xl font-medium">- {feedback?.name}</h4>
-                        <h4 className="text-xl font-medium">- {feedback?.role}</h4>
-                      </footer>
-                    </blockquote>
-                  </SwiperSlide>
-                )
-              })
-            }
+                          <footer className="ms-2 mt-8 text-gray-600 tracking-wider">
+                            <h4 className="text-xl font-medium">- {feedback?.name}</h4>
+                            <h4 className="text-xl font-medium">- {feedback?.role}</h4>
+                          </footer>
+                        </blockquote>
+                      </SwiperSlide>
+                    )
+                  })
+                }
 
-          </Swiper>
+              </Swiper>
+            )
+          }
         </div>
       </div>
     </section>

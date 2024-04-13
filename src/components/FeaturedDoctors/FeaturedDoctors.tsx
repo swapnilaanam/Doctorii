@@ -12,7 +12,7 @@ const FeaturedDoctors = () => {
         queryFn: async () => {
             try {
                 const response = await axios.get('/api/users');
-                let doctors = response.data.filter((user) => user?.role === "Doctor");
+                let doctors = response.data.filter((user) => user?.role === "Doctor" && user?.doctorRole !== "Emergency" && user?.chamberLocation);
                 doctors = doctors.splice(0, 2);
                 return doctors;
             } catch (error: any) {
@@ -44,33 +44,39 @@ const FeaturedDoctors = () => {
                     </div>
 
                     <div className="lg:col-span-2 lg:py-8">
-                        <ul className="grid grid-cols-2 gap-7">
-                            {
-                                doctors.map((doctor) => <li key={doctor._id}>
-                                    <div className="block group cursor-pointer">
-                                        <div className="w-full h-96 relative">
-                                            <Image fill={true} src={doctor?.profilePic} alt="Featured Doctor" className="w-full h-full object-cover" />
-                                        </div>
-                                        <div className="mt-4 mx-2 flex justify-between items-center">
-                                            <div>
-                                                <h3
-                                                    className="font-medium text-gray-900"
-                                                >
-                                                    {doctor.name}
-                                                </h3>
-                                                <p>{doctor.doctorRole}</p>
-                                            </div>
+                        {
+                            doctors?.length === 0 ? (
+                                <h4 className="w-full text-2xl text-center text-sky-600 py-16 font-semibold">No Doctor Available For Appointment.</h4>
+                            ) : (
+                                < ul className="grid grid-cols-2 gap-7">
+                                    {
+                                        doctors.map((doctor) => <li key={doctor._id}>
+                                            <div className="block group cursor-pointer">
+                                                <div className="w-full h-96 relative">
+                                                    <Image fill={true} src={doctor?.profilePic} alt="Featured Doctor" className="w-full h-full object-cover" />
+                                                </div>
+                                                <div className="mt-4 mx-2 flex justify-between items-center">
+                                                    <div>
+                                                        <h3
+                                                            className="font-medium text-gray-900"
+                                                        >
+                                                            {doctor.name}
+                                                        </h3>
+                                                        <p>{doctor.doctorRole}</p>
+                                                    </div>
 
-                                            <Link href={`/booking/${doctor._id}`} className="bg-yellow-400 px-4 py-2 text-lg font-medium rounded">Book Appointment</Link>
-                                        </div>
-                                    </div>
-                                </li>)
-                            }
-                        </ul>
+                                                    <Link href={`/booking/${doctor._id}`} className="bg-yellow-400 px-4 py-2 text-lg font-medium rounded">Book Appointment</Link>
+                                                </div>
+                                            </div>
+                                        </li>)
+                                    }
+                                </ul>
+                            )
+                        }
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

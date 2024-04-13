@@ -3,15 +3,15 @@ import ChatRoom from "@/models/ChatRoom";
 
 import { NextRequest, NextResponse } from "next/server";
 
-export const GET = async (req: NextRequest, {params}: {params: any}) => {
-    const {name} = params;
+export const GET = async (req: NextRequest, { params }: { params: any }) => {
+    const { name } = params;
 
     try {
         await connectDB();
         const result = await ChatRoom.findOne({ roomName: name });
         const newAllMessages = await result?.allMessages;
 
-        return new NextResponse(JSON.stringify(newAllMessages), {status: 200});
+        return new NextResponse(JSON.stringify(newAllMessages), { status: 200 });
     } catch (error: any) {
         return new NextResponse(error?.message, { status: error?.status });
     }
@@ -19,7 +19,7 @@ export const GET = async (req: NextRequest, {params}: {params: any}) => {
 
 export const PATCH = async (req: NextRequest, { params }: { params: any }) => {
     const { name } = params;
-    const {message} = await req.json();
+    const { message } = await req.json();
 
     try {
         await connectDB();
@@ -38,3 +38,16 @@ export const PATCH = async (req: NextRequest, { params }: { params: any }) => {
         return new NextResponse(error?.message, { status: error?.status });
     }
 }
+
+export const DELETE = async (req: NextRequest, { params }: { params: { name: string } }) => {
+    const { name } = params;
+
+    try {
+        await connectDB();
+
+        const result = await ChatRoom.findOneAndDelete({ roomName: name });
+        return new NextResponse(JSON.stringify(result), { status: 200 });
+    } catch (error: any) {
+        return new NextResponse(error?.message, { status: error?.status });
+    }
+};

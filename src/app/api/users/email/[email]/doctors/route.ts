@@ -23,14 +23,15 @@ export const GET = async(req: NextRequest, {params}: any) => {
 export const PATCH = async(req: NextRequest, {params}: any) => {
     const {email} = params;
 
-    const {doctorRole} = await req.json();
+    const {doctorRole, chamberLocation} = await req.json();
 
     try {
         await connectDB();
 
         const updateDoc = {
             $set: {
-                doctorRole: doctorRole
+                doctorRole: doctorRole,
+                chamberLocation: chamberLocation
             }
         };
 

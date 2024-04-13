@@ -1,7 +1,25 @@
+'use client';
+
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 const AppointmentPopUp = ({ appointmentInfo, setIsModalOpen, user, refetch }: { appointmentInfo: any, setIsModalOpen: any, user: string, refetch: any }) => {
+
+    const { data: doctorInfo = {} } = useQuery({
+        queryKey: ['doctorInfo', appointmentInfo?.doctorEmail],
+        queryFn: async () => {
+            try {
+                const response = await axios.get(`/api/users/email/${appointmentInfo?.doctorEmail}`);
+
+                if (response?.status === 200) {
+                    return response?.data;
+                }
+            } catch (error: any) {
+                console.log(error?.message);
+            }
+        }
+    });
 
     const handleCompletedAppointment = async (id: string) => {
         try {
@@ -45,7 +63,7 @@ const AppointmentPopUp = ({ appointmentInfo, setIsModalOpen, user, refetch }: { 
     };
 
     return (
-        <div className="bg-sky-50 mt-32 max-w-2xl mx-auto p-14 absolute top-0 left-0 right-0 z-10 rounded shadow-lg shadow-blue-200 border-2 border-blue-500">
+        <div className="bg-sky-50 mt-20 max-w-2xl mx-auto p-14 absolute top-0 left-0 right-0 z-10 rounded shadow-lg shadow-blue-200 border-2 border-blue-500">
             <div>
                 <h2 className="text-2xl text-center font-medium mb-10">Appointment Info</h2>
                 {
@@ -91,6 +109,10 @@ const AppointmentPopUp = ({ appointmentInfo, setIsModalOpen, user, refetch }: { 
                 <div className="flex justify-between items-center mt-7">
                     <h4 className="text-xl font-medium">Appointment Status:</h4>
                     <p className="text-lg font-medium">{appointmentInfo?.isAppointmentCompleted}</p>
+                </div>
+                <div className="flex justify-between items-center mt-7">
+                    <h4 className="text-xl font-medium">Chamber Location:</h4>
+                    <p className="text-lg font-medium">{doctorInfo?.chamberLocation}</p>
                 </div>
             </div>
             {

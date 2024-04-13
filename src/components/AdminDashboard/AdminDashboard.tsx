@@ -79,11 +79,11 @@ const AdminDashboard = () => {
         }
     });
 
-    const {data: diagnoses = []} = useQuery({
-        queryKey: ['diagnoses'],
+    const {data: bookedDiagnoses = []} = useQuery({
+        queryKey: ['bookedDiagnoses'],
         queryFn: async() => {
             try {
-                const response = await axios.get('/api/diagnoses');
+                const response = await axios.get('/api/bookings');
 
                 if(response?.status === 200) {
                     return response?.data;
@@ -152,7 +152,7 @@ const AdminDashboard = () => {
                     <div className="bg-yellow-400 text-gray-800 w-[400px] h-40 text-3xl font-semibold flex justify-center items-center rounded hover:bg-yellow-500 hover:cursor-pointer">
                         <span>
                             {
-                                diagnoses?.length
+                                bookedDiagnoses?.length
                             }
                         </span>
                         <span className="ms-4">

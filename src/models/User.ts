@@ -24,8 +24,12 @@ const userSchema = new mongoose.Schema({
     doctorRole: {
         type: String,
     },
+    chamberLocation: {
+        type: String,
+    },
     timeSlots: {
         type: Array,
+        required: false
     }
 });
 

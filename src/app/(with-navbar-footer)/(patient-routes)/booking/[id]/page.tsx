@@ -118,11 +118,13 @@ const Booking = () => {
             ticketPrice: document.getElementById("total")?.innerText
         }
 
-        try {
-            localStorage.setItem("newAppointment", JSON.stringify(appointment));
-            router.push('/payment')
-        } catch (error: any) {
-            console.log(error?.message);
+        if (document.getElementById("schedule")?.value) {
+            try {
+                localStorage.setItem("newAppointment", JSON.stringify(appointment));
+                router.push('/payment')
+            } catch (error: any) {
+                console.log(error?.message);
+            }
         }
 
     }
@@ -169,6 +171,11 @@ const Booking = () => {
                                                 })
                                             }
                                         </select>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-lg font-medium">
+                                            Chamber Location: <span className="ml-3 text-base text-gray-600">{doctor?.chamberLocation}</span>
+                                        </h4>
                                     </div>
                                 </div>
                             </ul>

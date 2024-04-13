@@ -10,7 +10,7 @@ export const GET = async (req: NextRequest, { params }: { params: any }) => {
         formattedCategory = 'Regular Doctor';
     }
     else if (category === 'childandgynecologistdoctors') {
-        formattedCategory = 'Child And Gynecologist Doctor';
+        formattedCategory = 'Child And Gynecology Doctor';
     }
     else if (category === 'heartspecialistdoctors') {
         formattedCategory = 'Heart Specialist Doctor';

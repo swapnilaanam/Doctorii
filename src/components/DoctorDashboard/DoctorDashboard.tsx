@@ -21,6 +21,30 @@ const DoctorDashboard = () => {
         }
     });
 
+    const { data: appointments = [] } = useQuery({
+        queryKey: ['appointments'],
+        queryFn: async () => {
+            try {
+                const response = await axios.get(`/api/appointments/${session?.data?.user?.email}`);
+                return response?.data;
+            } catch (error: any) {
+                console.log(error?.message);
+            }
+        }
+    });
+
+    const { data: totalAmount = 0 } = useQuery({
+        queryKey: ['payments'],
+        queryFn: async () => {
+            try {
+                const response = await axios.get(`/api/payments/${session?.data?.user?.email}`);
+                return response?.data?.reduce((total, current) => total + current?.ticketPrice, 0);
+            } catch (error: any) {
+                console.log(error?.message);
+            }
+        }
+    });
+
     function closeModal() {
         setIsOpen(false)
     }
@@ -33,17 +57,16 @@ const DoctorDashboard = () => {
         e.preventDefault();
 
         const doctorRole = e.target.doctorRole.value;
-
-        console.log(doctorRole);
+        const chamberLocation = e.target.chamberLocation.value;
 
         try {
-            const response = await axios.patch(`/api/users/email/${session?.data?.user?.email}/doctors`, { doctorRole });
+            const response = await axios.patch(`/api/users/email/${session?.data?.user?.email}/doctors`, { doctorRole, chamberLocation });
 
             if (response?.status === 200) {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: "Doctor Role Is Updated Now!",
+                    title: "Doctor Info Is Updated Now!",
                     showConfirmButton: false,
                     timer: 1000
                 });
@@ -57,7 +80,29 @@ const DoctorDashboard = () => {
 
     return (
         <div className="py-20 bg-gray-100 w-full min-h-screen">
-            <h2 className="text-4xl font-semibold text-center">Doctor Dashboard</h2>
+            <h2 className="text-4xl font-semibold text-center pb-20">Doctor Dashboard</h2>
+            <div className="flex flex-wrap justify-center items-center gap-20 pb-12">
+                <div className="bg-sky-600 text-white w-[400px] h-40 text-3xl font-semibold flex justify-center items-center rounded hover:bg-sky-700 hover:cursor-pointer">
+                    <span>
+                        {
+                            appointments?.length
+                        }
+                    </span>
+                    <span className="ms-4">
+                        Appointments
+                    </span>
+                </div>
+                <div className="bg-green-600 text-white w-[400px] h-40 text-3xl font-semibold flex justify-center items-center rounded hover:bg-green-700 hover:cursor-pointer">
+                    <span>
+                        $
+                    </span>
+                    <span className="ms-4">
+                        {
+                            totalAmount
+                        }
+                    </span>
+                </div>
+            </div>
             <div className="max-w-5xl mx-auto mt-14">
                 <div className="flex justify-between mb-10">
                     <h4 className="text-2xl font-medium text-center">Account Details</h4>
@@ -86,7 +131,22 @@ const DoctorDashboard = () => {
                         <h4>Doctor Role: </h4>
                         <h4><strong>{user?.doctorRole}</strong></h4>
                     </div>
+                    {
+                        user?.doctorRole !== 'Emergency' && (
+                            <div className="flex gap-5 text-2xl ml-20">
+                                <h4>Chamber Location: </h4>
+                                <h4><strong>{user?.chamberLocation}</strong></h4>
+                            </div>
+                        )
+                    }
                 </div>
+                {
+                    (!user?.chamberLocation && user?.doctorRole !== 'Emergency') && (
+                        <h6 className="mt-20 text-center text-red-600 text-xl font-medium">
+                            !!! Account Not Visible! Add Chamber Location To Activate Your Account !!!
+                        </h6>
+                    )
+                }
             </div>
 
             <div className="flex justify-center items-center text-center">
@@ -151,6 +211,19 @@ const DoctorDashboard = () => {
                                                             Eye Specialist Doctor
                                                         </option>
                                                     </select>
+                                                </div>
+                                                <div className="mb-5">
+                                                    <label htmlFor="chamberLocation" className="block text-base font-medium text-gray-900">
+                                                        Chamber Location:
+                                                    </label>
+
+                                                    <input
+                                                        type="text"
+                                                        name="chamberLocation"
+                                                        id="chamberLocation"
+                                                        defaultValue={user?.chamberLocation}
+                                                        className="mt-1.5 ps-2 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm py-2 border-2"
+                                                    />
                                                 </div>
                                                 <input type="submit" className="w-full cursor-pointer mt-6 bg-green-600 text-white px-6 py-1 rounded-md" />
                                             </form>
