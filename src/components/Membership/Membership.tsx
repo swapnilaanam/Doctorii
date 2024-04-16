@@ -78,10 +78,10 @@ const Membership = () => {
     }
 
     return (
-        <div className="py-32">
+        <div className="py-20 xl:py-32 px-4 lg:px-12 xl:px-0">
             <h2 className="text-3xl font-semibold text-center text-sky-600 mb-14">Our Membership Package</h2>
             <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:items-center md:gap-8">
+                <div className="grid grid-cols-1 gap-4 xl:grid-cols-3 lg:items-center md:gap-8">
                     <div
                         className="rounded-2xl border border-green-400 p-6 shadow-sm sm:px-8 lg:p-12"
                     >
@@ -101,7 +101,7 @@ const Membership = () => {
                         </div>
 
                         <ul className="mt-6 space-y-2">
-                            <li className="flex items-center gap-1">
+                            <li className="flex md:justify-center xl:justify-normal items-center gap-1">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -120,7 +120,7 @@ const Membership = () => {
                                 <span className="text-gray-700"> Free Access To Emergency Doctor </span>
                             </li>
 
-                            <li className="flex items-center gap-1">
+                            <li className="flex md:justify-center xl:justify-normal items-center gap-1">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -168,7 +168,7 @@ const Membership = () => {
                         </div>
 
                         <ul className="mt-6 space-y-2">
-                            <li className="flex items-center gap-1">
+                            <li className="flex md:justify-center xl:justify-normal items-center gap-1">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -187,7 +187,7 @@ const Membership = () => {
                                 <span className="text-gray-700"> Free Access To Emergency Doctor </span>
                             </li>
 
-                            <li className="flex items-center gap-1">
+                            <li className="flex md:justify-center xl:justify-normal items-center gap-1">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -206,7 +206,7 @@ const Membership = () => {
                                 <span className="text-gray-700"> 5% Discount On Doctor Appointment </span>
                             </li>
 
-                            <li className="flex items-center gap-1">
+                            <li className="flex md:justify-center xl:justify-normal items-center gap-1">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -254,7 +254,7 @@ const Membership = () => {
                         </div>
 
                         <ul className="mt-6 space-y-2">
-                            <li className="flex items-center gap-1">
+                            <li className="flex md:justify-center xl:justify-normal items-center gap-1">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -273,7 +273,7 @@ const Membership = () => {
                                 <span className="text-gray-700"> Free Access To Emergency Doctor </span>
                             </li>
 
-                            <li className="flex items-center gap-1">
+                            <li className="flex md:justify-center xl:justify-normal items-center gap-1">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"

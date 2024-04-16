@@ -72,19 +72,19 @@ const Navbar = () => {
   </>
 
   return (
-    <nav className="bg-sky-600 text-white w-full p-8 flex flex-col md:flex-row justify-between items-center gap-5 md:gap-0">
+    <nav className="bg-sky-600 text-white w-full p-8 flex flex-col lg:flex-row justify-between items-center gap-5 lg:gap-0">
       <div className="w-full flex justify-between items-center">
         <Link href="/">
           <h1 className="text-3xl font-bold">Doctorii</h1>
         </Link>
-        <RiMenu3Fill onClick={() => setIsOpen(!isOpen)} className="text-2xl font-bold md:hidden" />
+        <RiMenu3Fill onClick={() => setIsOpen(!isOpen)} className="text-2xl font-bold lg:hidden" />
       </div>
-      <ul className="hidden md:flex flex-col md:flex-row justify-center items-center gap-7">
+      <ul className="hidden lg:flex flex-col lg:flex-row justify-center items-center gap-7">
             {navItems}
       </ul>
       {
         isOpen && (
-          <ul className="md:hidden mt-2 flex flex-col md:flex-row justify-center items-center gap-7">
+          <ul className="lg:hidden mt-2 md:ms-4 flex flex-col justify-center items-center gap-7">
             {navItems}
           </ul>
         )

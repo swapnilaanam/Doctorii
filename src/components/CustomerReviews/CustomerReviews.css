@@ -20,3 +20,9 @@
     border-radius: 35px;
     padding: 30px;
 }
+
+@media only screen and (max-width: 676px) {
+    .swiper-button-prev {
+        left: 45% !important;
+    }
+}

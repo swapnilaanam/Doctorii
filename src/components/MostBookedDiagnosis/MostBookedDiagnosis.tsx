@@ -30,12 +30,12 @@ const MostBookedDiagnosis = () => {
     });
 
     return (
-        <section className="bg-sky-50 py-20">
+        <section className="bg-sky-50 py-20 relative -top-20 xl:block xl:-top-0">
             <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
                 <div
-                    className="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:justify-between lg:items-center"
+                    className="grid grid-cols-1 gap-y-8 xl:grid-cols-2 lg:justify-between lg:items-center"
                 >
-                    <div className="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
+                    <div className="mx-auto max-w-lg text-center xl:mx-0 ltr:lg:text-left rtl:lg:text-right">
                         <h2 className="text-3xl text-sky-600 font-semibold sm:text-4xl">
                             Most Booked Diagnosis
                         </h2>
@@ -53,7 +53,7 @@ const MostBookedDiagnosis = () => {
                                 No Diagnosis Tests Are Available Now.
                             </h4>
                         ) : (
-                            <div className="grid grid-cols-2 gap-10">
+                            <div className="mt-12 xl:mt-0 grid grid-cols-1 md:grid-cols-2 gap-10">
                                 {
                                     diagnoses.map((diagnosis: TypeDiagnosis) => {
                                         return (
@@ -65,7 +65,7 @@ const MostBookedDiagnosis = () => {
                                                 <p className="hidden sm:mt-1 sm:block sm:text-lg sm:text-black">
                                                     {diagnosis?.diagnosedArea}
                                                 </p>
-                                                <div className="mt-4 flex justify-between items-center gap-2">
+                                                <div className="mt-4 flex flex-col md:flex-row justify-between md:justify-center xl:justify-between items-center gap-2 md:gap-4 lg:gap-7 xl:gap-2">
                                                     <Link
                                                         className="inline-block rounded bg-yellow-400 px-6 py-2 text-sm font-medium text-black transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-sky-500"
                                                         href={`/diagnosis/details/${diagnosis._id}`}

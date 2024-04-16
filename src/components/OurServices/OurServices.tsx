@@ -21,7 +21,7 @@ const OurServices = () => {
                         The services we offer to our customer covers all the parts of medical services.
                     </p>
                 </div>
-                <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3">
                     <div
                         className="hover:cursor-pointer block rounded-xl border border-sky-600 p-7 shadow-xl transition hover:border-pink-500/10 hover:shadow-sky-200 text-center"
                     >
@@ -57,7 +57,7 @@ const OurServices = () => {
                     </div>
                 </div>
 
-                <div className="pt-16 text-center space-x-10">
+                <div className="pt-16 text-center flex flex-col md:flex-row justify-center gap-10">
                     <Link href="/doctors" className="inline-block rounded bg-sky-600 px-12 py-3 text-lg font-medium text-white transition hover:bg-sky-700 focus:outline-none focus:ring focus:ring-green-500"
                     >
                         Find Doctors

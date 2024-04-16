@@ -29,15 +29,15 @@ const HealthBlogs = () => {
     });
 
     return (
-        <section className="py-28 bg-sky-50">
+        <section className="py-28 bg-sky-50 px-4 relative -top-36 xl:block xl:-top-0">
             <h2 className="text-3xl font-semibold text-center text-sky-600">
                 Health Blog
             </h2>
-            <div className="py-20 max-w-7xl mx-auto flex justify-center flex-wrap gap-x-32 gap-y-20">
+            <div className="py-20 px-2 lg:px-0 max-w-7xl mx-auto flex justify-center flex-wrap gap-x-32 gap-y-20 lg:gap-14 xl:gap-x-32 xl:gap-y-20">
                 {
                     healthBlogs.map((healthBlog: HealthBlogType) => {
                         return (
-                            <article key={healthBlog?._id} className="w-[470px] flex bg-white transition hover:shadow-xl border border-gray-200">
+                            <article key={healthBlog?._id} className="w-[470px] lg:w-[430px] xl:w-[470px] flex bg-white transition hover:shadow-xl border border-gray-200">
                                 <div className="hidden sm:block sm:basis-56 relative w-[70%] h-full">
                                     <Image
                                         fill={true}

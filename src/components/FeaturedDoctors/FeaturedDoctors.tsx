@@ -22,7 +22,7 @@ const FeaturedDoctors = () => {
     });
 
     return (
-        <section className="relative -top-14">
+        <section className="relative -top-52 xl:-top-14">
             <div className="max-w-7xl px-4 py-8 mx-auto sm:py-28 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 gap-7 lg:grid-cols-3 lg:items-stretch">
                     <div className="grid p-6 bg-sky-600 rounded place-content-center sm:p-8">
@@ -55,7 +55,7 @@ const FeaturedDoctors = () => {
                                                 <div className="w-full h-96 relative">
                                                     <Image fill={true} src={doctor?.profilePic} alt="Featured Doctor" className="w-full h-full object-cover" />
                                                 </div>
-                                                <div className="mt-4 mx-2 flex justify-between items-center">
+                                                <div className="mt-4 mx-2 flex flex-col md:flex-row lg:flex-col xl:flex-row justify-between items-start md:items-center gap-5 md:gap-0 lg:gap-3 xl:gap-0">
                                                     <div>
                                                         <h3
                                                             className="font-medium text-gray-900"
@@ -65,7 +65,9 @@ const FeaturedDoctors = () => {
                                                         <p>{doctor.doctorRole}</p>
                                                     </div>
 
-                                                    <Link href={`/booking/${doctor._id}`} className="bg-yellow-400 px-4 py-2 text-lg font-medium rounded">Book Appointment</Link>
+                                                    <Link href={`/booking/${doctor._id}`} className="bg-yellow-400 px-2 md:px-4 py-2 text-sm md:text-base lg:text-lg font-medium rounded">
+                                                        Book Appointment
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </li>)

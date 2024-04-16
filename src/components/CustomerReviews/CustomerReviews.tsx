@@ -32,16 +32,16 @@ const CustomerReviews = () => {
   });
 
   return (
-    <section className="bg-white">
+    <section className="bg-white relative -top-48 xl:block xl:-top-0">
       <div
-        className="mx-auto max-w-7xl px-4 pt-8 pb-44 sm:px-6 flex justify-center items-center gap-16"
+        className="mx-auto max-w-7xl px-4 pt-8 pb-44 sm:px-6 lg:px-16 xl:px-6 flex flex-col xl:flex-row justify-center items-center gap-16"
       >
-        <div className="w-full lg:w-2/5">
+        <div className="w-full xl:w-2/5">
           <h2 className="mt-7 text-5xl font-semibold capitalize text-sky-600 tracking-wider">
             Read trusted reviews from our customers
           </h2>
         </div>
-        <div className="w-full lg:w-9/12 flex justify-center !overflow-hidden relative">
+        <div className="w-full xl:w-9/12 flex justify-center !overflow-hidden relative">
           {
             feedbacks?.length === 0 ? (
               <h4 className="text-center text-sky-600 text-2xl font-semibold">
@@ -52,7 +52,7 @@ const CustomerReviews = () => {
                 {
                   feedbacks?.map((feedback) => {
                     return (
-                      <SwiperSlide key={feedback?._id}>
+                      <SwiperSlide key={feedback?._id} className="pt-10 lg:pt-0">
                         <blockquote
                           className="flex h-full flex-col justify-between bg-sky-50 p-12 border-2 border-sky-200 rounded-lg"
                         >
@@ -70,7 +70,7 @@ const CustomerReviews = () => {
                             </div>
                           </div>
 
-                          <footer className="ms-2 mt-8 text-gray-600 tracking-wider">
+                          <footer className="ms-2 mt-7 lg:mt-8 text-gray-600 tracking-wider">
                             <h4 className="text-xl font-medium">- {feedback?.name}</h4>
                             <h4 className="text-xl font-medium">- {feedback?.role}</h4>
                           </footer>
