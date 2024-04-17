@@ -9,13 +9,13 @@ const Footer = () => {
                 </div>
                 <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
                     <li>
-                        <Link href="/" className="text-white font-medium transition hover:text-yellow-300" href="/">
+                        <Link href="/" className="text-white font-medium transition hover:text-yellow-300">
                             Home
                         </Link>
                     </li>
 
                     <li>
-                        <Link href="/about" className="text-white font-medium transition hover:text-yellow-300" href="/about">
+                        <Link href="/about" className="text-white font-medium transition hover:text-yellow-300">
                             About
                         </Link>
                     </li>
