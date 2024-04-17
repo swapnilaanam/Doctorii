@@ -3,7 +3,9 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 type TypeDiagnosis = {
     _id: string,
@@ -29,9 +31,13 @@ const MostBookedDiagnosis = () => {
         }
     });
 
+    useEffect(() => {
+        Aos.init();
+    });
+
     return (
         <section className="bg-sky-50 py-20 relative -top-20 xl:block xl:-top-0">
-            <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+            <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 overflow-hidden">
                 <div
                     className="grid grid-cols-1 gap-y-8 xl:grid-cols-2 lg:justify-between lg:items-center"
                 >
@@ -53,7 +59,11 @@ const MostBookedDiagnosis = () => {
                                 No Diagnosis Tests Are Available Now.
                             </h4>
                         ) : (
-                            <div className="mt-12 xl:mt-0 grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div className="mt-12 xl:mt-0 grid grid-cols-1 md:grid-cols-2 gap-10"
+                            data-aos="zoom-in-left"
+                            data-aos-offset="200"
+                            data-aos-ease="ease-in-cubic"
+                            >
                                 {
                                     diagnoses.map((diagnosis: TypeDiagnosis) => {
                                         return (

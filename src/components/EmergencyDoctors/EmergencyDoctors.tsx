@@ -36,9 +36,9 @@ const EmergencyDoctors = () => {
             <div className="w-full" >
                 <Image src={wave} alt="wave" className="w-full h-[1000px] xl:h-[500px] object-cover" />
                 <div className="w-full absolute top-72 md:top-80 xl:top-32 px-4 md:px-20">
-                    <h2 className="text-2xl md:text-3xl font-semibold text-white mt-20 flex items-center gap-4">
+                    <h2 className="text-2xl md:text-3xl font-semibold text-white mt-20 flex items-center gap-5">
                         <span>Emergency Doctors</span>
-                        <FaStarOfLife  className="text-xl md:text-2xl text-yellow-300 mt-0.5"/>
+                        <FaStarOfLife  className="animate-[ping_2s_linear_infinite] text-xs md:text-sm text-yellow-300 mt-0.5"/>
                     </h2>
                     <div className="my-14 md:my-20 lg:my-24 xl:my-14 h-full flex justify-center flex-wrap gap-y-10 gap-x-16 md:gap-20 xl:gap-12 mac:gap-20">
                         {emergencyDoctors.length === 0 ? <h2 className="text-center text-2xl md:text-3xl font-medium text-white">

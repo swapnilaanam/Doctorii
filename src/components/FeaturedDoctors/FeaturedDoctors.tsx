@@ -4,6 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 const FeaturedDoctors = () => {
 
@@ -21,9 +24,13 @@ const FeaturedDoctors = () => {
         }
     });
 
+    useEffect(() => {
+        Aos.init();
+    }, []);
+
     return (
         <section className="relative -top-52 xl:-top-14">
-            <div className="max-w-7xl px-4 py-8 mx-auto sm:py-28 sm:px-6 lg:px-8">
+            <div className="max-w-7xl px-4 py-8 mx-auto sm:py-28 sm:px-6 lg:px-8 overflow-hidden">
                 <div className="grid grid-cols-1 gap-7 lg:grid-cols-3 lg:items-stretch">
                     <div className="grid p-6 bg-sky-600 rounded place-content-center sm:p-8">
                         <div className="max-w-md mx-auto text-center lg:text-left">
@@ -51,7 +58,10 @@ const FeaturedDoctors = () => {
                                 < ul className="grid grid-cols-2 gap-7">
                                     {
                                         doctors.map((doctor) => <li key={doctor._id}>
-                                            <div className="block group cursor-pointer">
+                                            <div className="block group cursor-pointer"
+                                            data-aos="zoom-in-up" 
+                                            data-aos-easing="linear"
+                                            >
                                                 <div className="w-full h-96 relative">
                                                     <Image fill={true} src={doctor?.profilePic} alt="Featured Doctor" className="w-full h-full object-cover" />
                                                 </div>

@@ -5,12 +5,21 @@ import appointmentAnimation from '../../../public/animation/appointment.json';
 import diagnosisAnimation from '../../../public/animation/diagnosis.json';
 import emergencyAnimation from '../../../public/animation/emergency-doctor.json';
 import Link from 'next/link';
+import { useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 
 const OurServices = () => {
+
+    useEffect(() => {
+        Aos.init();
+    }, []);
+
     return (
         <section className="bg-white text-black relative -top-28">
             <div
-                className="mx-auto max-w-7xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8"
+                className="mx-auto max-w-7xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8 overflow-hidden"
             >
                 <div className="mx-auto text-center">
                     <h2 className="text-3xl text-sky-600 font-semibold sm:text-4xl">
@@ -23,7 +32,9 @@ const OurServices = () => {
                 </div>
                 <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3">
                     <div
-                        className="hover:cursor-pointer block rounded-xl border border-sky-600 p-7 shadow-xl transition hover:border-pink-500/10 hover:shadow-sky-200 text-center"
+                        className="hover:cursor-pointer block rounded-xl border border-sky-600 p-7 shadow-xl transition hover:border-pink-500/10 hover:shadow-sky-200 text-center" 
+                        data-aos="zoom-out-up"      
+                        data-aos-easing="linear"
                     >
                         <div className="flex justify-center">
                             <Lottie animationData={appointmentAnimation} loop={true} className="w-28 h-28" />
@@ -35,6 +46,8 @@ const OurServices = () => {
                     </div>
                     <div
                         className="hover:cursor-pointer block rounded-xl border border-sky-600 p-7 shadow-xl transition hover:border-pink-500/10 hover:shadow-sky-200 text-center"
+                        data-aos="zoom-out-up"      
+                        data-aos-easing="linear"
                     >
                         <div className="flex justify-center">
                             <Lottie animationData={diagnosisAnimation} loop={true} className="w-28 h-28" />
@@ -46,6 +59,8 @@ const OurServices = () => {
                     </div>
                     <div
                         className="hover:cursor-pointer block rounded-xl border border-sky-600 p-7 shadow-xl transition hover:border-pink-500/10 hover:shadow-sky-200 text-center"
+                        data-aos="zoom-out-up"      
+                        data-aos-easing="linear"
                     >
                         <div className="flex justify-center">
                             <Lottie animationData={emergencyAnimation} loop={true} className="w-28 h-28" />

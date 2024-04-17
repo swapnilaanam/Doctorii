@@ -4,12 +4,19 @@ import useIsPatient from "@/hooks/useIsPatient";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 const Membership = () => {
 
     const [isPatient, isPatientLoading] = useIsPatient();
     const session = useSession();
     const router = useRouter();
+
+    useEffect(() => {
+        Aos.init();
+    }, []);
 
     const handleBecomeMember = (planName, planPrice) => {
         if(!(session?.data?.user)) {
@@ -84,6 +91,8 @@ const Membership = () => {
                 <div className="grid grid-cols-1 gap-4 xl:grid-cols-3 lg:items-center md:gap-8">
                     <div
                         className="rounded-2xl border border-green-400 p-6 shadow-sm sm:px-8 lg:p-12"
+                        data-aos="zoom-in"
+                        data-aos-ease="linear"
                     >
                         <div className="text-center">
                             <h2 className="text-3xl font-semibold text-green-600">
@@ -151,6 +160,8 @@ const Membership = () => {
                     </div>
                     <div
                         className="rounded-2xl border border-sky-300 p-6 shadow-sm ring-1 ring-indigo-600 sm:px-8 lg:p-12"
+                        data-aos="zoom-in"
+                        data-aos-ease="linear"
                     >
                         <div className="text-center">
                             <h2 className="text-3xl font-semibold text-green-600">
@@ -237,6 +248,8 @@ const Membership = () => {
                     </div>
                     <div
                         className="rounded-2xl border border-green-400 p-6 shadow-sm sm:px-8 lg:p-12"
+                        data-aos="zoom-in"
+                        data-aos-ease="linear"
                     >
                         <div className="text-center">
                             <h2 className="text-3xl font-semibold text-green-600">
