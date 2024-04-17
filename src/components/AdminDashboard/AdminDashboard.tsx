@@ -95,67 +95,67 @@ const AdminDashboard = () => {
     });
 
     return (
-        <section className="py-20 bg-gray-100">
+        <section className="py-20 px-4 bg-gray-100">
             <div className="max-w-7xl mx-auto min-h-screen">
-                <h2 className="text-center text-4xl font-bold pb-20">Admin Dashboard</h2>
+                <h2 className="text-center text-3xl md:text-4xl font-bold pb-20">Admin Dashboard</h2>
                 <div className="flex flex-wrap justify-center items-center gap-20">
-                    <div className="bg-sky-600 text-white w-[400px] h-40 text-3xl font-semibold flex justify-center items-center rounded hover:bg-sky-700 hover:cursor-pointer">
+                    <div className="bg-sky-600 text-white w-[400px] h-40 text-2xl md:text-3xl font-semibold flex flex-col md:flex-row justify-center items-center rounded hover:bg-sky-700 hover:cursor-pointer">
                         <span>
                             {
                                 doctors?.length
                             }
                         </span>
-                        <span className="ms-4">
+                        <span className="md:ms-4">
                             Registered Doctors
                         </span>
                     </div>
-                    <div className="bg-green-600 text-white w-[400px] h-40 text-3xl font-semibold flex justify-center items-center rounded hover:bg-green-700 hover:cursor-pointer">
+                    <div className="bg-green-600 text-white w-[400px] h-40 text-2xl md:text-3xl font-semibold flex flex-col md:flex-row justify-center items-center rounded hover:bg-green-700 hover:cursor-pointer">
                         <span>
                             {
                                 patients?.length
                             }
                         </span>
-                        <span className="ms-4">
+                        <span className="md:ms-4">
                             Registered Patients
                         </span>
                     </div>
-                    <div className="bg-yellow-400 w-[400px] text-gray-800 h-40 text-3xl font-semibold flex justify-center items-center rounded hover:bg-yellow-500 hover:cursor-pointer">
+                    <div className="bg-yellow-400 w-[400px] text-gray-800 h-40 text-2xl md:text-3xl font-semibold flex flex-col md:flex-row justify-center items-center rounded hover:bg-yellow-500 hover:cursor-pointer">
                         <span>
                             {
                                 emergencyDoctors?.length
                             }
                         </span>
-                        <span className="ms-4">
+                        <span className="md:ms-4">
                             Emergency Doctors
                         </span>
                     </div>
-                    <div className="bg-sky-600 text-white w-[400px] h-40 text-3xl font-semibold flex justify-center items-center rounded hover:bg-sky-700 hover:cursor-pointer">
+                    <div className="bg-sky-600 text-white w-[400px] h-40 text-2xl md:text-3xl font-semibold flex flex-col md:flex-row justify-center items-center rounded hover:bg-sky-700 hover:cursor-pointer">
                         <span>
                             {
                                 memberships?.length
                             }
                         </span>
-                        <span className="ms-4">
+                        <span className="md:ms-4">
                             Membership Patients
                         </span>
                     </div>
-                    <div className="bg-green-600 text-white w-[400px] h-40 text-3xl font-semibold flex justify-center items-center rounded hover:bg-green-700 hover:cursor-pointer">
+                    <div className="bg-green-600 text-white w-[400px] h-40 text-2xl md:text-3xl font-semibold flex flex-col md:flex-row justify-center items-center rounded hover:bg-green-700 hover:cursor-pointer">
                         <span>
                             {
                                 appointments?.length
                             }
                         </span>
-                        <span className="ms-4">
+                        <span className="md:ms-4">
                             Booked Appointments
                         </span>
                     </div>
-                    <div className="bg-yellow-400 text-gray-800 w-[400px] h-40 text-3xl font-semibold flex justify-center items-center rounded hover:bg-yellow-500 hover:cursor-pointer">
+                    <div className="bg-yellow-400 text-gray-800 w-[400px] h-40 text-2xl md:text-3xl font-semibold flex flex-col md:flex-row justify-center items-center rounded hover:bg-yellow-500 hover:cursor-pointer">
                         <span>
                             {
                                 bookedDiagnoses?.length
                             }
                         </span>
-                        <span className="ms-4">
+                        <span className="md:ms-4">
                             Booked Diagnoses
                         </span>
                     </div>

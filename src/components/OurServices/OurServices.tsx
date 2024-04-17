@@ -58,11 +58,11 @@ const OurServices = () => {
                 </div>
 
                 <div className="pt-16 text-center flex flex-col md:flex-row justify-center gap-10">
-                    <Link href="/doctors" className="inline-block rounded bg-sky-600 px-12 py-3 text-lg font-medium text-white transition hover:bg-sky-700 focus:outline-none focus:ring focus:ring-green-500"
+                    <Link href="/doctors" className="relative z-40 rounded bg-sky-600 px-12 py-3 text-lg font-medium text-white transition hover:bg-sky-700 focus:outline-none focus:ring focus:ring-green-500"
                     >
                         Find Doctors
                     </Link>
-                    <Link href="/diagnosis" className="inline-block rounded bg-green-600 px-12 py-3 text-lg font-medium text-white transition hover:bg-green-700 focus:outline-none focus:ring focus:ring-green-500"
+                    <Link href="/diagnosis" className="relative z-40 rounded bg-green-600 px-12 py-3 text-lg font-medium text-white transition hover:bg-green-700 focus:outline-none focus:ring focus:ring-green-500"
                     >
                         Find Diagnosis
                     </Link>

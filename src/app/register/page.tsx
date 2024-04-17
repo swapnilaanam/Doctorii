@@ -81,12 +81,12 @@ const Register = () => {
     }
 
     return (
-        <div className="w-full min-h-screen flex justify-center">
-            <div className="bg-white w-1/2 pt-10 flex flex-col items-center">
-                <h4 className="text-4xl font-medium text-sky-600 tracking-wider">Register</h4>
+        <div className="w-full min-h-screen flex flex-col lg:flex-row justify-center items-center lg:items-stretch">
+            <div className="bg-white w-full lg:w-1/2 pt-10 flex flex-col items-center justify-center">
+                <h4 className="text-3xl lg:text-4xl font-medium text-sky-600 tracking-wider">Register</h4>
                 <div className="mt-12">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div>
+                        <div className="mx-4 lg:mx-0">
                             <label
                                 htmlFor="name"
                                 className="relative block rounded-md border-2 border-gray-200 shadow-md focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
@@ -95,7 +95,7 @@ const Register = () => {
                                     type="text"
                                     id="name"
                                     {...register("name", { required: true })}
-                                    className="w-[450px] h-14 ps-2 peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+                                    className="w-full lg:w-[450px] h-14 ps-2 peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
                                     placeholder="name"
                                 />
 
@@ -108,7 +108,7 @@ const Register = () => {
                             {errors.name && <span className="mt-2 text-red-700">Name field is required</span>}
                         </div>
 
-                        <div className="mt-8">
+                        <div className="mt-8 mx-4 lg:mx-0">
                             <label
                                 htmlFor="email"
                                 className="relative block rounded-md border-2 border-gray-200 shadow-md focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
@@ -117,7 +117,7 @@ const Register = () => {
                                     type="text"
                                     id="email"
                                     {...register("email", { required: true })}
-                                    className="w-[450px] h-14 ps-2 peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+                                    className="w-full lg:w-[450px] h-14 ps-2 peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
                                     placeholder="email"
                                 />
 
@@ -130,7 +130,7 @@ const Register = () => {
                             {errors.email && <span className="mt-2 text-red-700">Email field is required</span>}
                         </div>
 
-                        <div className="mt-8">
+                        <div className="mt-8 mx-4 lg:mx-0">
                             <label
                                 htmlFor="password"
                                 className="relative block rounded-md border-2 border-gray-200 shadow-md focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
@@ -139,7 +139,7 @@ const Register = () => {
                                     type="password"
                                     id="password"
                                     {...register("password", { required: true })}
-                                    className="w-[450px] h-14 ps-2 peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+                                    className="w-full lg:w-[450px] h-14 ps-2 peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
                                     placeholder="password"
                                 />
 
@@ -152,7 +152,7 @@ const Register = () => {
                             {errors.password && <span className="mt-2 text-red-700">Password field is required</span>}
                         </div>
 
-                        <div className="mt-8">
+                        <div className="mt-8 mx-4 lg:mx-0">
                             <label
                                 htmlFor="profilepic"
                                 className="block overflow-hidden rounded-md border border-gray-200 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
@@ -169,7 +169,7 @@ const Register = () => {
                             {errors.profilepic && <span className="mt-2 text-red-700">Profile Picture field is required</span>}
                         </div>
 
-                        <div className="mt-8">
+                        <div className="mt-8 mx-4 lg:mx-4">
                             <fieldset className="grid grid-cols-2 gap-7">
                                 {/* <legend className="sr-only">Role</legend> */}
 
@@ -242,7 +242,7 @@ const Register = () => {
 
                         <div className="mt-10 flex justify-center items-center">
                             <button
-                                className="group relative inline-block overflow-hidden border-2 border-sky-600 px-40 py-2.5 focus:outline-none focus:ring"
+                                className="group relative inline-block overflow-hidden border-2 border-sky-600 px-36 lg:px-40 py-2.5 focus:outline-none focus:ring"
                                 type="submit"
                             >
                                 <span
@@ -258,13 +258,13 @@ const Register = () => {
                         </div>
                     </form>
 
-                    <div className="flex justify-center items-center mt-7 text-xl">
+                    <div className="flex justify-center items-center mt-7 mb-12 text-xl">
                         <h4>Already Have An Account?</h4>
                         <Link href="/login" className="text-sky-600 font-medium ms-2">Login.</Link>
                     </div>
                 </div>
             </div>
-            <div className="bg-sky-600 w-1/2 flex justify-center items-center">
+            <div className="bg-sky-600 w-full lg:w-1/2 flex justify-center items-center">
                 <Lottie animationData={authAnimation} loop={true} className="h-[90%]" />
             </div>
         </div>

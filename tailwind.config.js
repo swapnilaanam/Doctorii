@@ -12,6 +12,9 @@ module.exports = {
     extend: {
       fontFamily: {
         karla: "var(--font-karla)"
+      },
+      screens: {
+        'mac': '1360px'
       }
     }
   },

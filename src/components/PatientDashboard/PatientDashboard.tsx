@@ -51,9 +51,9 @@ const PatientDashboard = () => {
     });
     return (
         <div className="py-20 bg-gray-100 w-full min-h-screen">
-            <h2 className="text-4xl font-semibold text-center">Patient Dashboard</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold text-center">Patient Dashboard</h2>
             <div className="max-w-5xl mx-auto mt-14">
-                <div className="flex justify-center items-center gap-12 pb-20 flex-wrap">
+                <div className="flex justify-center items-center gap-12 pb-20 flex-wrap lg:px-4">
                     <div className="bg-sky-600 text-white w-72 h-36 text-3xl font-semibold flex justify-center items-center rounded hover:bg-sky-700 hover:cursor-pointer">
                         <span>
                             {
@@ -93,15 +93,15 @@ const PatientDashboard = () => {
                 </div>
                 <h4 className="text-3xl font-semibold text-center mb-12">Account Details</h4>
                 <div className="space-y-7">
-                    <div className="flex gap-5 text-2xl ml-20">
+                    <div className="flex flex-col md:flex-row justify-center md:justify-normal items-center gap-2 md:gap-5 text-xl md:text-2xl md:ml-20">
                         <h4>Name: </h4>
                         <h4><strong>{user.name}</strong></h4>
                     </div>
-                    <div className="flex gap-5 text-2xl ml-20">
+                    <div className="flex flex-col md:flex-row justify-center md:justify-normal items-center gap-2 md:gap-5 text-xl md:text-2xl md:ml-20">
                         <h4>Email: </h4>
                         <h4><strong>{user.email}</strong></h4>
                     </div>
-                    <div className="flex gap-9 text-2xl ml-20">
+                    <div className="flex justify-center md:justify-normal gap-2 md:gap-9 text-xl md:text-2xl md:ml-20">
                         <h4>Role: </h4>
                         <h4><strong>{user.role}</strong></h4>
                     </div>

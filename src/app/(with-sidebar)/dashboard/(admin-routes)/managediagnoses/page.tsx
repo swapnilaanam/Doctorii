@@ -78,7 +78,7 @@ const ManageDiagnoses = () => {
 
 
     return (
-        <section className="w-full min-h-screen bg-gray-100">
+        <section className="px-4 w-full min-h-screen bg-gray-100">
             <h2 className="text-2xl font-semibold text-center pt-14">Manage Diagnoses</h2>
             <div className="max-w-7xl mx-auto mt-14 flex flex-wrap justify-center items-center gap-12">
                 <div className="overflow-x-auto">

@@ -136,12 +136,12 @@ const AddEmergencyDoctor = () => {
 
 
     return (
-        <div className="py-20 w-full min-h-screen bg-gray-100">
+        <div className="py-20 px-4 w-full min-h-screen bg-gray-100">
             <div className="flex justify-center">
                 <button
                     type="button"
                     onClick={openModal}
-                    className="bg-sky-500 px-4 py-2 text-white text-lg font-medium rounded-sm flex justify-center items-center gap-3">
+                    className="bg-sky-500 px-4 py-2 text-white text-base md:text-lg font-medium rounded-sm flex justify-center items-center gap-3">
                     <span>Add New Emergency Doctor </span>
                     <BiMessageSquareAdd />
                 </button>

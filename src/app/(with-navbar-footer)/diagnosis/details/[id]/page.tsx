@@ -24,8 +24,8 @@ const DiagnosisDetails = () => {
     });
 
     return (
-        <section className="py-28 max-w-5xl mx-auto mb-28">
-            <div className="bg-sky-100 p-14 flex justify-center items-start">
+        <section className="py-28 px-4 max-w-5xl mx-auto md:mb-28">
+            <div className="bg-sky-100 p-7 md:p-14 flex flex-col md:flex-row justify-center items-start gap-3 md:gap-0">
                 <div className="space-y-4 flex-1">
                     <h2 className="text-xl font-semibold">
                         Diagnosis Name:

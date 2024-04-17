@@ -22,13 +22,13 @@ const HomeBanner = () => {
 
                     <div className="mt-10 flex flex-wrap justify-center gap-7">
                         <Link href="/doctors"
-                            className="block w-full rounded bg-sky-600 px-14 py-3 text-xl font-medium text-white shadow hover:bg-sky-700 focus:outline-none focus:ring active:bg-sky-600 sm:w-auto"
+                            className="relative z-40 w-full rounded bg-sky-600 px-14 py-3 text-xl font-medium text-white shadow hover:bg-sky-700 focus:outline-none focus:ring active:bg-sky-600 sm:w-auto"
                         >
                             Doctors
                         </Link>
 
                         <Link
-                            className="block w-full rounded bg-green-600 hover:bg-green-700 px-14 py-3 text-xl font-medium text-white shadow hover:text-gray-200 focus:outline-none focus:ring active:text-white sm:w-auto"
+                            className="relative z-40 w-full rounded bg-green-600 hover:bg-green-700 px-14 py-3 text-xl font-medium text-white shadow hover:text-gray-200 focus:outline-none focus:ring active:text-white sm:w-auto"
                             href="/diagnosis"
                         >
                             Diagnosis
@@ -37,7 +37,7 @@ const HomeBanner = () => {
                 </div>
             </div>
             <div className="py-5 lg:py-0 w-full xl:w-1/2">
-                <Lottie animationData={bannerAnimation} loop={true} className="h-full xl:min-h-[600px]" />
+                <Lottie animationData={bannerAnimation} loop={true} className="h-full mac:min-h-[600px]" />
             </div>
         </section>
     );

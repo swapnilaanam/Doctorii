@@ -138,7 +138,7 @@ const AddSchedule = () => {
     }
 
     return (
-        <div className="py-20 w-full min-h-screen bg-gray-100">
+        <div className="py-20 px-4 w-full min-h-screen bg-gray-100">
             <div className="flex justify-center">
                 <button
                     type="button"
@@ -286,13 +286,13 @@ const AddSchedule = () => {
                                             <p className="text-base font-semibold uppercase tracking-widest text-sky-600">
                                                 Slot
                                             </p>
-                                            <button onClick={() => handleDeleteSchedule(timeSlot.scheduleTime)} className="bg-red-600 text-white px-4 py-1 text-lg rounded-sm">Delete</button>
+                                            <button onClick={() => handleDeleteSchedule(timeSlot.scheduleTime)} className="bg-red-600 text-white px-2 md:px-4 py-1 text-lg rounded-sm">Delete</button>
                                         </div>
 
                                         <p className="text-xl font-bold text-black sm:text-2xl">{timeSlot.scheduleTime}</p>
                                         <p className="text-xl font-medium text-sky-600 sm:text-base mt-3 tracking-wider">Price: <strong className="ms-1">$ {timeSlot.price}</strong></p>
 
-                                        <div className="mt-2 sm:mt-4 lg:mt-12">
+                                        <div className="mt-8 sm:mt-4 lg:mt-12">
                                             <div
                                                 className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
                                             >

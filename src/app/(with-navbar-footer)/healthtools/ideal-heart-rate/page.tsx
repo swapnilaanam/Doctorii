@@ -32,7 +32,7 @@ const IdealHeartRate = () => {
     }
 
     return (
-        <section>
+        <section className="px-4 py-4 md:px-0 md:py-0">
             <HealthtoolsBanner title="Ideal Heart Rate Teller" />
             <div>
                 <h1 className="text-4xl text-center font-medium py-16">Ideal Heart Rate Teller</h1>
@@ -51,16 +51,16 @@ const IdealHeartRate = () => {
                     {
                         maxHeartRateValue !== 0 && (
                             <>
-                                <h4 className="text-2xl text-green-600 font-medium">
+                                <h4 className="text-lg md:text-2xl text-center text-green-600 font-medium">
                                     Your Ideal Max Heart Rate: {maxHeartRateValue}
                                 </h4>
-                                <h4 className="text-2xl text-green-600 font-medium">
+                                <h4 className="text-lg md:text-2xl text-center text-green-600 font-medium">
                                     Your Ideal Low Intensity Excercise Heart Rate Range: {lowIntensityRangeLow} - {lowIntensityRangeHigh}
                                 </h4>
-                                <h4 className="text-2xl text-green-600 font-medium">
+                                <h4 className="text-lg md:text-2xl text-center text-green-600 font-medium">
                                     Your Ideal Mid Intensity Excercise Heart Rate Range: {midIntensityRangeLow} - {midIntensityRangeHigh}
                                 </h4>
-                                <h4 className="text-2xl text-green-600 font-medium">
+                                <h4 className="text-lg md:text-2xl text-center text-green-600 font-medium">
                                     Your Ideal High Intensity Excercise Heart Rate Range: {highIntensityRangeLow} - {highIntensityRangeHigh}
                                 </h4>
                             </>

@@ -66,7 +66,7 @@ const CategoryDoctors = () => {
       <h2 className="text-center text-3xl font-semibold text-sky-600">
         {doctorCategory}
       </h2>
-      <div className="max-w-7xl mx-auto py-16 flex justify-center items-center gap-7">
+      <div className="max-w-7xl mx-auto py-16 flex justify-center items-center flex-wrap gap-16 md:gap-7">
         {
           doctors?.length === 0 ? (
             <h4 className="text-center text-2xl font-semibold">No {doctorCategory} Are Available Now...</h4>

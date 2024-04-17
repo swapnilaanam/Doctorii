@@ -16,7 +16,7 @@ const QuickServices = () => {
                         <span>Quick Health Tools</span>
                         <TbToolsOff className="text-xl lg:text-2xl md:mt-0.5" />
                     </h2>
-                    <div className="my-14 h-full flex flex-col lg:flex-row lg:flex-wrap justify-center items-center gap-20">
+                    <div className="my-14 h-full flex flex-col lg:flex-row lg:flex-wrap justify-center items-center gap-20 xl:gap-10 mac:gap-20">
                         <Link href='/healthtools/bmi-calculator'>
                             <div className="bg-white flex flex-col justify-center items-center gap-3 w-[338px] py-4 rounded shadow-sm">
                                 <div className="relative w-32 h-32">

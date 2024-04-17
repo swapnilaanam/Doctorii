@@ -56,16 +56,16 @@ const Login = () => {
     }
 
     return (
-        <div className="w-full min-h-screen flex justify-center">
-            <div className="bg-sky-600 w-1/2 flex justify-center items-center">
+        <div className="w-full min-h-screen flex flex-col lg:flex-row justify-center items-center lg:items-stretch">
+            <div className="bg-sky-600 w-full lg:w-1/2 flex justify-center items-center">
                 <Lottie animationData={authAnimation} loop={true} className="h-[90%]" />
             </div>
-            <div className="bg-white w-1/2 pt-16 flex flex-col items-center">
-                <h1 className="text-4xl text-sky-600 font-semibold tracking-wider">Welcome To Doctorii</h1>
-                <h4 className="mt-5 text-4xl font-medium text-sky-600 tracking-wider">Login</h4>
+            <div className="bg-white w-full lg:w-1/2 pt-16 flex flex-col items-center justify-center">
+                <h1 className="text-3xl md:text-4xl text-center text-sky-600 font-semibold tracking-wider">Welcome To Doctorii</h1>
+                <h4 className="mt-5 text-3xl md:text-4xl font-medium text-sky-600 tracking-wider">Login</h4>
                 <div className="mt-12">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div>
+                        <div className="mx-4 lg:mx-0">
                             <label
                                 htmlFor="email"
                                 className="relative block rounded-md border-2 border-gray-200 shadow-md focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
@@ -74,7 +74,7 @@ const Login = () => {
                                     type="text"
                                     id="email"
                                     {...register("email", { required: true })}
-                                    className="w-[450px] h-14 ps-2 peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+                                    className="w-full lg:w-[450px] h-14 ps-2 peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
                                     placeholder="email"
                                 />
 
@@ -87,7 +87,7 @@ const Login = () => {
                             {errors.email && <span className="mt-2 text-red-700">Email field is required</span>}
                         </div>
 
-                        <div className="mt-8">
+                        <div className="mt-8 mx-4 lg:mx-0">
                             <label
                                 htmlFor="password"
                                 className="relative block rounded-md border-2 border-gray-200 shadow-md focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
@@ -96,7 +96,7 @@ const Login = () => {
                                     type="password"
                                     id="password"
                                     {...register("password", { required: true })}
-                                    className="w-[450px] h-14 ps-2 peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+                                    className="w-full lg:w-[450px] h-14 ps-2 peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
                                     placeholder="password"
                                 />
 
@@ -110,7 +110,7 @@ const Login = () => {
                         </div>
                         <div className="mt-10 flex justify-center items-center">
                             <button
-                                className="group relative inline-block overflow-hidden border-2 border-sky-600 px-40 py-2.5 focus:outline-none focus:ring"
+                                className="group relative inline-block overflow-hidden border-2 border-sky-600 px-36 lg:px-40 py-2.5 focus:outline-none focus:ring"
                                 type="submit"
                             >
                                 <span
@@ -144,7 +144,7 @@ const Login = () => {
                         </button>
                         <p className="text-red-700 mt-4">** Google Login For Doctor Not Allowed...</p>
                     </div>
-                    <div className="flex justify-center items-center mt-7 text-xl">
+                    <div className="flex justify-center items-center mt-7 mb-10 text-xl">
                         <h4>{`Doesn't`} Have An Account?</h4>
                         <Link href="/register" className="text-sky-600 font-medium ms-2">Register.</Link>
                     </div>

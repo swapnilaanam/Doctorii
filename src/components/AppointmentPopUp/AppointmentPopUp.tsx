@@ -63,19 +63,19 @@ const AppointmentPopUp = ({ appointmentInfo, setIsModalOpen, user, refetch }: { 
     };
 
     return (
-        <div className="bg-sky-50 mt-20 max-w-2xl mx-auto p-14 absolute top-0 left-0 right-0 z-10 rounded shadow-lg shadow-blue-200 border-2 border-blue-500">
+        <div className="bg-sky-50 mt-20 max-w-2xl mx-4 md:mx-auto p-10 md:p-14 absolute top-0 left-0 right-0 z-10 rounded shadow-lg shadow-blue-200 border-2 border-blue-500">
             <div>
-                <h2 className="text-2xl text-center font-medium mb-10">Appointment Info</h2>
+                <h2 className="text-xl md:text-2xl text-center font-medium mb-10">Appointment Info</h2>
                 {
                     user === 'doctor' && (
                         <>
-                            <div className="flex justify-between items-center mt-7">
-                                <h4 className="text-xl font-medium">Patient Name:</h4>
-                                <p className="text-lg font-medium">{appointmentInfo?.patientName}</p>
+                            <div className="flex justify-center md:justify-between items-center mt-7 gap-3 md:gap-0">
+                                <h4 className="text-sm md:text-xl font-medium">Patient Name:</h4>
+                                <p className="text-sm md:text-lg font-medium">{appointmentInfo?.patientName}</p>
                             </div>
-                            <div className="flex justify-between items-center mt-7">
-                                <h4 className="text-xl font-medium">Patient Email:</h4>
-                                <p className="text-lg font-medium">{appointmentInfo?.patientEmail}</p>
+                            <div className="flex justify-center md:justify-between items-center mt-7">
+                                <h4 className="text-sm md:text-xl font-medium">Patient Email:</h4>
+                                <p className="text-sm md:text-lg font-medium">{appointmentInfo?.patientEmail}</p>
                             </div>
                         </>
                     )
@@ -83,36 +83,36 @@ const AppointmentPopUp = ({ appointmentInfo, setIsModalOpen, user, refetch }: { 
                 {
                     user === 'patient' && (
                         <>
-                            <div className="flex justify-between items-center mt-7">
-                                <h4 className="text-xl font-medium">Doctor Name:</h4>
-                                <p className="text-lg font-medium">{appointmentInfo?.doctorName}</p>
+                            <div className="flex justify-center md:justify-between items-center mt-7 gap-3 md:gap-0">
+                                <h4 className="text-sm md:text-xl font-medium">Doctor Name:</h4>
+                                <p className="text-sm md:text-lg font-medium">{appointmentInfo?.doctorName}</p>
                             </div>
-                            <div className="flex justify-between items-center mt-7">
-                                <h4 className="text-xl font-medium">Doctor Email:</h4>
-                                <p className="text-lg font-medium">{appointmentInfo?.doctorEmail}</p>
+                            <div className="flex justify-center md:justify-between items-center mt-7 gap-3 md:gap-0">
+                                <h4 className="text-sm md:text-xl font-medium">Doctor Email:</h4>
+                                <p className="text-sm md:text-lg font-medium">{appointmentInfo?.doctorEmail}</p>
                             </div>
                         </>
                     )
                 }
-                <div className="flex justify-between items-center mt-7">
-                    <h4 className="text-xl font-medium">Time:</h4>
-                    <p className="text-lg font-medium">{appointmentInfo?.scheduleTime}</p>
+                <div className="flex justify-center md:justify-between items-center mt-7 gap-3 md:gap-0">
+                    <h4 className="text-sm md:text-xl font-medium">Time:</h4>
+                    <p className="text-sm md:text-lg font-medium">{appointmentInfo?.scheduleTime}</p>
                 </div>
-                <div className="flex justify-between items-center mt-7">
-                    <h4 className="text-xl font-medium">Date:</h4>
-                    <p className="text-lg font-medium">{appointmentInfo?.scheduleDate}</p>
+                <div className="flex justify-center md:justify-between items-center mt-7 gap-3 md:gap-0">
+                    <h4 className="text-sm md:text-xl font-medium">Date:</h4>
+                    <p className="text-sm md:text-lg font-medium">{appointmentInfo?.scheduleDate}</p>
                 </div>
-                <div className="flex justify-between items-center mt-7">
-                    <h4 className="text-xl font-medium">Ticket Price:</h4>
-                    <p className="text-lg font-medium">${appointmentInfo?.ticketPrice}</p>
+                <div className="flex justify-center md:justify-between items-center mt-7 gap-3 md:gap-0">
+                    <h4 className="text-sm md:text-xl font-medium">Ticket Price:</h4>
+                    <p className="text-sm md:text-lg font-medium">${appointmentInfo?.ticketPrice}</p>
                 </div>
-                <div className="flex justify-between items-center mt-7">
-                    <h4 className="text-xl font-medium">Appointment Status:</h4>
-                    <p className="text-lg font-medium">{appointmentInfo?.isAppointmentCompleted}</p>
+                <div className="flex justify-center md:justify-between items-center mt-7 gap-3 md:gap-0">
+                    <h4 className="text-sm md:text-xl font-medium">Appointment Status:</h4>
+                    <p className="text-sm md:text-lg font-medium">{appointmentInfo?.isAppointmentCompleted}</p>
                 </div>
-                <div className="flex justify-between items-center mt-7">
-                    <h4 className="text-xl font-medium">Chamber Location:</h4>
-                    <p className="text-lg font-medium">{doctorInfo?.chamberLocation}</p>
+                <div className="flex justify-center md:justify-between items-center mt-7 gap-3 md:gap-0">
+                    <h4 className="text-sm md:text-xl font-medium">Chamber Location:</h4>
+                    <p className="text-sm md:text-lg font-medium">{doctorInfo?.chamberLocation}</p>
                 </div>
             </div>
             {
@@ -152,7 +152,7 @@ const AppointmentPopUp = ({ appointmentInfo, setIsModalOpen, user, refetch }: { 
                 )
             }
             <button
-                className="inline-block rounded-full border border-red-500 bg-red-600 px-5 py-3 text-white hover:bg-white hover:text-yellow-500 focus:outline-none focus:ring active:text-yellow-500 absolute top-5 right-5"
+                className="inline-block rounded-full border border-red-500 bg-red-600 px-5 py-3 text-white hover:bg-white hover:text-yellow-500 focus:outline-none focus:ring active:text-yellow-500 absolute top-2 right-2 md:top-5 md:right-5"
                 onClick={() => setIsModalOpen(false)}
             >
                 <span className="sr-only"> Close </span>

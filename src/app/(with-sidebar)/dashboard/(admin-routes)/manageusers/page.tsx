@@ -39,7 +39,7 @@ const ManageUsers = () => {
     };
 
     return (
-        <div className="py-20 w-full min-h-screen bg-gray-100">
+        <div className="py-20 px-4 w-full min-h-screen bg-gray-100">
             <h2 className="text-2xl font-semibold text-center mb-12 text-sky-600">Manage Users</h2>
             <div className="max-w-7xl mx-auto overflow-x-auto">
                 <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-md shadow-2xl border">

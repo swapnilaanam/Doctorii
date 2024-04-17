@@ -99,7 +99,7 @@ const AddDiagnosis = () => {
 
 
     return (
-        <div className="py-20 w-full min-h-screen bg-gray-100">
+        <div className="py-20 px-4 w-full min-h-screen bg-gray-100">
             <div className="flex justify-center">
                 <button
                     type="button"
@@ -222,7 +222,7 @@ const AddDiagnosis = () => {
                         return (
                             <div key={index} className="w-96 h-64 group relative block bg-white cursor-pointer shadow-xl">
                                 <div className="relative p-4 sm:p-6 lg:p-8">
-                                    <div className="flex justify-between">
+                                    <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
                                         <p className="text-base font-semibold uppercase tracking-widest text-sky-600">
                                             {diagnosis.diagnosisName}
                                         </p>

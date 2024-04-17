@@ -94,63 +94,63 @@ const BookTicket = () => {
   };
 
   return (
-    <section className="py-20 max-w-7xl mx-auto">
+    <section className="py-20 px-4 max-w-7xl mx-auto">
       <div className="">
         <h2 className="text-2xl font-semibold text-center mb-12">Book Ticket</h2>
         <div>
           <form onSubmit={(e) => handleBookingTicket(e)} className="flex flex-col items-center gap-5">
-            <div className="space-x-5 w-[500px] flex">
+            <div className="space-x-5 w-full md:w-[500px] flex flex-col md:flex-row items-center gap-4">
               <label htmlFor="diagnosisname" className="text-right flex-1 text-xl font-medium">
                 Diagnosis Name:
               </label>
-              <input type="text" id="diagnosisname" name="diagnosisname" className="flex-1 border border-sky-500 px-2 rounded-sm w-[180px]" value={diagnosisInfo?.diagnosisName} readOnly />
+              <input type="text" id="diagnosisname" name="diagnosisname" className="flex-1 border border-sky-500 ps-2 rounded-sm w-full md:w-[180px] !ml-0" value={diagnosisInfo?.diagnosisName} readOnly />
             </div>
-            <div className="space-x-5 w-[500px] flex">
+            <div className="space-x-5 w-full md:w-[500px] flex flex-col md:flex-row items-center gap-4">
               <label htmlFor="diagnosisprice" className="text-right flex-1 text-xl font-medium">
                 Diagnosis Price:
               </label>
-              <input type="text" id="diagnosisprice" name="diagnosisprice" className="flex-1 border border-sky-500 px-2 rounded-sm w-[180px]" value={`$ ${diagnosisInfo?.price}`} readOnly />
+              <input type="text" id="diagnosisprice" name="diagnosisprice" className="flex-1 border border-sky-500 ps-2 rounded-sm w-full md:w-[180px] !ml-0" value={`$ ${diagnosisInfo?.price}`} readOnly />
             </div>
             {
               membershipInfo ? (
                 <>
-                  <div className="space-x-5 w-[500px] flex">
+                  <div className="space-x-5 w-full md:w-[500px] flex flex-col md:flex-row items-center gap-4">
                     <label htmlFor="diagnosisprice" className="text-right flex-1 text-xl font-medium">
                       Membership Discount:
                     </label>
-                    <input type="text" id="diagnosisprice" name="diagnosisprice" className="flex-1 border border-sky-500 px-2 rounded-sm w-[180px]" value={`$ - ${membershipDiscount}`} readOnly />
+                    <input type="text" id="diagnosisprice" name="diagnosisprice" className="flex-1 border border-sky-500 ps-2 rounded-sm w-full md:w-[180px] !ml-0" value={`$ - ${membershipDiscount}`} readOnly />
                   </div>
-                  <div className="space-x-5 w-[500px] flex">
+                  <div className="space-x-5 w-full md:w-[500px] flex flex-col md:flex-row items-center gap-4">
                     <label htmlFor="diagnosisprice" className="text-right flex-1 text-xl font-medium">
                       Total After Discount:
                     </label>
-                    <input type="text" id="diagnosisprice" name="diagnosisprice" className="flex-1 border border-sky-500 px-2 rounded-sm w-[180px]" value={`$ ${subTotal}`} readOnly />
+                    <input type="text" id="diagnosisprice" name="diagnosisprice" className="flex-1 border border-sky-500 ps-2 rounded-sm w-full md:w-[180px] !ml-0" value={`$ ${subTotal}`} readOnly />
                   </div>
                 </>
               ) : (
                 <>
-                  <div className="space-x-5 w-[500px] flex">
+                  <div className="space-x-5 w-full md:w-[500px] flex flex-col md:flex-row items-center gap-4">
                     <label htmlFor="diagnosisprice" className="text-right flex-1 text-xl font-medium">
                       Membership Discount:
                     </label>
-                    <input type="text" id="diagnosisprice" name="diagnosisprice" className="flex-1 border border-sky-500 px-2 rounded-sm w-[180px]" value={`$ - ${0.00}`} readOnly />
+                    <input type="text" id="diagnosisprice" name="diagnosisprice" className="flex-1 border border-sky-500 ps-2 rounded-sm w-full md:w-[180px] !ml-0" value={`$ - ${0.00}`} readOnly />
                   </div>
-                  <div className="space-x-5 w-[500px] flex">
+                  <div className="space-x-5 w-full md:w-[500px] flex flex-col md:flex-row items-center gap-4">
                     <label htmlFor="diagnosisprice" className="text-right flex-1 text-xl font-medium">
                       Total After Discount:
                     </label>
-                    <input type="text" id="diagnosisprice" name="diagnosisprice" className="flex-1 border border-sky-500 px-2 rounded-sm w-[180px]" value={`$ ${diagnosisInfo?.price}`} readOnly />
+                    <input type="text" id="diagnosisprice" name="diagnosisprice" className="flex-1 border border-sky-500 ps-2 rounded-sm w-full md:w-[180px] !ml-0" value={`$ ${diagnosisInfo?.price}`} readOnly />
                   </div>
                 </>
               )
             }
-            <div className="space-x-5 w-[500px] flex">
+            <div className="space-x-5 w-full md:w-[500px] flex flex-col md:flex-row items-center gap-4">
               <label htmlFor="bookdate" className="text-right flex-1 text-xl font-medium">
                 Select Date:
               </label>
-              <input type="date" id="bookdate" name="bookdate" className="flex-1 border border-sky-500 px-2 rounded-sm w-[180px]" />
+              <input type="date" id="bookdate" name="bookdate" className="flex-1 border border-sky-500 rounded-sm ps-2 w-full md:w-[180px] !ml-0" />
             </div>
-            <div className="space-x-5 w-[500px] text-center">
+            <div className="space-x-5 w-full md:w-[500px] text-center">
               <input type="submit" value="Chekout To Payment" className="bg-green-600 text-white text-lg font-medium px-10 py-2 mt-8 rounded-sm cursor-pointer" />
             </div>
           </form>

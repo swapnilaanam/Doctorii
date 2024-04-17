@@ -20,7 +20,7 @@ const page = () => {
                     </div>
 
                     <div className="lg:col-span-3 lg:py-8">
-                        <ul className="grid grid-cols-5 gap-4">
+                        <ul className="grid grid-cols-1 lg:grid-cols-5 gap-4">
                             <li className="min-h-[404px]">
                                 <Link href="/doctors/regulardoctors" className="group relative block bg-black h-full">
                                     <Image
@@ -34,7 +34,7 @@ const page = () => {
                                             <div
                                                 className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
                                             >
-                                                <p className="text-xl font-semibold text-white">
+                                                <p className="text-xl font-semibold text-white text-center">
                                                     Regular Doctor
                                                 </p>
                                             </div>
@@ -55,7 +55,7 @@ const page = () => {
                                             <div
                                                 className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
                                             >
-                                                <p className="text-xl font-semibold text-white">
+                                                <p className="text-xl font-semibold text-white text-center">
                                                     Child And Gynecology Doctor
                                                 </p>
                                             </div>
@@ -76,7 +76,7 @@ const page = () => {
                                             <div
                                                 className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
                                             >
-                                                <p className="text-xl font-semibold text-white">
+                                                <p className="text-xl font-semibold text-white text-center">
                                                     Heart Specialist Doctor
                                                 </p>
                                             </div>
@@ -97,7 +97,7 @@ const page = () => {
                                             <div
                                                 className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
                                             >
-                                                <p className="text-xl font-semibold text-white">
+                                                <p className="text-xl font-semibold text-white text-center">
                                                     Bone Specialist Doctor
                                                 </p>
                                             </div>
@@ -118,7 +118,7 @@ const page = () => {
                                             <div
                                                 className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
                                             >
-                                                <p className="text-xl font-semibold text-white">
+                                                <p className="text-xl font-semibold text-white text-center">
                                                     Eye Specialist Doctor
                                                 </p>
                                             </div>

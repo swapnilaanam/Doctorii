@@ -118,12 +118,12 @@ const ChatWithDoctor = () => {
     }
 
     return (
-        <section className="py-14 mx-14">
+        <section className="py-14 mx-4 lg:mx-14">
             {
                 roomName && (
                     <>
-                        <div className="border-green-700 h-[460px]">
-                            <div className="bg-sky-600 py-4 px-10 flex justify-between items-center rounded">
+                        <div className="border-green-700 md:h-[460px]">
+                            <div className="bg-sky-600 py-4 px-10 flex flex-col md:flex-row justify-between items-center rounded gap-4 md:gap-0">
                                 <div className="flex justify-center items-center gap-5">
                                     <FaArrowLeft onClick={() => router.push('/')} className="text-white font-medium hover:cursor-pointer" />
                                     <h4 className="text-white text-xl font-semibold">
@@ -144,10 +144,10 @@ const ChatWithDoctor = () => {
                                             if (message?.includes(session?.data?.user?.name)) {
                                                 return (
                                                     <div key={index} className='text-right flex justify-end items-center gap-5'>
-                                                        <p className="bg-sky-200 px-7 py-3 rounded-xl text-right">
+                                                        <p className="bg-sky-200 px-4 md:px-7 py-3 rounded-xl text-right">
                                                             {msg}
                                                         </p>
-                                                        <div className="relative w-14 h-14">
+                                                        <div className="relative min-w-14 h-14">
                                                             <Image fill={true} src={proPic} alt="proPic" className="w-full h-full object-cover rounded-full border-2 border-gray-300" />
                                                         </div>
                                                     </div>
@@ -156,10 +156,10 @@ const ChatWithDoctor = () => {
                                             else {
                                                 return (
                                                     <div key={index} className='text-right flex items-center justify-start gap-5'>
-                                                        <div className="relative w-14 h-14">
+                                                        <div className="relative min-w-14 h-14">
                                                             <Image fill={true} src={proPic} alt="proPic" className="w-full h-full object-cover rounded-full border-2 border-gray-300" />
                                                         </div>
-                                                        <p className="bg-sky-200 px-7 py-3 rounded-xl text-right">
+                                                        <p className="bg-sky-200 px-4 md:px-7 py-3 rounded-xl text-right">
                                                             {msg}
                                                         </p>
                                                     </div>
@@ -170,11 +170,11 @@ const ChatWithDoctor = () => {
                                 }
                             </div>
                         </div>
-                        <form onSubmit={(e) => handleSendMessage(e)} className='flex justify-between items-center'>
-                            <div className="w-[70%] h-[100px]">
+                        <form onSubmit={(e) => handleSendMessage(e)} className='flex flex-col lg:flex-row justify-between items-center'>
+                            <div className="w-full lg:w-[70%] h-[100px]">
                                 <textarea id="message" name="message" value={message} onChange={(e) => setMessage(e.target.value)} className="border-2 border-sky-400 px-5 py-3 w-full h-full rounded-sm" placeholder="Send Messages..." />
                             </div>
-                            <div className="w-[28%] h-[120px] flex justify-center items-center">
+                            <div className="w-full md:w-[28%] h-[120px] flex justify-center items-center">
                                 <button className="bg-sky-600 flex justify-center items-center px-7 rounded cursor-pointer">
                                     <input type="submit" value="Send Message" className="text-white text-lg py-5 px-7 w-full" />
                                     <IoIosSend className="text-white text-xl" />

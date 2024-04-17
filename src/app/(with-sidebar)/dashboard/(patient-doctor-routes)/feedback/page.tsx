@@ -83,7 +83,7 @@ const Feedback = () => {
         <section>
             {
                 feedbackInfo ? (
-                    <div className="w-full min-h-screen  bg-gray-200 relative top-0 bottom-0 left-o right-0 flex justify-center items-center text-2xl font-semibold ">
+                    <div className="w-full min-h-screen  bg-gray-200 relative top-0 bottom-0 left-o right-0 flex justify-center items-center text-2xl font-semibold text-center">
                         You have already given feedback!
                     </div>
                 ) : (

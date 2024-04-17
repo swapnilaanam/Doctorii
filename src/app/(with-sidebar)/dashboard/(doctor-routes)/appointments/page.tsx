@@ -92,7 +92,7 @@ const Appointments = () => {
     )
 
     return (
-        <div className="py-20 bg-gray-100 min-h-screen">
+        <div className="py-20 px-4 bg-gray-100 min-h-screen">
             <h1 className="text-center text-3xl font-semibold mb-20">Appointments</h1>
             <div className="max-w-7xl mx-auto max-h-[450px] overflow-auto">
                 <Calendar

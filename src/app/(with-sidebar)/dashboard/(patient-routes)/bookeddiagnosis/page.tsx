@@ -24,7 +24,7 @@ const BookedDiagnosis = () => {
         <section className="w-full min-h-screen bg-gray-100">
             <h2 className="text-2xl font-semibold text-center pt-14">Booked Diagnoses</h2>
             <div className="max-w-7xl mx-auto mt-14 flex flex-wrap justify-center items-center gap-12">
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto mx-4">
                     <table className="min-w-full divide-y-2 divide-gray-200 bg-sky-100 text-sm rounded border border-sky-200">
                         <thead className="ltr:text-left rtl:text-right">
                             <tr>

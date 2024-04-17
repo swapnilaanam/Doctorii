@@ -19,12 +19,12 @@ const BMICalculator = () => {
     };
 
     return (
-        <section>
+        <section className="px-4 py-4 md:px-0 md:py-0">
             <HealthtoolsBanner title="BMI Calculator" />
             <div>
                 <h1 className="text-4xl text-center font-medium py-16">Calculate Your BMI</h1>
                 <form onSubmit={(e) => handleCalculateBMI(e)} className="mb-20 space-y-7">
-                    <div className="flex items-center justify-center gap-3">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-3">
                         <label htmlFor="yourweight" className="text-2xl font-medium">
                             Your Weight:
                         </label>
@@ -33,7 +33,7 @@ const BMICalculator = () => {
                             <div className="bg-yellow-400 py-1 px-2">in K.G</div>
                         </div>
                     </div>
-                    <div className="flex items-center justify-center gap-4">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-4">
                         <label htmlFor="yourheight" className="ms-1 text-2xl font-medium">
                             Your Height:
                         </label>
@@ -53,7 +53,7 @@ const BMICalculator = () => {
                         )
                     }
                     {
-                        BMI < 18.5 && <h4 className="text-xl font-medium text-center text-sky-500 mt-4">You are in underweight state. Eat Healty Food.</h4>
+                        (BMI && BMI < 18.5) && <h4 className="text-xl font-medium text-center text-sky-500 mt-4">You are in underweight state. Eat Healty Food.</h4>
                     }
                     {
                         (BMI >= 18.5 && BMI <= 24.9) && <h4 className="text-xl font-medium text-center text-green-600 mt-4">You are in normal state.</h4>
