@@ -7,7 +7,7 @@ import { io } from "socket.io-client";
 export const ChatContext = createContext(null);
 
 const ChatProvider = ({ children }: { children: any }) => {
-    const socket = useMemo(() => io('http://localhost:4000'), []);
+    const socket = useMemo(() => io('doctorii-chat-server-production.up.railway.app'), []);
 
     const [socketId, setSocketId] = useState([]);
     const [allMessages, setAllMessages] = useState([]);

@@ -18,7 +18,7 @@ export default function Home() {
   const session = useSession();
 
   useEffect(() => {
-    console.log(session?.data?.user);
+    // console.log(session?.data?.user);
     localStorage.removeItem('history');
   }, [session?.data?.user]);
 
