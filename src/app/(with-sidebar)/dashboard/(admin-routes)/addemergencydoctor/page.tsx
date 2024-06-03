@@ -20,6 +20,7 @@ type Inputs = {
 type NewEmergencyDoctorType = {
     _id?: string,
     doctorName: string,
+    doctorEmail: string,
     doctorPhone: string,
     doctorCity: string,
     doctorPhoto: string,
@@ -41,13 +42,13 @@ const AddEmergencyDoctor = () => {
         }
     });
 
-    const {data: doctors = [], refetch: doctorsRefetch} = useQuery({
+    const { data: doctors = [], refetch: doctorsRefetch } = useQuery({
         queryKey: ['doctors'],
-        queryFn: async() => {
+        queryFn: async () => {
             try {
                 const response = await axios.get('/api/users');
                 return response?.data?.filter((doctor) => (doctor?.role === 'Doctor' && doctor?.doctorRole === 'Regular Doctor'));
-            } catch (error:any) {
+            } catch (error: any) {
                 console.log(error?.message);
             }
         }
@@ -66,6 +67,7 @@ const AddEmergencyDoctor = () => {
         try {
             const newEmergencyDoctor: NewEmergencyDoctorType = {
                 doctorName: doctor?.name,
+                doctorEmail: doctor?.email,
                 doctorPhone: data?.doctorphone,
                 doctorCity: data?.doctorcity,
                 doctorPhoto: doctor?.profilePic,
@@ -104,7 +106,7 @@ const AddEmergencyDoctor = () => {
         setIsOpen(true)
     }
 
-    const handleDeleteEmergencyDoctor = async (id: string) => {
+    const handleDeleteEmergencyDoctor = async (id: string, email: string) => {
         Swal.fire({
             title: "Are you sure to release?",
             text: "You won't be able to revert this!",
@@ -118,14 +120,19 @@ const AddEmergencyDoctor = () => {
                 try {
                     const response = await axios.delete(`/api/emergencydoctors/${id}`);
                     if (response.status === 200) {
-                        refetch();
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Emergency Doctor Has Been Released!',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
+
+                        const resp = await axios.patch(`/api/users/emergencydoctors/${email}`);
+
+                        if (resp.status === 200) {
+                            refetch();
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Emergency Doctor Has Been Released!',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
                     }
                 } catch (error) {
                     console.log(error);
@@ -274,7 +281,7 @@ const AddEmergencyDoctor = () => {
                                         <div className="relative w-48 h-32 bg-gray-300">
                                             <Image fill={true} src={emergencyDoctor?.doctorPhoto} alt="Emergency Doctor" className="w-full h-full object-cover object-top p-1" />
                                         </div>
-                                        <button onClick={() => handleDeleteEmergencyDoctor(emergencyDoctor?._id)} className="bg-red-600 text-white px-6 py-1 text-lg rounded-sm absolute top-0 right-0">Release</button>
+                                        <button onClick={() => handleDeleteEmergencyDoctor(emergencyDoctor?._id, emergencyDoctor?.doctorEmail)} className="bg-red-600 text-white px-6 py-1 text-lg rounded-sm absolute top-0 right-0">Release</button>
                                     </div>
                                     <h4 className="pt-5 text-base font-semibold uppercase tracking-widest text-sky-600">
                                         {emergencyDoctor.doctorName}

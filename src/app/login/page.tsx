@@ -11,6 +11,7 @@ import { AiOutlineGoogle } from "react-icons/ai";
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 type loginInputType = {
     email: string,
@@ -34,8 +35,18 @@ const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm<loginInputType>();
 
-    const onSubmit: SubmitHandler<loginInputType> = data => {
-        signIn("credentials", { email: data.email, password: data.password });
+    const onSubmit: SubmitHandler<loginInputType> = async (data) => {
+        const result = await signIn("credentials", { redirect: false, email: data.email, password: data.password });
+
+        if(result?.error) {
+            return Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Wrong Email Or Password! Try Again!",
+                showConfirmButton: false,
+                timer: 1500
+              });
+        }
     }
 
     if (session?.status === 'loading') {

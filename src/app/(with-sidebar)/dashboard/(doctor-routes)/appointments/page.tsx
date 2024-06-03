@@ -51,10 +51,20 @@ const Appointments = () => {
         const startTime = scheduleTime[0];
         const endTime = scheduleTime[3];
 
-        const startHour = startTime.split('.')[0];
+        let startHour = startTime.split('0')[0];
+
+        if(scheduleTime[1] === 'PM') {
+            startHour = String(12 + Number(startHour));
+        }
+
         const startMinutes = startTime.split('.')[1];
 
-        const endHour = endTime.split('.')[0];
+        let endHour = endTime.split('.')[0];
+
+        if(scheduleTime[4] === 'PM') {
+            endHour = String(12 + Number(endHour));
+        }
+
         const endMinutes = endTime.split('.')[1];
 
         const formattedDate = appointment?.scheduleDate.split('-');

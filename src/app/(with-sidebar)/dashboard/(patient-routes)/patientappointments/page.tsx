@@ -48,15 +48,29 @@ const PatientAppointment = () => {
 
     const events = appointments?.map((appointment => {
 
+        // console.log(appointment?.scheduleTime);
+
         const scheduleTime = appointment?.scheduleTime.split(' ');
 
         const startTime = scheduleTime[0];
         const endTime = scheduleTime[3];
 
-        const startHour = startTime.split('.')[0];
+        // console.log(scheduleTime);
+
+        let startHour = startTime.split('0')[0];
+
+        if(scheduleTime[1] === 'PM') {
+            startHour = String(12 + Number(startHour));
+        }
+
         const startMinutes = startTime.split('.')[1];
 
-        const endHour = endTime.split('.')[0];
+        let endHour = endTime.split('.')[0];
+
+        if(scheduleTime[4] === 'PM') {
+            endHour = String(12 + Number(endHour));
+        }
+
         const endMinutes = endTime.split('.')[1];
 
         const formattedDate = appointment?.scheduleDate.split('-');
@@ -75,7 +89,6 @@ const PatientAppointment = () => {
 
         const startingTime = moment({ year: year, month: month - 1, day: day, hour: startHour, minute: startMinutes }).toDate();
         const endingTime = moment({ year: year, month: month - 1, day: day, hour: endHour, minute: endMinutes }).toDate();
-
 
         return {
             id: appointment?._id,
