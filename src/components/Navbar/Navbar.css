@@ -1,0 +1,16 @@
+.menu {
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.menu-open {
+    transform: translate(-500px, 0px);
+}
+
+@media only screen and (min-width: 768px) {
+    .menu {
+        transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    .menu-open {
+        transform: translate(-850px, 0px);
+    }
+}

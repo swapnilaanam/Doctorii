@@ -1,15 +1,17 @@
 "use client"
 
 import Link from 'next/link';
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import Image from 'next/image';
 
 import { RiMenu3Fill } from "react-icons/ri";
 
+import './Navbar.css';
+
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const [isHover, setIsHover] = useState(false);
 
   const variants = {
@@ -20,23 +22,38 @@ const Navbar = () => {
   const session = useSession();
   const pathname = usePathname();
 
+  const menuRef = useRef();
+
+  const toggleTheMenu = () => {
+    const menu = menuRef?.current;
+
+    menu?.classList?.toggle('menu-open');
+  }
+
+  const closeTheMenu = () => {
+    const menu = menuRef?.current;
+    setTimeout(() => {
+      menu?.classList?.add('menu-open');
+    }, 150);
+  }
+
   const navItems = <>
-    <li>
+    <li onClick={closeTheMenu}>
       <Link href="/" className={`${pathname === '/' ? 'text-yellow-300 text-xl uppercase font-bold' : 'text-white text-xl uppercase font-bold'}`}>
         Home
       </Link>
     </li>
-    <li>
+    <li onClick={closeTheMenu}>
       <Link href="/doctors" className={`${pathname === '/doctors' ? 'text-yellow-300 text-xl uppercase font-bold' : 'text-white text-xl uppercase font-bold'}`}>
         Doctors
       </Link>
     </li>
-    <li>
+    <li onClick={closeTheMenu}>
       <Link href="/diagnosis" className={`${pathname === '/diagnosis' ? 'text-yellow-300 text-xl uppercase font-bold' : 'text-white text-xl uppercase font-bold'}`}>
         Diagnosis
       </Link>
     </li>
-    <li>
+    <li onClick={closeTheMenu}>
       <Link href="/dashboard" className={`${pathname === '/dashboard' ? 'text-yellow-300 text-xl uppercase font-bold' : 'text-white text-xl uppercase font-bold'}`}>
         Dashboard
       </Link>
@@ -61,8 +78,8 @@ const Navbar = () => {
           </li>
         </>
       ) : (
-        <li>
-          <Link href="/login" className={`${pathname === '/login' ? 'text-yellow-400 text-xl font-bold uppercase' : 'text-xl font-bold uppercase'}`}>
+        <li onClick={closeTheMenu}>
+          <Link href="/login" className={`${pathname === '/login' ? 'text-yellow-400 text-xl font-bold uppercase' : 'text-white text-xl font-bold uppercase'}`}>
             Login
           </Link>
         </li>
@@ -72,23 +89,21 @@ const Navbar = () => {
   </>
 
   return (
-    <nav className="bg-sky-600 text-white w-full p-8 flex flex-col lg:flex-row justify-between items-center gap-5 lg:gap-0">
-      <div className="w-full flex justify-between items-center">
-        <Link href="/">
-          <h1 className="text-3xl font-bold">Doctorii</h1>
-        </Link>
-        <RiMenu3Fill onClick={() => setIsOpen(!isOpen)} className="text-2xl font-bold lg:hidden" />
+    <nav>
+      <div className="bg-sky-600 text-white w-full p-8 flex flex-col lg:flex-row justify-between items-center gap-5 lg:gap-0">
+        <div className="w-full flex justify-between items-center">
+          <Link href="/">
+            <h1 className="text-3xl font-bold">Doctorii</h1>
+          </Link>
+          <RiMenu3Fill onClick={toggleTheMenu} className="text-2xl font-bold lg:hidden" />
+        </div>
+        <ul className="hidden lg:flex flex-col lg:flex-row justify-center items-center gap-7">
+          {navItems}
+        </ul>
       </div>
-      <ul className="hidden lg:flex flex-col lg:flex-row justify-center items-center gap-7">
-            {navItems}
+      <ul className="py-12 bg-sky-600 bg-opacity-90 w-full absolute z-10 menu menu-open lg:hidden lg:ms-4 flex flex-col justify-center items-center gap-7" ref={menuRef}>
+        {navItems}
       </ul>
-      {
-        isOpen && (
-          <ul className="lg:hidden mt-2 md:ms-4 flex flex-col justify-center items-center gap-7">
-            {navItems}
-          </ul>
-        )
-      }
     </nav>
   );
 };
