@@ -70,6 +70,13 @@ const Chat = () => {
                         <h2 className="text-center text-2xl font-medium mb-12">Available Rooms: </h2>
                         <div className="flex justify-center items-center gap-14 flex-wrap">
                             {
+                                rooms?.length === 0 && (
+                                    <h4 className="text-xl text-center font-bold capitalize">
+                                        No chat rooms available currently...
+                                    </h4>
+                                )
+                            }
+                            {
                                 rooms?.map((room) => {
                                     return (
                                         <div key={room?._id} className="bg-gray-200 p-5 md:p-10 w-96 text-center">

@@ -80,29 +80,45 @@ const DoctorDashboard = () => {
 
     return (
         <div className="py-20 px-4 bg-gray-100 w-full min-h-screen">
-            <h2 className="text-3xl md:text-4xl font-semibold text-center pb-20">Doctor Dashboard</h2>
-            <div className="flex flex-wrap justify-center items-center gap-20 pb-12">
-                <div className="bg-sky-600 text-white w-[400px] h-40 text-3xl font-semibold flex justify-center items-center rounded hover:bg-sky-700 hover:cursor-pointer">
-                    <span>
-                        {
-                            appointments?.length
-                        }
-                    </span>
-                    <span className="ms-4">
-                        Appointments
-                    </span>
-                </div>
-                <div className="bg-green-600 text-white w-[400px] h-40 text-3xl font-semibold flex justify-center items-center rounded hover:bg-green-700 hover:cursor-pointer">
-                    <span>
-                        $
-                    </span>
-                    <span className="ms-4">
-                        {
-                            totalAmount
-                        }
-                    </span>
-                </div>
-            </div>
+            {
+                user?.doctorRole !== 'Emergency' ? (
+                    <>
+                        <h2 className="text-3xl md:text-4xl font-semibold text-center pb-20">
+                            Doctor Dashboard
+                        </h2>
+                    </>
+                ) : (
+                    <h2 className="text-3xl md:text-4xl font-semibold text-center pb-16">
+                        Emergency Doctor Dashboard
+                    </h2>
+                )
+            }
+            {
+                (Object.keys(user).length !== 0 && user?.doctorRole !== 'Emergency') && (
+                    <div className="flex flex-wrap justify-center items-center gap-20 pb-12">
+                        <div className="bg-sky-600 text-white w-[400px] h-40 text-3xl font-semibold flex justify-center items-center rounded hover:bg-sky-700 hover:cursor-pointer">
+                            <span>
+                                {
+                                    appointments?.length
+                                }
+                            </span>
+                            <span className="ms-4">
+                                Appointments
+                            </span>
+                        </div>
+                        <div className="bg-green-600 text-white w-[400px] h-40 text-3xl font-semibold flex justify-center items-center rounded hover:bg-green-700 hover:cursor-pointer">
+                            <span>
+                                $
+                            </span>
+                            <span className="ms-4">
+                                {
+                                    totalAmount
+                                }
+                            </span>
+                        </div>
+                    </div>
+                )
+            }
             <div className="max-w-5xl mx-auto mt-14">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 mb-10">
                     <h4 className="text-2xl font-medium text-center">Account Details</h4>

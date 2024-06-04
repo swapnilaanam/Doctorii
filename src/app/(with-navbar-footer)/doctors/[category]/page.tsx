@@ -30,18 +30,23 @@ const CategoryDoctors = () => {
 
   useEffect(() => {
     if (category === 'regulardoctors') {
+      document.title = 'Doctorii | Regular Doctors';
       setDoctorCategory('Regular Doctors');
     }
     else if (category === 'childandgynecologistdoctors') {
+      document.title = 'Doctorii | Child And Gynecologist Doctors';
       setDoctorCategory('Child And Gynecologist Doctors');
     }
     else if (category === 'heartspecialistdoctors') {
+      document.title = 'Doctorii | Heart Specialist Doctors';
       setDoctorCategory('Heart Specialist Doctors');
     }
     else if (category === 'bonespecialistdoctors') {
+      document.title = 'Doctorii | Bone Specialist Doctors';
       setDoctorCategory('Bone Specialist Doctors');
     }
     else if (category === 'eyespecialistdoctors') {
+      document.title = 'Doctorii | Eye Specialist Doctors';
       setDoctorCategory('Eye Specialist Doctors');
     }
   }, [category]);

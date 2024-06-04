@@ -17,6 +17,7 @@ import useIsAdmin from "@/hooks/useIsAdmin";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Image from "next/image";
+import { useEffect } from "react";
 
 const Sidebar = () => {
     const session = useSession();
@@ -38,6 +39,12 @@ const Sidebar = () => {
     const [isDoctor, isDoctorLoading] = useIsDoctor();
     const [isPatient, isPatientLoading] = useIsPatient();
     const [isAdmin, isAdminLoading] = useIsAdmin();
+
+    useEffect(() => {
+        if(Object.keys(user).length === 0) {
+            refetch();
+        }
+    }, [refetch, user]);
 
     return (
         <div className="flex min-h-screen w-16 flex-col justify-between border-e bg-sky-500">
@@ -77,9 +84,9 @@ const Sidebar = () => {
 
                         <ul className="space-y-4 border-t-2 border-gray-100 pt-4">
                             {
-                                (!isDoctorLoading && isDoctor) && <>
+                                (!isDoctorLoading && isDoctor && user?.doctorRole) && <>
                                     {
-                                        user?.doctorRole !== 'Emergency' && (
+                                        user?.doctorRole !== 'Emergency' ? (
                                             <>
                                                 <li>
                                                     <Link
@@ -123,10 +130,7 @@ const Sidebar = () => {
                                                     </Link>
                                                 </li>
                                             </>
-                                        )
-                                    }
-                                    {
-                                        user?.doctorRole === 'Emergency' && (
+                                        ) : (
                                             <li>
                                                 <Link
                                                     href="/dashboard/chat"
