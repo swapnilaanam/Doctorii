@@ -11,6 +11,6 @@ Doctorii is an online doctor appointment website, where patients can book appoin
 * Doctorii has separate dashboards for patients, doctors, and admins, from where they can see and manage their booked appointments (using a calendar UI), booked tests, and test results.
 
 ##
-**Technologies Used:** Next JS, React JS, JavaScript, TypeScript, Node JS, Express JS, MongoDB, Next Auth, Tailwind CSS, Hyper UI, AOS (Animation On The Scroll), LottieFiles Animation, Stripe Payment, Vercel.
+**Technologies Used:** Next JS, React JS, JavaScript, TypeScript, Node JS, Express JS, MongoDB, Next Auth, Socket.io, Tailwind CSS, Hyper UI, AOS (Animation On The Scroll), Stripe Payment, Vercel.
 
 ### [Live Website Link (Click To Visit)](https://doctorii-app.vercel.app/)
